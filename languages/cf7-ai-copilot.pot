@@ -1,16 +1,38 @@
+# Copyright (C) 2026 Shaikat
+# This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Contact Form 7 AI Copilot\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: AI Copilot for Contact Form 7 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cf7-ai-copilot\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-08T12:07:59+00:00\n"
+"POT-Creation-Date: 2026-07-09T17:11:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: cf7-ai-copilot\n"
+
+#. Plugin Name of the plugin
+#: cf7-ai-copilot.php
+msgid "AI Copilot for Contact Form 7"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: cf7-ai-copilot.php
+msgid "https://wordpress.org/plugins/cf7-ai-copilot/"
+msgstr ""
+
+#. Description of the plugin
+#: cf7-ai-copilot.php
+msgid "Adds an AI Inbox to a single Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key."
+msgstr ""
+
+#. Author of the plugin
+#: cf7-ai-copilot.php
+msgid "Shaikat"
+msgstr ""
 
 #: admin/views/tab-general.php:37
 msgid "No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it."
@@ -116,10 +138,12 @@ msgstr ""
 
 #: admin/views/tab-provider.php:30
 #: admin/views/tab-usage.php:38
+#: includes/Admin/DashboardPage.php:206
 msgid "Provider"
 msgstr ""
 
 #: admin/views/tab-provider.php:44
+#: includes/Admin/DashboardPage.php:212
 msgid "API Key"
 msgstr ""
 
@@ -143,6 +167,7 @@ msgstr ""
 
 #: admin/views/tab-provider.php:72
 #: admin/views/tab-usage.php:42
+#: includes/Admin/DashboardPage.php:209
 msgid "Model"
 msgstr ""
 
@@ -188,129 +213,293 @@ msgstr ""
 #. translators: %s: required PHP version
 #: cf7-ai-copilot.php:39
 #, php-format
-msgid "Contact Form 7 AI Copilot requires PHP %s or higher. Please contact your host to upgrade PHP."
+msgid "AI Copilot for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
 msgstr ""
 
 #. translators: %s: required WordPress version
 #: cf7-ai-copilot.php:62
 #, php-format
-msgid "Contact Form 7 AI Copilot requires WordPress %s or higher. Please update WordPress."
+msgid "AI Copilot for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:74
+#: includes/Admin/AdminPage.php:105
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:82
+#: includes/Admin/AdminPage.php:163
 #: includes/Admin/DashboardWidget.php:75
 #: includes/Admin/Menu.php:87
 #: includes/Admin/Menu.php:88
 msgid "AI Copilot"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:83
-msgid "Free"
-msgstr ""
-
-#: includes/Admin/AdminPage.php:88
+#: includes/Admin/AdminPage.php:166
 msgid "AI Copilot sections"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:95
+#: includes/Admin/AdminPage.php:173
+#: includes/Admin/AdminPage.php:253
+msgid "Dashboard"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:182
+#: includes/Admin/AdminPage.php:264
 msgid "AI Inbox"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:103
+#: includes/Admin/AdminPage.php:191
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:157
+#: includes/Admin/AdminPage.php:223
+#: includes/Admin/DashboardPage.php:349
+msgid "Rate Us"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:232
+msgid "Edit Profile"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:233
+msgid "Log Out"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:254
+msgid "An overview of your AI Copilot activity."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:259
+msgid "Submission Review"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:265
+msgid "Review AI-drafted summaries and suggested replies before anything is sent."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:309
 msgid "Settings saved."
 msgstr ""
 
 #: includes/Admin/AjaxController.php:100
-#: includes/Admin/AjaxController.php:141
-#: includes/Admin/AjaxController.php:181
-#: includes/Admin/AjaxController.php:214
-#: includes/Admin/AjaxController.php:243
-#: includes/Admin/AjaxController.php:269
-#: includes/Admin/AjaxController.php:295
+#: includes/Admin/AjaxController.php:143
+#: includes/Admin/AjaxController.php:183
+#: includes/Admin/AjaxController.php:216
+#: includes/Admin/AjaxController.php:245
+#: includes/Admin/AjaxController.php:271
+#: includes/Admin/AjaxController.php:297
 msgid "You do not have permission to do this."
 msgstr ""
 
 #: includes/Admin/AjaxController.php:104
-#: includes/Admin/AjaxController.php:145
-#: includes/Admin/AjaxController.php:185
-#: includes/Admin/AjaxController.php:218
-#: includes/Admin/AjaxController.php:247
-#: includes/Admin/AjaxController.php:273
-#: includes/Admin/AjaxController.php:299
+#: includes/Admin/AjaxController.php:147
+#: includes/Admin/AjaxController.php:187
+#: includes/Admin/AjaxController.php:220
+#: includes/Admin/AjaxController.php:249
+#: includes/Admin/AjaxController.php:275
+#: includes/Admin/AjaxController.php:301
 msgid "Security check failed. Please reload the page and try again."
 msgstr ""
 
 #: includes/Admin/AjaxController.php:110
-#: includes/Admin/AjaxController.php:151
+#: includes/Admin/AjaxController.php:153
 msgid "Please choose a valid provider."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:166
+#: includes/Admin/AjaxController.php:168
 msgid "No models were returned by the provider."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:194
-#: includes/Admin/AjaxController.php:225
-#: includes/Admin/AjaxController.php:253
-#: includes/Admin/AjaxController.php:279
-#: includes/Admin/AjaxController.php:305
+#: includes/Admin/AjaxController.php:196
+#: includes/Admin/AjaxController.php:227
+#: includes/Admin/AjaxController.php:255
+#: includes/Admin/AjaxController.php:281
+#: includes/Admin/AjaxController.php:307
 msgid "That submission could not be found."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:230
+#: includes/Admin/AjaxController.php:232
 msgid "Draft saved."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:233
+#: includes/Admin/AjaxController.php:235
 msgid "Could not save the draft."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:259
+#: includes/Admin/AjaxController.php:261
 msgid "Marked as reviewed."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:285
+#: includes/Admin/AjaxController.php:287
 msgid "Archived."
 msgstr ""
 
-#: includes/Admin/AjaxController.php:311
+#: includes/Admin/AjaxController.php:313
 msgid "Deleted."
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:110
 #: includes/Admin/DashboardWidget.php:97
 msgid "New Today"
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:114
 #: includes/Admin/DashboardWidget.php:101
 msgid "Needs Review"
 msgstr ""
 
-#: includes/Admin/DashboardWidget.php:105
-msgid "Replies Sent"
+#: includes/Admin/DashboardPage.php:118
+msgid "Replied This Month"
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:122
 #: includes/Admin/DashboardWidget.php:109
 msgid "Monthly AI Usage"
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:140
+msgid "Usage Overview"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:142
+msgid "Successful AI analyses per day, last 30 days."
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:160
+msgid "Monthly Quota"
+msgstr ""
+
+#. translators: 1: generations used this month, 2: monthly limit
+#: includes/Admin/DashboardPage.php:166
+#, php-format
+msgid "%1$d of %2$d used"
+msgstr ""
+
+#. translators: %s: date usage resets
+#: includes/Admin/DashboardPage.php:176
+#, php-format
+msgid "Resets on %s"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:204
+#: includes/Admin/SettingsPage.php:115
+msgid "AI Provider"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:215
+msgid "Configured"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:217
+msgid "Not Set"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:221
+msgid "Last Test"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:226
+msgid "Connected"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:228
+msgid "Failed"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:244
+msgid "Manage Provider"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:258
+msgid "Recent Submissions"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:260
 #: includes/Admin/DashboardWidget.php:114
 msgid "No submissions yet."
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:265
+#: includes/Admin/DashboardPage.php:284
+#: includes/Admin/InboxView.php:85
+#: includes/Admin/InboxView.php:109
+#: includes/Admin/SubmissionDetailPage.php:109
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:266
+#: includes/Admin/DashboardPage.php:287
+msgid "Summary"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:267
+#: includes/Admin/DashboardPage.php:290
+#: includes/Admin/InboxView.php:89
+#: includes/Admin/InboxView.php:119
+#: includes/Admin/SubmissionDetailPage.php:271
+msgid "Priority"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:268
+#: includes/Admin/DashboardPage.php:299
+#: includes/Admin/InboxView.php:88
+#: includes/Admin/InboxView.php:116
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:280
 #: includes/Admin/DashboardWidget.php:125
 msgid "(unknown)"
 msgstr ""
 
+#: includes/Admin/DashboardPage.php:307
 #: includes/Admin/DashboardWidget.php:141
 msgid "Open AI Inbox"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:334
+msgid "Set up your AI Provider"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:335
+msgid "Add your API key and pick a model so new submissions get an AI summary and suggested reply."
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:336
+msgid "Go to AI Provider"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:340
+msgid "Customize your prompt"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:341
+msgid "Tune the base system prompt to match your tone, policies, and the kind of replies you want drafted."
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:342
+msgid "Edit Prompt"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:346
+msgid "Enjoying AI Copilot?"
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:347
+msgid "A quick review on WordPress.org helps other site owners find this plugin."
+msgstr ""
+
+#: includes/Admin/DashboardPage.php:397
+msgid "Daily AI analyses over the last 30 days"
+msgstr ""
+
+#. translators: %d: percentage of monthly quota used
+#: includes/Admin/DashboardPage.php:429
+#, php-format
+msgid "%d%% of monthly quota used"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:105
+msgid "Replies Sent"
 msgstr ""
 
 #: includes/Admin/InboxView.php:74
@@ -326,12 +515,6 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: includes/Admin/InboxView.php:85
-#: includes/Admin/InboxView.php:109
-#: includes/Admin/SubmissionDetailPage.php:109
-msgid "Name"
-msgstr ""
-
 #: includes/Admin/InboxView.php:86
 #: includes/Admin/InboxView.php:114
 #: includes/Admin/SubmissionDetailPage.php:112
@@ -342,17 +525,6 @@ msgstr ""
 #: includes/Admin/InboxView.php:115
 #: includes/Admin/SubmissionDetailPage.php:120
 msgid "Form"
-msgstr ""
-
-#: includes/Admin/InboxView.php:88
-#: includes/Admin/InboxView.php:116
-msgid "Date"
-msgstr ""
-
-#: includes/Admin/InboxView.php:89
-#: includes/Admin/InboxView.php:119
-#: includes/Admin/SubmissionDetailPage.php:271
-msgid "Priority"
 msgstr ""
 
 #: includes/Admin/InboxView.php:90
@@ -485,7 +657,7 @@ msgid "Permanently delete this submission? This cannot be undone."
 msgstr ""
 
 #: includes/Admin/Notices.php:107
-msgid "Contact Form 7 AI Copilot:"
+msgid "AI Copilot for Contact Form 7:"
 msgstr ""
 
 #: includes/Admin/SettingsController.php:65
@@ -494,27 +666,19 @@ msgstr ""
 msgid "You do not have permission to change these settings."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:84
-msgid "Settings sections"
-msgstr ""
-
-#: includes/Admin/SettingsPage.php:132
+#: includes/Admin/SettingsPage.php:114
 msgid "General"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:133
-msgid "AI Provider"
-msgstr ""
-
-#: includes/Admin/SettingsPage.php:134
+#: includes/Admin/SettingsPage.php:116
 msgid "Prompt"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:135
+#: includes/Admin/SettingsPage.php:117
 msgid "Usage"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:136
+#: includes/Admin/SettingsPage.php:118
 msgid "Help"
 msgstr ""
 
@@ -681,11 +845,11 @@ msgstr ""
 msgid "Unknown AI provider: %s"
 msgstr ""
 
-#: includes/Plugin.php:184
+#: includes/Plugin.php:186
 msgid "AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead."
 msgstr ""
 
-#: includes/Plugin.php:213
+#: includes/Plugin.php:215
 msgid "This plugin requires Contact Form 7 to be installed and active."
 msgstr ""
 

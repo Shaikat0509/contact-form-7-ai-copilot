@@ -104,7 +104,7 @@ final class Notices {
 			printf(
 				'<div class="notice notice-%1$s"><p><strong>%2$s</strong> %3$s</p></div>',
 				esc_attr( $notice['type'] ),
-				esc_html__( 'Contact Form 7 AI Copilot:', 'cf7-ai-copilot' ),
+				esc_html__( 'AI Copilot for Contact Form 7:', 'cf7-ai-copilot' ),
 				esc_html( $notice['message'] )
 			);
 		}

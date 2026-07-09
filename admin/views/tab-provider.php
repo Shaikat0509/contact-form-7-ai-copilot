@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- local to this template partial, `require`-d by CF7AIC\Admin\SettingsPage::render_body() into its own local scope (including the $slug/$label loop variables below); never accessed directly (blocked by the ABSPATH guard above), so these are not real WordPress globals.
 $provider    = $repository->get_provider();
 $masked_key  = $repository->get_masked_api_key();
 $has_api_key = '' !== $masked_key;
@@ -110,3 +111,4 @@ $has_api_key = '' !== $masked_key;
 	</button>
 	<span id="cf7aic-test-connection-result" class="cf7aic-test-result" role="status" aria-live="polite"></span>
 </p>
+<?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals ?>

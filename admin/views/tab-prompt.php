@@ -15,9 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- local to this template partial, `require`-d by CF7AIC\Admin\SettingsPage::render_body() into its own local scope; never accessed directly (blocked by the ABSPATH guard above), so these are not real WordPress globals.
 $prompt     = $repository->get_prompt();
 $max_length = \CF7AIC\Settings\Repository::PROMPT_MAX_LENGTH;
 $default    = \CF7AIC\Settings\Repository::DEFAULT_SYSTEM_PROMPT;
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals
 ?>
 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 	<?php wp_nonce_field( 'cf7aic_save_prompt', 'cf7aic_nonce' ); ?>

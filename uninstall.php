@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall routine for Contact Form 7 AI Copilot.
+ * Uninstall routine for AI Copilot for Contact Form 7.
  *
  * Executed by WordPress when the plugin is deleted from the Plugins screen
  * (never on simple deactivation). WordPress guarantees `WP_UNINSTALL_PLUGIN`

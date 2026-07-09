@@ -1,4 +1,4 @@
-# Contact Form 7 AI Copilot
+# AI Copilot for Contact Form 7
 
 An AI Inbox for one Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, and priority for you to review and send — nothing is ever emailed automatically.
 
@@ -44,7 +44,7 @@ Once a key is entered, the Model field becomes a dropdown populated live from th
 ## Installation
 
 1. Install and activate [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) (required).
-2. Upload and activate Contact Form 7 AI Copilot.
+2. Upload and activate AI Copilot for Contact Form 7.
 3. Go to **Contact → AI Copilot → Settings**.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model, and run the connection test.
 5. On the **General** tab, turn on AI Copilot and choose the one form it should apply to.

@@ -72,6 +72,7 @@ final class Installer {
 		if ( $table_exists ) {
 			// Every row that existed before this migration predates the
 			// review workflow, so none of it has been reviewed/replied to yet.
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table is $wpdb->prefix + a hardcoded class constant, never user input; one-time schema migration, not a cacheable data read.
 			$wpdb->query(
 				$wpdb->prepare(
 					"UPDATE {$table} SET status = %s WHERE status NOT IN ( 'new', 'reviewed', 'replied', 'archived' )", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared -- $table is $wpdb->prefix + a hardcoded class constant, never user input.
@@ -193,7 +194,7 @@ final class Installer {
 	private static function migrate_v1_status_column( string $table ): void {
 		global $wpdb;
 
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $table is $wpdb->prefix + a hardcoded class constant, never user input.
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table is $wpdb->prefix + a hardcoded class constant, never user input.
 		$existing_columns = $wpdb->get_col( "SHOW COLUMNS FROM {$table}" );
 
 		if ( in_array( 'ai_status', $existing_columns, true ) || ! in_array( 'status', $existing_columns, true ) ) {
@@ -202,7 +203,7 @@ final class Installer {
 			return;
 		}
 
-		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $table is $wpdb->prefix + a hardcoded class constant, never user input.
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table is $wpdb->prefix + a hardcoded class constant, never user input.
 		$wpdb->query( "ALTER TABLE {$table} ADD COLUMN ai_status VARCHAR(30) NOT NULL DEFAULT '' AFTER visitor_email" );
 		$wpdb->query( "UPDATE {$table} SET ai_status = status" );
 		// phpcs:enable

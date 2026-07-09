@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- local to this template partial, `require`-d by CF7AIC\Admin\SettingsPage::render_body() into its own local scope (including the $form loop variable below); never accessed directly (blocked by the ABSPATH guard above), so these are not real WordPress globals.
 $general = $repository->get_general();
 
 $forms = get_posts(
@@ -84,3 +85,4 @@ $forms = get_posts(
 
 	<?php submit_button( __( 'Save Changes', 'cf7-ai-copilot' ) ); ?>
 </form>
+<?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals ?>

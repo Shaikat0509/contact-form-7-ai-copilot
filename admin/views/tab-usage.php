@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- local to this template partial, `require`-d by CF7AIC\Admin\SettingsPage::render_body() into its own local scope; never accessed directly (blocked by the ABSPATH guard above), so these are not real WordPress globals.
 $provider_settings = $repository->get_provider();
 $provider_label    = \CF7AIC\Settings\Repository::PROVIDERS[ $provider_settings['provider'] ] ?? $provider_settings['provider'];
 
@@ -24,6 +25,7 @@ $limit     = $usage_tracker->get_limit();
 $count     = $usage_tracker->get_count();
 $remaining = $usage_tracker->get_remaining();
 $percent   = $limit > 0 ? min( 100, (int) round( ( $count / $limit ) * 100 ) ) : 0;
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals
 ?>
 <div class="cf7aic-stats-grid">
 	<div class="cf7aic-stat-card">

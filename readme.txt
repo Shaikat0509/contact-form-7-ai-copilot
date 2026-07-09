@@ -1,18 +1,18 @@
-=== Contact Form 7 AI Copilot ===
+=== AI Copilot for Contact Form 7 ===
 Contributors: cf7aicopilot
 Tags: contact form 7, ai, openai, anthropic, gemini
 Requires at least: 6.8
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 8.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-An AI Inbox for one Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, and priority for you to review and send — nothing is ever emailed automatically.
+An AI Inbox for one Contact Form 7 form: AI-drafted summaries and replies for you to review and send — nothing is emailed automatically.
 
 == Description ==
 
-Contact Form 7 AI Copilot adds an AI-powered review inbox to a single Contact Form 7 form on your site, without modifying Contact Form 7 itself.
+AI Copilot for Contact Form 7 adds an AI-powered review inbox to a single Contact Form 7 form on your site, without modifying Contact Form 7 itself.
 
 **This plugin never sends AI-generated content automatically.** When a visitor submits your chosen form, the plugin:
 
@@ -57,7 +57,7 @@ The plugin keeps a local log, on your own site's database, of the most recent 20
 == Installation ==
 
 1. Install and activate Contact Form 7 (required).
-2. Upload and activate Contact Form 7 AI Copilot.
+2. Upload and activate AI Copilot for Contact Form 7.
 3. Go to **Contact → AI Copilot**, then switch to the **Settings** section.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model from the dropdown, and run the connection test.
 5. On the **General** tab, turn on AI Copilot and choose the one form it should apply to.

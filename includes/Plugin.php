@@ -92,8 +92,6 @@ final class Plugin {
 	 * @return void
 	 */
 	public function init(): void {
-		$this->load_textdomain();
-
 		if ( is_admin() ) {
 			$this->notices->init();
 		}
@@ -184,19 +182,6 @@ final class Plugin {
 
 		$this->notices->add_success(
 			__( 'AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead.', 'cf7-ai-copilot' )
-		);
-	}
-
-	/**
-	 * Loads the plugin's translation files.
-	 *
-	 * @return void
-	 */
-	private function load_textdomain(): void {
-		load_plugin_textdomain(
-			'cf7-ai-copilot',
-			false,
-			dirname( CF7AIC_PLUGIN_BASENAME ) . '/languages'
 		);
 	}
 
