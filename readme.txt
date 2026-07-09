@@ -4,7 +4,7 @@ Tags: contact form 7, ai, openai, anthropic, gemini
 Requires at least: 6.8
 Tested up to: 6.8
 Requires PHP: 8.1
-Stable tag: 2.0.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,10 +82,6 @@ Contact Form 7 continues to work exactly as it did before — the visitor's subm
 
 In the WordPress options table, encrypted at rest. It is never exposed in any frontend page, script, or REST response.
 
-= I'm upgrading from an earlier version that sent replies automatically — what happens to my data? =
-
-Your existing submission log is preserved and automatically migrated to the new schema (each row is marked as not-yet-reviewed, since nothing was reviewed under the old model). You'll see a one-time notice confirming the update and explaining the new review-before-send workflow.
-
 == Screenshots ==
 
 1. AI Inbox — every submission with its status, priority, category, and confidence, plus filters.
@@ -96,19 +92,11 @@ Your existing submission log is preserved and automatically migrated to the new 
 
 == Changelog ==
 
-= 2.0.0 =
-* Removed automatic AI email sending. AI analysis (summary, suggested reply, category, priority, confidence score with reasoning) now lands in a new AI Inbox for review; replies are only ever sent after an explicit, confirmed "Send Reply" click.
-* Added the AI Inbox: filterable/searchable submission list with status, priority, category, and confidence badges.
-* Added a full-page Submission Details review screen with Save Draft, Send Reply, Mark Reviewed, Archive, and Delete actions.
-* Added a WordPress Dashboard widget summarizing new, needs-review, and replied counts plus monthly AI usage.
-* Consolidated AI generation into a single request per submission (summary, reply, and classification all come from one API call).
-* Added Model and Estimated Token Usage to the Usage tab.
-* Extended the submissions database schema (category, priority, confidence, confidence reason, review/reply audit trail); existing installs are migrated automatically and notified once.
-
 = 1.0.0 =
-* Initial release: AI auto-reply, AI summary, one-form scope, monthly usage limit, bring-your-own-key support for OpenAI/Anthropic/Gemini/OpenRouter, a customizable base prompt, a live model picker, and a Submissions log with a detail popup.
-
-== Upgrade Notice ==
-
-= 2.0.0 =
-Automatic AI email sending has been removed in favor of a review-before-send AI Inbox — see the FAQ if you're upgrading from 1.0.0. Your existing submissions are migrated automatically.
+* Initial release: an AI Inbox for one Contact Form 7 form. Every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score (with reasoning) — nothing is ever emailed automatically; replies are only ever sent after an explicit, confirmed "Send Reply" click.
+* AI Inbox: filterable/searchable submission list with status, priority, category, and confidence badges.
+* Full-page Submission Details review screen with Save Draft, Send Reply, Mark Reviewed, Archive, and Delete actions.
+* A Dashboard section and a WordPress Dashboard widget summarizing new, needs-review, and replied counts plus monthly AI usage.
+* AI generation is a single request per submission (summary, reply, and classification all come from one combined API call).
+* Bring-your-own-key support for OpenAI, Anthropic, Gemini, and OpenRouter, with a live model picker.
+* Usage tab with monthly quota, model, and estimated token usage.

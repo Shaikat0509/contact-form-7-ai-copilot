@@ -3,10 +3,10 @@
  * Plugin Name:       Contact Form 7 AI Copilot
  * Plugin URI:        https://wordpress.org/plugins/cf7-ai-copilot/
  * Description:       Adds an AI Inbox to a single Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key.
- * Version:           2.0.0
+ * Version:           1.0.0
  * Requires at least: 6.8
  * Requires PHP:      8.1
- * Author:            CF7 AI Copilot Contributors
+ * Author:            Shaikat
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       cf7-ai-copilot
@@ -73,7 +73,7 @@ if ( version_compare( $GLOBALS['wp_version'], '6.8', '<' ) ) {
 /**
  * Plugin constants.
  */
-define( 'CF7AIC_VERSION', '2.0.0' );
+define( 'CF7AIC_VERSION', '1.0.0' );
 define( 'CF7AIC_PLUGIN_FILE', __FILE__ );
 define( 'CF7AIC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CF7AIC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

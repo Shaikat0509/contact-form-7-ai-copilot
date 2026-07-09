@@ -83,7 +83,7 @@ final class Installer {
 			 * Fires once, after existing submissions data has been migrated
 			 * to the review-workflow schema.
 			 *
-			 * @since 2.0.0
+			 * @since 1.0.0
 			 */
 			do_action( 'cf7aic_submissions_migrated' );
 
