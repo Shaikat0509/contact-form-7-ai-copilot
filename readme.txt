@@ -1,5 +1,5 @@
 === AI Copilot for Contact Form 7 ===
-Contributors: cf7aicopilot
+Contributors: shaikat2142
 Tags: contact form 7, ai, openai, anthropic, gemini
 Requires at least: 6.8
 Tested up to: 7.0
