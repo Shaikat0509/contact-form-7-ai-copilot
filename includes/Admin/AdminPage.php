@@ -111,6 +111,20 @@ final class AdminPage {
 		[ $title, $subtitle ] = $this->get_title_and_subtitle( $section, $submission_id, $settings_tab );
 		?>
 		<div class="wrap cf7aic-wrap">
+			<?php
+			/*
+			 * WordPress core moves every admin_notices-hooked notice (ours
+			 * and any other active plugin's) to right after the first
+			 * heading — or this marker, if present — inside .wrap (see
+			 * wp-admin/js/common.js). Our own <h1> sits deep inside the
+			 * custom topbar below, so without this marker, core's JS drills
+			 * in and inserts other plugins' notices into the middle of our
+			 * layout. This keeps them at the top instead. It renders
+			 * nothing visible (WordPress's own admin CSS sets
+			 * `.wp-header-end { visibility: hidden; }`).
+			 */
+			?>
+			<hr class="wp-header-end" />
 			<?php $this->render_saved_notice(); ?>
 
 			<div class="cf7aic-shell">
