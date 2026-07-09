@@ -1,0 +1,752 @@
+/*
+ * Contact Form 7 AI Copilot — admin styles, Tailwind source.
+ *
+ * Build once with `npm run build:css` (see package.json) to produce
+ * admin.css — the file WordPress actually enqueues. Tailwind only runs at
+ * build time on a developer machine; the shipped plugin ships one plain,
+ * static, pre-compiled CSS file, same as before. No CDN, no runtime JS.
+ *
+ * Every class name here matches what the PHP templates already render —
+ * this file only changes how the CSS is authored, not the markup.
+ */
+
+@import "tailwindcss";
+
+@theme {
+	--color-accent: #6d5efc;
+	--color-accent-dark: #5643fa;
+	--color-sidebar: #14162a;
+	--color-sidebar-fg: #b8bbd4;
+	--color-surface: #f6f7fb;
+
+	/* Matches WordPress core's own admin-menu collapse breakpoint (782px),
+	   so our shell folds in step with wp-admin's chrome. */
+	--breakpoint-wp: 48.875rem;
+}
+
+/* ---------- Shell: sidebar + main ---------- */
+
+.cf7aic-wrap {
+	@apply max-w-full;
+}
+
+/* Consistent with the plugin's rounded design language everywhere our
+   shell renders — WP core's own small default radius reads as flat next
+   to the rounded cards/sidebar/inputs. Covers every native form control
+   the plugin renders (Settings tabs, filter bar, reply textarea, model
+   picker), not just the ones with bespoke styling below. */
+.cf7aic-wrap .button {
+	@apply rounded-lg;
+}
+
+.cf7aic-wrap input[type="text"],
+.cf7aic-wrap input[type="password"],
+.cf7aic-wrap input[type="email"],
+.cf7aic-wrap input[type="url"],
+.cf7aic-wrap input[type="number"],
+.cf7aic-wrap input[type="date"],
+.cf7aic-wrap input[type="search"],
+.cf7aic-wrap select,
+.cf7aic-wrap textarea {
+	@apply rounded-lg;
+}
+
+.cf7aic-shell {
+	@apply flex items-stretch mt-5 bg-white border border-[#e2e2e6] rounded-xl shadow-sm overflow-hidden;
+}
+
+/* ---------- Sidebar ---------- */
+
+.cf7aic-sidebar {
+	@apply flex-none w-60 flex flex-col py-5 px-3.5 bg-sidebar text-sidebar-fg;
+}
+
+.cf7aic-sidebar__brand {
+	@apply flex items-center gap-2 px-2.5 pt-1.5 pb-5 text-white font-bold text-[15px];
+}
+
+.cf7aic-sidebar__logo {
+	/* WP core's dashicons.css sets line-height:1 and vertical-align:top on
+	   `.dashicons`; leaving line-height unset here made the glyph's own
+	   line box taller/shorter than our resized icon box, so it never sat
+	   level with the "AI Copilot" text next to it. Matching line-height to
+	   the box (and forcing vertical-align:middle, since flex ignores it
+	   anyway but some engines still consult it for the glyph's own inline
+	   box) fixes it. */
+	@apply text-xl w-5 h-5 leading-5 align-middle text-accent;
+}
+
+.cf7aic-sidebar__nav {
+	@apply flex flex-col gap-0.5 flex-1;
+}
+
+.cf7aic-sidebar__item {
+	@apply flex items-center gap-2.5 py-[9px] px-3 rounded-lg text-sidebar-fg no-underline text-[13px] font-medium cursor-pointer transition-colors duration-150;
+}
+
+.cf7aic-sidebar__item .dashicons {
+	@apply w-4 h-4 text-base leading-4 align-middle;
+}
+
+.cf7aic-sidebar__item:hover {
+	@apply bg-white/[0.06] text-white;
+}
+
+.cf7aic-sidebar__item--active,
+.cf7aic-sidebar__item--active:hover {
+	@apply bg-accent text-white;
+}
+
+.cf7aic-sidebar__badge {
+	@apply ml-auto bg-[#ff5c5c] text-white text-[11px] font-bold rounded-full px-[7px] py-px;
+}
+
+.cf7aic-sidebar__group summary {
+	list-style: none;
+}
+
+.cf7aic-sidebar__group summary::-webkit-details-marker {
+	display: none;
+}
+
+.cf7aic-sidebar__group summary::after {
+	content: "\f347";
+	font-family: dashicons;
+	@apply ml-auto text-base transition-transform duration-150 ease-out;
+}
+
+.cf7aic-sidebar__group[open] summary::after {
+	@apply rotate-180;
+}
+
+.cf7aic-sidebar__subitems {
+	@apply flex flex-col gap-0.5 pt-1 pb-1.5 pl-[30px];
+}
+
+.cf7aic-sidebar__subitem {
+	@apply px-2.5 py-1.5 rounded-md text-sidebar-fg no-underline text-[12.5px] transition-colors duration-150;
+}
+
+.cf7aic-sidebar__subitem:hover {
+	@apply bg-white/[0.06] text-white;
+}
+
+.cf7aic-sidebar__subitem--active {
+	@apply bg-white/[0.08] text-white font-semibold;
+}
+
+.cf7aic-sidebar__footer {
+	@apply mt-auto pt-3.5 border-t border-white/[0.08] flex flex-col gap-2;
+}
+
+.cf7aic-sidebar__rate-link {
+	@apply flex items-center gap-2 px-3 py-2 text-sidebar-fg no-underline text-[12.5px] transition-colors duration-150;
+}
+
+.cf7aic-sidebar__rate-link:hover {
+	@apply text-white;
+}
+
+.cf7aic-sidebar__rate-link .dashicons {
+	@apply w-4 h-4 text-base leading-4 align-middle text-[#f5c518];
+}
+
+.cf7aic-sidebar__user summary {
+	@apply list-none flex items-center gap-2 px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors duration-150;
+}
+
+.cf7aic-sidebar__user summary::-webkit-details-marker {
+	display: none;
+}
+
+.cf7aic-sidebar__user summary:hover {
+	@apply bg-white/[0.06];
+}
+
+.cf7aic-sidebar__avatar {
+	@apply rounded-full;
+}
+
+.cf7aic-sidebar__user-name {
+	@apply text-[12.5px] text-white whitespace-nowrap overflow-hidden text-ellipsis;
+}
+
+.cf7aic-sidebar__user-menu {
+	@apply flex flex-col gap-0.5 pt-1.5 pr-1 pl-2.5;
+}
+
+.cf7aic-sidebar__user-menu a {
+	@apply px-2 py-[5px] rounded-md text-sidebar-fg no-underline text-[12.5px] transition-colors duration-150;
+}
+
+.cf7aic-sidebar__user-menu a:hover {
+	@apply bg-white/[0.06] text-white;
+}
+
+/* ---------- Main content + topbar ---------- */
+
+.cf7aic-main {
+	@apply flex-1 min-w-0 pt-6 px-7 pb-8 bg-surface;
+}
+
+.cf7aic-topbar {
+	@apply mb-5;
+}
+
+.cf7aic-topbar__heading h1 {
+	margin: 0 0 4px;
+	font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+}
+
+.cf7aic-topbar__subtitle {
+	@apply m-0 text-[#646970] text-[13px];
+}
+
+/* ---------- Cards ---------- */
+
+.cf7aic-card {
+	@apply bg-white border border-[#dcdcde] rounded-xl shadow-sm py-6 px-7 transition-shadow duration-200;
+}
+
+.cf7aic-card:hover {
+	@apply shadow-md;
+}
+
+.cf7aic-tab-panel {
+	@apply bg-white border border-[#dcdcde] rounded-xl shadow-sm py-6 px-7 max-w-[780px];
+}
+
+/* ---------- Dashboard layout ----------
+   Fluid flex rows: each card declares its own preferred width via
+   flex-basis/flex-grow below, so rows reflow continuously as the
+   viewport shrinks instead of jumping at one hard breakpoint. */
+
+.cf7aic-dash-row,
+.cf7aic-dash-row--tips {
+	@apply flex flex-wrap gap-5 mb-5 items-stretch;
+}
+
+.cf7aic-chart-card,
+.cf7aic-recent-card {
+	flex: 2 1 380px;
+}
+
+.cf7aic-donut-card,
+.cf7aic-provider-card {
+	flex: 1 1 280px;
+}
+
+.cf7aic-tip-card {
+	flex: 1 1 240px;
+}
+
+.cf7aic-chart-card__subtitle {
+	@apply m-0 mb-3 text-xs text-[#646970];
+}
+
+.cf7aic-chart-svg {
+	@apply w-full h-40 block;
+}
+
+.cf7aic-chart-svg__area {
+	fill: color-mix(in srgb, var(--color-accent) 12%, transparent);
+	stroke: none;
+}
+
+.cf7aic-chart-svg__line {
+	fill: none;
+	stroke: var(--color-accent);
+	stroke-width: 2;
+}
+
+.cf7aic-chart-svg__point {
+	fill: var(--color-accent);
+}
+
+.cf7aic-donut-card {
+	@apply flex flex-col items-center justify-center text-center;
+}
+
+.cf7aic-donut-svg {
+	@apply my-1.5;
+}
+
+.cf7aic-donut-svg__track {
+	stroke: #f0f0f1;
+}
+
+.cf7aic-donut-svg__fill {
+	stroke: var(--color-accent);
+	stroke-linecap: round;
+	transition: stroke-dashoffset 0.3s ease-out;
+}
+
+.cf7aic-donut-svg__text {
+	font-weight: 700;
+	fill: #1d2327;
+	font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+}
+
+.cf7aic-donut-card__caption {
+	@apply mt-1 font-semibold;
+}
+
+.cf7aic-donut-card__reset {
+	@apply mt-0.5 text-xs text-[#646970];
+}
+
+.cf7aic-provider-card p {
+	@apply mb-0;
+}
+
+.cf7aic-table--compact th,
+.cf7aic-table--compact td {
+	@apply px-1.5 py-2 text-[13px];
+}
+
+.cf7aic-table__truncate {
+	@apply max-w-[220px] overflow-hidden text-ellipsis whitespace-nowrap;
+}
+
+.cf7aic-tip-card {
+	@apply text-left transition-transform duration-200;
+}
+
+.cf7aic-tip-card:hover {
+	@apply -translate-y-0.5;
+}
+
+.cf7aic-tip-card .dashicons {
+	@apply w-[22px] h-[22px] text-[22px] text-accent mb-2;
+}
+
+.cf7aic-tip-card h3 {
+	@apply m-0 mb-1.5 text-sm;
+}
+
+.cf7aic-tip-card p {
+	@apply m-0 mb-2.5 text-[13px] text-[#50575e];
+}
+
+.cf7aic-tip-card a {
+	@apply font-semibold no-underline text-accent text-[13px];
+}
+
+.cf7aic-help h2 {
+	@apply mt-[1.5em];
+}
+
+.cf7aic-help h2:first-child {
+	@apply mt-0;
+}
+
+/* ---------- Stat cards (Usage tab + Dashboard) ---------- */
+
+.cf7aic-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	@apply gap-4 mb-5;
+}
+
+.cf7aic-stat-card {
+	@apply py-4 px-[18px] bg-[#f6f7f7] rounded-[10px];
+}
+
+.cf7aic-stat-card__label {
+	@apply block text-xs font-semibold uppercase tracking-wide leading-snug text-[#646970] mb-1.5;
+}
+
+.cf7aic-stat-card__value {
+	display: block;
+	font-weight: 700;
+	color: #1d2327;
+	font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+	line-height: 1.3;
+}
+
+/* ---------- Progress bar ---------- */
+
+.cf7aic-progress-bar {
+	@apply mt-2.5 h-2.5 max-w-[320px] bg-[#f0f0f1] rounded-full overflow-hidden;
+}
+
+.cf7aic-progress-bar__fill {
+	height: 100%;
+	background: linear-gradient(90deg, #2271b1, #72aee6);
+	@apply rounded-full transition-[width] duration-300 ease-out;
+}
+
+/* ---------- Model loader row (AI Provider tab) ---------- */
+
+.cf7aic-model-row {
+	@apply flex gap-2 items-center;
+}
+
+.cf7aic-model-row select {
+	@apply min-w-[260px];
+}
+
+/* ---------- Test connection / model status feedback ---------- */
+
+.cf7aic-test-result {
+	@apply ml-3 font-semibold;
+}
+
+.cf7aic-test-result--success {
+	@apply text-[#00a32a];
+}
+
+.cf7aic-test-result--error {
+	@apply text-[#d63638];
+}
+
+/* ---------- Submissions table ---------- */
+
+.cf7aic-table {
+	border-spacing: 0;
+	@apply border-separate w-full border border-[#e2e2e6] rounded-xl overflow-hidden;
+}
+
+.cf7aic-table th,
+.cf7aic-table td {
+	@apply px-2.5 py-3 text-left border-b border-[#f0f0f1];
+}
+
+.cf7aic-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.cf7aic-table tbody tr:hover {
+	@apply bg-[#f6f7f7] transition-colors duration-150;
+}
+
+.cf7aic-empty-state {
+	@apply text-center py-12 px-5 text-[#646970];
+}
+
+.cf7aic-empty-state .dashicons {
+	@apply text-4xl w-9 h-9 mb-2.5 text-[#c3c4c7];
+}
+
+/* Status badges */
+
+.cf7aic-badge {
+	@apply inline-block px-2.5 py-[3px] rounded-full text-xs font-semibold transition-colors duration-150;
+}
+
+.cf7aic-badge--success {
+	@apply bg-[#edfaef] text-[#00a32a];
+}
+
+.cf7aic-badge--partial {
+	@apply bg-[#fcf9e8] text-[#996800];
+}
+
+.cf7aic-badge--failed {
+	@apply bg-[#fcf0f1] text-[#d63638];
+}
+
+.cf7aic-badge--no_api_key,
+.cf7aic-badge--quota_reached {
+	@apply bg-[#f0f0f1] text-[#646970];
+}
+
+/* Workflow status badges */
+
+.cf7aic-badge--status-new {
+	@apply bg-[#f0f6fc] text-[#2271b1];
+}
+
+.cf7aic-badge--status-reviewed {
+	@apply bg-[#fcf9e8] text-[#996800];
+}
+
+.cf7aic-badge--status-replied {
+	@apply bg-[#edfaef] text-[#00a32a];
+}
+
+.cf7aic-badge--status-archived {
+	@apply bg-[#f0f0f1] text-[#646970];
+}
+
+/* Priority badges */
+
+.cf7aic-badge--priority-high {
+	@apply bg-[#fcf0f1] text-[#d63638];
+}
+
+.cf7aic-badge--priority-medium {
+	@apply bg-[#fcf9e8] text-[#996800];
+}
+
+.cf7aic-badge--priority-low {
+	@apply bg-[#f0f0f1] text-[#646970];
+}
+
+.cf7aic-badge--low-confidence {
+	@apply bg-[#fcf9e8] text-[#996800];
+}
+
+/* ---------- Inbox filter bar ---------- */
+
+.cf7aic-filter-bar {
+	@apply flex flex-wrap items-center gap-2 mb-4;
+}
+
+/* WP core's own forms.css sets `select { line-height: 2.71428571; min-height:
+   40px; }` and a matching `min-height: 40px` on `input[type="date"]` — since
+   `min-height` is a separate property from `height`, it wins as a floor
+   regardless of selector specificity, and the oversized inherited
+   line-height then overflows our shorter box. Both must be reset explicitly
+   here, or the two controls render at different heights with overlapping
+   text/borders instead of the shared style below. */
+.cf7aic-filter-bar select,
+.cf7aic-filter-bar input[type="date"],
+.cf7aic-filter-bar input[type="search"] {
+	/* leading-none (line-height:1) clipped descenders in the search
+	   placeholder; 1.5 leaves comfortable room while still sitting well
+	   inside the fixed 36px box. */
+	@apply h-9 min-h-0 py-0 px-3 rounded-lg box-border leading-[1.5] bg-white border border-[#8c8f94] text-[#2c3338];
+}
+
+.cf7aic-filter-bar input[type="date"]::-webkit-datetime-edit {
+	line-height: normal;
+}
+
+.cf7aic-filter-bar select {
+	/* Reserve room on the right for the native dropdown arrow — the shared
+	   px-3 above is symmetric and left the arrow sitting on top of the text. */
+	@apply pr-7;
+}
+
+.cf7aic-filter-bar input[type="search"] {
+	/* 220px clipped the "Search name, email, message…" placeholder; grow
+	   to fill whatever room the row has left, with a wider floor. */
+	@apply min-w-[280px] flex-1;
+}
+
+/* Force the submit button to the exact same box as the fields above —
+   WP core's own button metrics don't line up with our fixed 36px inputs,
+   so without this the button renders visibly taller. */
+.cf7aic-filter-bar .button {
+	@apply h-9 box-border flex items-center justify-center rounded-lg;
+}
+
+/* ---------- Pagination ---------- */
+
+.cf7aic-pagination {
+	@apply flex gap-1 mt-4;
+}
+
+.cf7aic-pagination__link {
+	@apply inline-flex items-center justify-center min-w-[30px] h-[30px] px-1.5 rounded-md no-underline text-[#3c434a] bg-[#f6f7f7] transition-colors duration-150;
+}
+
+.cf7aic-pagination__link--active {
+	@apply bg-[#2271b1] text-white;
+}
+
+/* ---------- Detail dialog (Submissions popup) ---------- */
+
+.cf7aic-dialog {
+	width: min(600px, 92vw);
+	max-height: 85vh;
+	box-shadow: 0 10px 40px rgb(0 0 0 / 0.2);
+	@apply p-0 border-0 rounded-xl;
+}
+
+.cf7aic-dialog::backdrop {
+	@apply bg-black/40;
+}
+
+.cf7aic-dialog__form {
+	max-height: 85vh;
+	@apply m-0 flex flex-col;
+}
+
+.cf7aic-dialog__header {
+	@apply flex items-center justify-between py-[18px] px-[22px] border-b border-[#dcdcde];
+}
+
+.cf7aic-dialog__header h2 {
+	@apply m-0 text-base;
+}
+
+.cf7aic-dialog__close {
+	@apply bg-transparent border-0 text-2xl leading-none cursor-pointer text-[#646970] py-0.5 px-1.5;
+}
+
+.cf7aic-dialog__close:hover {
+	@apply text-[#1d2327];
+}
+
+.cf7aic-dialog__body {
+	@apply py-5 px-[22px] overflow-y-auto;
+}
+
+.cf7aic-dialog__body h3 {
+	@apply mt-[18px] mb-2 text-[13px] uppercase tracking-wide text-[#646970];
+}
+
+.cf7aic-dialog__body h3:first-child {
+	@apply mt-0;
+}
+
+.cf7aic-detail-list {
+	margin: 0;
+	display: grid;
+	grid-template-columns: minmax(120px, auto) 1fr;
+	@apply gap-x-3 gap-y-1.5;
+}
+
+.cf7aic-detail-list dt {
+	@apply font-semibold text-[#646970];
+}
+
+.cf7aic-detail-list dd {
+	@apply m-0 break-words;
+}
+
+.cf7aic-detail-text {
+	@apply bg-[#f6f7f7] rounded-lg py-3 px-3.5 whitespace-pre-wrap break-words;
+}
+
+.cf7aic-detail-text--error {
+	@apply bg-[#fcf0f1] text-[#d63638];
+}
+
+/* ---------- Submission detail page ----------
+   Same fluid flex approach as the dashboard rows: main content and the
+   analysis/actions sidebar reflow continuously instead of hard-stacking
+   at one breakpoint. */
+
+.cf7aic-back-link {
+	@apply mb-1;
+}
+
+.cf7aic-detail-grid {
+	@apply flex flex-wrap gap-5 items-start;
+}
+
+.cf7aic-detail-main {
+	flex: 2 1 420px;
+	@apply flex flex-col gap-5;
+}
+
+.cf7aic-detail-sidebar {
+	flex: 1 1 280px;
+	@apply flex flex-col gap-5;
+}
+
+.cf7aic-detail-main .cf7aic-card h2,
+.cf7aic-detail-sidebar .cf7aic-card h2 {
+	@apply mt-0 text-sm;
+}
+
+.cf7aic-actions-row {
+	@apply flex items-center gap-2 flex-wrap;
+}
+
+.cf7aic-actions-column {
+	@apply flex flex-col gap-2 items-start;
+}
+
+#cf7aic-reply-textarea {
+	@apply mb-3;
+}
+
+.cf7aic-dialog--small {
+	width: min(440px, 92vw);
+}
+
+.cf7aic-dialog__footer {
+	@apply flex justify-end gap-2 py-4 px-[22px] border-t border-[#dcdcde];
+}
+
+/* ---------- Responsive: fold the shell in step with wp-admin's own menu ---------- */
+
+@media (max-width: 782px) {
+	.cf7aic-shell {
+		@apply flex-col;
+	}
+
+	.cf7aic-sidebar {
+		@apply w-auto flex-none;
+	}
+
+	.cf7aic-sidebar__nav {
+		@apply flex-row flex-wrap;
+	}
+
+	.cf7aic-sidebar__group {
+		@apply w-full;
+	}
+
+	.cf7aic-sidebar__footer {
+		@apply flex-row items-center justify-between;
+	}
+}
+
+/* ---------- Responsive: stack the submissions table on narrow screens ---------- */
+
+@media (max-width: 782px) {
+	.cf7aic-table thead {
+		display: none;
+	}
+
+	/* Each row becomes its own rounded card below — the table's own outer
+	   rounded border would just nest awkwardly around them. */
+	.cf7aic-table {
+		@apply border-0 rounded-none overflow-visible;
+	}
+
+	.cf7aic-table,
+	.cf7aic-table tbody,
+	.cf7aic-table tr,
+	.cf7aic-table td {
+		@apply block w-full;
+	}
+
+	.cf7aic-table tr {
+		@apply mb-3 border border-[#f0f0f1] rounded-lg py-2 px-3;
+	}
+
+	.cf7aic-table td {
+		@apply border-0 py-1.5;
+	}
+
+	.cf7aic-table td[data-label]:not([data-label=""])::before {
+		content: attr(data-label);
+		@apply block text-[11px] font-semibold uppercase text-[#646970];
+	}
+}
+
+/* ---------- Dashboard widget (native WordPress Dashboard) ---------- */
+
+.cf7aic-widget-stats {
+	@apply grid grid-cols-2 gap-2.5 mb-3;
+}
+
+.cf7aic-widget-stat {
+	@apply bg-[#f6f7f7] rounded-lg py-2.5 px-3 text-center;
+}
+
+.cf7aic-widget-stat__value {
+	@apply block text-xl font-bold text-[#1d2327];
+}
+
+.cf7aic-widget-stat__label {
+	@apply block text-[11px] text-[#646970];
+}
+
+.cf7aic-widget-list {
+	@apply m-0 mb-3;
+}
+
+.cf7aic-widget-list li {
+	@apply flex items-center justify-between gap-2 py-1.5 border-b border-[#f0f0f1];
+}
+
+.cf7aic-widget-footer {
+	@apply m-0 text-right;
+}

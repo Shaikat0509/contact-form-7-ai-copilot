@@ -1,0 +1,17 @@
+# Dev tooling only — the plugin itself has no runtime dependencies.
+# composer.lock and package-lock.json are committed; the installed
+# packages/binaries themselves are not.
+/vendor/
+/node_modules/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Claude Code local session config — not part of the plugin.
+.claude/
+
+# Build/test artifacts
+*.zip
+*.log

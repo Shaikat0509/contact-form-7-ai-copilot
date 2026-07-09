@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ruleset name="Contact Form 7 AI Copilot">
+	<description>Coding standards ruleset for the Contact Form 7 AI Copilot plugin.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/languages/*</exclude-pattern>
+	<exclude-pattern>/admin/assets/*</exclude-pattern>
+
+	<arg value="sp"/>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+
+	<config name="minimum_supported_wp_version" value="6.8"/>
+	<config name="testVersion" value="8.1-"/>
+
+	<rule ref="WordPress-Extra">
+		<!--
+			This plugin uses PSR-4 autoloading (one class per file, filename
+			matches the class name exactly, e.g. `Autoloader.php` for class
+			`Autoloader`). That is inherently incompatible with WPCS's default
+			file-naming sniff, which expects the legacy WP core convention of
+			lowercase-hyphenated names such as `class-autoloader.php`. The
+			PSR-4 convention is a deliberate architectural choice, not an
+			oversight, so the sniff is excluded wholesale rather than patched
+			file-by-file.
+		-->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+	<rule ref="WordPress-Docs"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="cf7aic"/>
+				<element value="CF7AIC"/>
+				<element value="CF7AIC_"/>
+			</property>
+		</properties>
+		<!--
+			Files under admin/views/ are plain template partials `require`-d
+			by CF7AIC\Admin\SettingsPage::render(): they are never accessed
+			directly (blocked by the ABSPATH guard) and their local variables
+			are deliberately unprefixed, scoped only to that one include,
+			the same convention WordPress core itself uses for template
+			parts. PHPCS cannot distinguish that from a genuine global.
+		-->
+		<exclude-pattern>admin/views/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="cf7-ai-copilot"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

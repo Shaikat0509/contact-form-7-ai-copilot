@@ -1,0 +1,728 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Form 7 AI Copilot\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-08T12:07:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: cf7-ai-copilot\n"
+
+#: admin/views/tab-general.php:37
+msgid "No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it."
+msgstr ""
+
+#: admin/views/tab-general.php:46
+msgid "Enable AI Copilot"
+msgstr ""
+
+#: admin/views/tab-general.php:57
+msgid "Analyze new submissions to the form below and add them to the AI Inbox for your review."
+msgstr ""
+
+#: admin/views/tab-general.php:60
+msgid "The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself."
+msgstr ""
+
+#: admin/views/tab-general.php:66
+msgid "Contact Form 7 form"
+msgstr ""
+
+#: admin/views/tab-general.php:70
+msgid "— Select a form —"
+msgstr ""
+
+#: admin/views/tab-general.php:78
+msgid "The free plan applies AI to a single form. Choose the one whose submissions should appear in the AI Inbox."
+msgstr ""
+
+#: admin/views/tab-general.php:85
+#: admin/views/tab-prompt.php:57
+#: admin/views/tab-provider.php:104
+msgid "Save Changes"
+msgstr ""
+
+#: admin/views/tab-help.php:17
+msgid "How it works"
+msgstr ""
+
+#: admin/views/tab-help.php:19
+msgid "When a visitor submits your chosen Contact Form 7 form, this plugin sends it to your configured AI provider, which analyzes it and drafts a summary, a suggested reply, a category, a priority, and a confidence score. All of this appears as a new entry in your AI Inbox — nothing is ever emailed automatically. Review the suggestion, edit the reply if you like, and click \"Send Reply\" only when you are ready. Nothing is sent to any AI provider until you save a valid API key on the AI Provider tab."
+msgstr ""
+
+#: admin/views/tab-help.php:22
+msgid "Getting an API key"
+msgstr ""
+
+#: admin/views/tab-help.php:25
+msgid "OpenAI"
+msgstr ""
+
+#: admin/views/tab-help.php:30
+msgid "Anthropic"
+msgstr ""
+
+#: admin/views/tab-help.php:35
+msgid "Google Gemini"
+msgstr ""
+
+#: admin/views/tab-help.php:40
+msgid "OpenRouter"
+msgstr ""
+
+#: admin/views/tab-help.php:46
+msgid "Supported model names (examples)"
+msgstr ""
+
+#: admin/views/tab-help.php:47
+msgid "Enter the exact model identifier from your provider's documentation into the Model field on the AI Provider tab. A few common examples:"
+msgstr ""
+
+#: admin/views/tab-help.php:55
+msgid "Provider pricing and available models change over time — always confirm the current model name with your provider."
+msgstr ""
+
+#: admin/views/tab-help.php:58
+msgid "Free plan limits"
+msgstr ""
+
+#: admin/views/tab-help.php:60
+msgid "The free plan applies AI to a single Contact Form 7 form and allows up to 20 AI generations per calendar month. If the limit is reached, AI features pause until the next month — Contact Form 7 itself is never affected."
+msgstr ""
+
+#: admin/views/tab-help.php:63
+msgid "Privacy"
+msgstr ""
+
+#: admin/views/tab-help.php:65
+msgid "The text a visitor submits to your chosen form is sent only to the AI provider you configure, solely to generate the summary, suggested reply, and classification shown in the AI Inbox. This plugin does not collect analytics or telemetry, and does not send any data to its author."
+msgstr ""
+
+#: admin/views/tab-prompt.php:30
+msgid "System prompt"
+msgstr ""
+
+#: admin/views/tab-prompt.php:45
+msgid "This instructs the AI how to behave. It is combined with the visitor's submitted message only — no other data is sent."
+msgstr ""
+
+#: admin/views/tab-prompt.php:49
+msgid "Reset to Default"
+msgstr ""
+
+#: admin/views/tab-provider.php:30
+#: admin/views/tab-usage.php:38
+msgid "Provider"
+msgstr ""
+
+#: admin/views/tab-provider.php:44
+msgid "API Key"
+msgstr ""
+
+#: admin/views/tab-provider.php:53
+msgid "Leave blank to keep the current key"
+msgstr ""
+
+#: admin/views/tab-provider.php:53
+msgid "Enter your API key"
+msgstr ""
+
+#. translators: %s: masked API key, e.g. ••••••••••••••••••••1234
+#: admin/views/tab-provider.php:60
+#, php-format
+msgid "Currently set: %s"
+msgstr ""
+
+#: admin/views/tab-provider.php:65
+msgid "No API key has been set yet. AI features stay off until one is saved here."
+msgstr ""
+
+#: admin/views/tab-provider.php:72
+#: admin/views/tab-usage.php:42
+msgid "Model"
+msgstr ""
+
+#: admin/views/tab-provider.php:86
+msgid "— Load models to choose one —"
+msgstr ""
+
+#: admin/views/tab-provider.php:95
+#: includes/Admin/Menu.php:142
+msgid "Load Models"
+msgstr ""
+
+#: admin/views/tab-provider.php:109
+msgid "Test Connection"
+msgstr ""
+
+#: admin/views/tab-usage.php:30
+msgid "Monthly limit"
+msgstr ""
+
+#: admin/views/tab-usage.php:34
+msgid "Remaining"
+msgstr ""
+
+#: admin/views/tab-usage.php:46
+msgid "Resets on"
+msgstr ""
+
+#: admin/views/tab-usage.php:50
+msgid "Estimated Token Usage"
+msgstr ""
+
+#. translators: 1: generations used this month, 2: monthly limit
+#: admin/views/tab-usage.php:59
+#, php-format
+msgid "%1$d of %2$d AI generations used this month"
+msgstr ""
+
+#: admin/views/tab-usage.php:71
+msgid "You have reached your monthly AI generation limit. AI features are paused until the next reset date above; Contact Form 7 itself continues to work normally."
+msgstr ""
+
+#. translators: %s: required PHP version
+#: cf7-ai-copilot.php:39
+#, php-format
+msgid "Contact Form 7 AI Copilot requires PHP %s or higher. Please contact your host to upgrade PHP."
+msgstr ""
+
+#. translators: %s: required WordPress version
+#: cf7-ai-copilot.php:62
+#, php-format
+msgid "Contact Form 7 AI Copilot requires WordPress %s or higher. Please update WordPress."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:74
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:82
+#: includes/Admin/DashboardWidget.php:75
+#: includes/Admin/Menu.php:87
+#: includes/Admin/Menu.php:88
+msgid "AI Copilot"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:83
+msgid "Free"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:88
+msgid "AI Copilot sections"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:95
+msgid "AI Inbox"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:103
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:157
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:100
+#: includes/Admin/AjaxController.php:141
+#: includes/Admin/AjaxController.php:181
+#: includes/Admin/AjaxController.php:214
+#: includes/Admin/AjaxController.php:243
+#: includes/Admin/AjaxController.php:269
+#: includes/Admin/AjaxController.php:295
+msgid "You do not have permission to do this."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:104
+#: includes/Admin/AjaxController.php:145
+#: includes/Admin/AjaxController.php:185
+#: includes/Admin/AjaxController.php:218
+#: includes/Admin/AjaxController.php:247
+#: includes/Admin/AjaxController.php:273
+#: includes/Admin/AjaxController.php:299
+msgid "Security check failed. Please reload the page and try again."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:110
+#: includes/Admin/AjaxController.php:151
+msgid "Please choose a valid provider."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:166
+msgid "No models were returned by the provider."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:194
+#: includes/Admin/AjaxController.php:225
+#: includes/Admin/AjaxController.php:253
+#: includes/Admin/AjaxController.php:279
+#: includes/Admin/AjaxController.php:305
+msgid "That submission could not be found."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:230
+msgid "Draft saved."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:233
+msgid "Could not save the draft."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:259
+msgid "Marked as reviewed."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:285
+msgid "Archived."
+msgstr ""
+
+#: includes/Admin/AjaxController.php:311
+msgid "Deleted."
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:97
+msgid "New Today"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:101
+msgid "Needs Review"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:105
+msgid "Replies Sent"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:109
+msgid "Monthly AI Usage"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:114
+msgid "No submissions yet."
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:125
+msgid "(unknown)"
+msgstr ""
+
+#: includes/Admin/DashboardWidget.php:141
+msgid "Open AI Inbox"
+msgstr ""
+
+#: includes/Admin/InboxView.php:74
+msgid "No submissions match these filters."
+msgstr ""
+
+#: includes/Admin/InboxView.php:76
+msgid "No submissions yet. Once AI Copilot is enabled for your chosen form, they will appear here for review."
+msgstr ""
+
+#: includes/Admin/InboxView.php:84
+#: includes/Admin/InboxView.php:106
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/InboxView.php:85
+#: includes/Admin/InboxView.php:109
+#: includes/Admin/SubmissionDetailPage.php:109
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/InboxView.php:86
+#: includes/Admin/InboxView.php:114
+#: includes/Admin/SubmissionDetailPage.php:112
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/InboxView.php:87
+#: includes/Admin/InboxView.php:115
+#: includes/Admin/SubmissionDetailPage.php:120
+msgid "Form"
+msgstr ""
+
+#: includes/Admin/InboxView.php:88
+#: includes/Admin/InboxView.php:116
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/InboxView.php:89
+#: includes/Admin/InboxView.php:119
+#: includes/Admin/SubmissionDetailPage.php:271
+msgid "Priority"
+msgstr ""
+
+#: includes/Admin/InboxView.php:90
+#: includes/Admin/InboxView.php:128
+#: includes/Admin/SubmissionDetailPage.php:268
+msgid "Category"
+msgstr ""
+
+#: includes/Admin/InboxView.php:91
+#: includes/Admin/InboxView.php:131
+#: includes/Admin/SubmissionDetailPage.php:278
+msgid "Confidence"
+msgstr ""
+
+#: includes/Admin/InboxView.php:92
+#: includes/Admin/SubmissionDetailPage.php:309
+msgid "Actions"
+msgstr ""
+
+#: includes/Admin/InboxView.php:136
+msgid "Review"
+msgstr ""
+
+#: includes/Admin/InboxView.php:164
+msgid "Filter by status"
+msgstr ""
+
+#: includes/Admin/InboxView.php:165
+msgid "All statuses"
+msgstr ""
+
+#: includes/Admin/InboxView.php:171
+msgid "Filter by priority"
+msgstr ""
+
+#: includes/Admin/InboxView.php:172
+msgid "All priorities"
+msgstr ""
+
+#: includes/Admin/InboxView.php:178
+msgid "Filter by category"
+msgstr ""
+
+#: includes/Admin/InboxView.php:179
+msgid "All categories"
+msgstr ""
+
+#: includes/Admin/InboxView.php:189
+msgid "From date"
+msgstr ""
+
+#: includes/Admin/InboxView.php:195
+msgid "To date"
+msgstr ""
+
+#: includes/Admin/InboxView.php:202
+msgid "Search name, email, message…"
+msgstr ""
+
+#: includes/Admin/InboxView.php:203
+msgid "Search submissions"
+msgstr ""
+
+#: includes/Admin/InboxView.php:206
+msgid "Filter"
+msgstr ""
+
+#: includes/Admin/InboxView.php:209
+msgid "Clear filters"
+msgstr ""
+
+#: includes/Admin/InboxView.php:230
+msgid "Inbox pagination"
+msgstr ""
+
+#: includes/Admin/InboxView.php:304
+msgid "Low Confidence"
+msgstr ""
+
+#: includes/Admin/InboxView.php:355
+msgid "New"
+msgstr ""
+
+#: includes/Admin/InboxView.php:356
+msgid "Reviewed"
+msgstr ""
+
+#: includes/Admin/InboxView.php:357
+msgid "Replied"
+msgstr ""
+
+#: includes/Admin/InboxView.php:358
+msgid "Archived"
+msgstr ""
+
+#: includes/Admin/InboxView.php:370
+msgid "No API Key"
+msgstr ""
+
+#: includes/Admin/InboxView.php:371
+msgid "Quota Reached"
+msgstr ""
+
+#: includes/Admin/InboxView.php:372
+msgid "AI Failed"
+msgstr ""
+
+#: includes/Admin/Menu.php:139
+msgid "Testing connection…"
+msgstr ""
+
+#: includes/Admin/Menu.php:140
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/Admin/Menu.php:141
+msgid "Loading models…"
+msgstr ""
+
+#: includes/Admin/Menu.php:143
+msgid "Saving…"
+msgstr ""
+
+#: includes/Admin/Menu.php:144
+msgid "Sending…"
+msgstr ""
+
+#: includes/Admin/Menu.php:145
+msgid "Permanently delete this submission? This cannot be undone."
+msgstr ""
+
+#: includes/Admin/Notices.php:107
+msgid "Contact Form 7 AI Copilot:"
+msgstr ""
+
+#: includes/Admin/SettingsController.php:65
+#: includes/Admin/SettingsController.php:87
+#: includes/Admin/SettingsController.php:110
+msgid "You do not have permission to change these settings."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:84
+msgid "Settings sections"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:132
+msgid "General"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:133
+msgid "AI Provider"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:134
+msgid "Prompt"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:135
+msgid "Usage"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:136
+msgid "Help"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:63
+msgid "This submission could not be found. It may have been deleted."
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:64
+#: includes/Admin/SubmissionDetailPage.php:73
+msgid "Back to AI Inbox"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:107
+msgid "Customer Information"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:116
+msgid "Phone"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:123
+msgid "Submitted"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:149
+msgid "Original Message"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:184
+msgid "AI Summary"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:202
+msgid "AI Suggested Reply"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:206
+msgid "No visitor email address was found on this submission, so a reply cannot be sent from here."
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:217
+msgid "Save Draft"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:224
+msgid "Send Reply"
+msgstr ""
+
+#. translators: %s: date/time the reply was sent
+#: includes/Admin/SubmissionDetailPage.php:234
+#, php-format
+msgid "Sent on %s"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:259
+msgid "AI Analysis"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:262
+msgid "No AI analysis is available for this submission."
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:283
+msgid "Low Confidence — human review suggested"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:290
+msgid "Reasoning"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:317
+msgid "Mark Reviewed"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:325
+msgid "Archive"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:328
+msgid "Delete"
+msgstr ""
+
+#. translators: 1: user display name, 2: date reviewed
+#: includes/Admin/SubmissionDetailPage.php:338
+#, php-format
+msgid "Reviewed by %1$s on %2$s"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:339
+msgid "Unknown user"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:360
+msgid "Send Reply?"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:361
+msgid "Close"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:364
+msgid "You are about to send this AI-assisted reply. You may edit it before sending."
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:367
+msgid "Cancel"
+msgstr ""
+
+#: includes/Admin/SubmissionDetailPage.php:369
+msgid "Send"
+msgstr ""
+
+#: includes/AI/AbstractProvider.php:66
+msgid "No API key has been configured for this provider."
+msgstr ""
+
+#: includes/AI/AbstractProvider.php:84
+msgid "No model has been configured for this provider."
+msgstr ""
+
+#. translators: %s: underlying transport error message
+#: includes/AI/AbstractProvider.php:116
+#, php-format
+msgid "Could not reach the AI provider: %s"
+msgstr ""
+
+#. translators: %d: HTTP status code
+#: includes/AI/AbstractProvider.php:151
+#, php-format
+msgid "The provider returned an unexpected response (HTTP %d)."
+msgstr ""
+
+#. translators: %s: model identifier
+#: includes/AI/AnthropicProvider.php:78
+#: includes/AI/GeminiProvider.php:68
+#: includes/AI/OpenAIProvider.php:71
+#, php-format
+msgid "Connected successfully. Model \"%s\" is available."
+msgstr ""
+
+#: includes/AI/AnthropicProvider.php:128
+msgid "Anthropic returned an empty response."
+msgstr ""
+
+#: includes/AI/GeminiProvider.php:121
+msgid "Gemini returned an empty response."
+msgstr ""
+
+#: includes/AI/OpenAIProvider.php:124
+msgid "OpenAI returned an empty response."
+msgstr ""
+
+#: includes/AI/OpenRouterProvider.php:74
+msgid "API key is valid. Model availability is not verified by this test — double-check the model slug on the Help tab."
+msgstr ""
+
+#: includes/AI/OpenRouterProvider.php:125
+msgid "OpenRouter returned an empty response."
+msgstr ""
+
+#. translators: %s: unrecognized provider slug
+#: includes/AI/ProviderFactory.php:57
+#, php-format
+msgid "Unknown AI provider: %s"
+msgstr ""
+
+#: includes/Plugin.php:184
+msgid "AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead."
+msgstr ""
+
+#: includes/Plugin.php:213
+msgid "This plugin requires Contact Form 7 to be installed and active."
+msgstr ""
+
+#: includes/Services/AIService.php:58
+msgid "The AI response did not contain a usable summary or suggested reply."
+msgstr ""
+
+#: includes/Services/AIService.php:94
+msgid "The AI response was not valid JSON."
+msgstr ""
+
+#: includes/Services/ReplyService.php:59
+msgid "This submission has no valid visitor email address to reply to."
+msgstr ""
+
+#: includes/Services/ReplyService.php:66
+msgid "The reply cannot be empty."
+msgstr ""
+
+#. translators: %s: site name
+#: includes/Services/ReplyService.php:72
+#, php-format
+msgid "Re: Your message to %s"
+msgstr ""
+
+#: includes/Services/ReplyService.php:88
+msgid "wp_mail() reported failure. Check your site's outgoing mail / SMTP configuration."
+msgstr ""
+
+#: includes/Services/ReplyService.php:96
+msgid "Reply sent."
+msgstr ""
+
+#: includes/Services/SubmissionService.php:112
+msgid "No API key has been configured."
+msgstr ""
+
+#: includes/Services/SubmissionService.php:126
+msgid "The monthly AI generation quota has been reached."
+msgstr ""

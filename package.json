@@ -1,0 +1,13 @@
+{
+  "name": "cf7-ai-copilot",
+  "private": true,
+  "description": "Contact Form 7 AI Copilot - dev tooling only. The plugin itself has no runtime dependencies; Tailwind only runs at build time to produce a static, pre-compiled admin.css.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./admin/assets/css/tailwind.src.css -o ./admin/assets/css/admin.css --minify",
+    "watch:css": "tailwindcss -i ./admin/assets/css/tailwind.src.css -o ./admin/assets/css/admin.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "tailwindcss": "^4"
+  }
+}
