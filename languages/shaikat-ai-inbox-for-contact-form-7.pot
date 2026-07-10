@@ -2,31 +2,31 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: AI Copilot for Contact Form 7 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cf7-ai-copilot\n"
+"Project-Id-Version: Shaikat AI Inbox for Contact Form 7 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shaikat-ai-inbox-for-contact-form-7\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-09T17:11:28+00:00\n"
+"POT-Creation-Date: 2026-07-10T17:03:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: cf7-ai-copilot\n"
+"X-Domain: shaikat-ai-inbox-for-contact-form-7\n"
 
 #. Plugin Name of the plugin
 #: cf7-ai-copilot.php
-msgid "AI Copilot for Contact Form 7"
+msgid "Shaikat AI Inbox for Contact Form 7"
 msgstr ""
 
 #. Plugin URI of the plugin
 #: cf7-ai-copilot.php
-msgid "https://wordpress.org/plugins/cf7-ai-copilot/"
+msgid "https://wordpress.org/plugins/shaikat-ai-inbox-for-contact-form-7/"
 msgstr ""
 
 #. Description of the plugin
 #: cf7-ai-copilot.php
-msgid "Adds an AI Inbox to a single Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key."
+msgid "Adds an AI Inbox to your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key."
 msgstr ""
 
 #. Author of the plugin
@@ -34,37 +34,34 @@ msgstr ""
 msgid "Shaikat"
 msgstr ""
 
-#: admin/views/tab-general.php:37
+#: admin/views/tab-general.php:38
 msgid "No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it."
 msgstr ""
 
-#: admin/views/tab-general.php:46
+#: admin/views/tab-general.php:47
 msgid "Enable AI Copilot"
 msgstr ""
 
-#: admin/views/tab-general.php:57
-msgid "Analyze new submissions to the form below and add them to the AI Inbox for your review."
+#: admin/views/tab-general.php:58
+msgid "Analyze new submissions to the forms checked below and add them to the AI Inbox for your review."
 msgstr ""
 
-#: admin/views/tab-general.php:60
+#: admin/views/tab-general.php:61
 msgid "The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself."
 msgstr ""
 
-#: admin/views/tab-general.php:66
-msgid "Contact Form 7 form"
+#: admin/views/tab-general.php:67
+#: admin/views/tab-general.php:72
+msgid "Contact Form 7 forms"
 msgstr ""
 
-#: admin/views/tab-general.php:70
-msgid "— Select a form —"
+#: admin/views/tab-general.php:87
+msgid "Choose which forms should get AI analysis — any number of forms, including all of them."
 msgstr ""
 
-#: admin/views/tab-general.php:78
-msgid "The free plan applies AI to a single form. Choose the one whose submissions should appear in the AI Inbox."
-msgstr ""
-
-#: admin/views/tab-general.php:85
-#: admin/views/tab-prompt.php:57
-#: admin/views/tab-provider.php:104
+#: admin/views/tab-general.php:94
+#: admin/views/tab-prompt.php:59
+#: admin/views/tab-provider.php:105
 msgid "Save Changes"
 msgstr ""
 
@@ -73,7 +70,7 @@ msgid "How it works"
 msgstr ""
 
 #: admin/views/tab-help.php:19
-msgid "When a visitor submits your chosen Contact Form 7 form, this plugin sends it to your configured AI provider, which analyzes it and drafts a summary, a suggested reply, a category, a priority, and a confidence score. All of this appears as a new entry in your AI Inbox — nothing is ever emailed automatically. Review the suggestion, edit the reply if you like, and click \"Send Reply\" only when you are ready. Nothing is sent to any AI provider until you save a valid API key on the AI Provider tab."
+msgid "When a visitor submits one of your chosen Contact Form 7 forms, this plugin sends it to your configured AI provider, which analyzes it and drafts a summary, a suggested reply, a category, a priority, and a confidence score. All of this appears as a new entry in your AI Inbox — nothing is ever emailed automatically. Review the suggestion, edit the reply if you like, and click \"Send Reply\" only when you are ready. Nothing is sent to any AI provider until you save a valid API key on the AI Provider tab."
 msgstr ""
 
 #: admin/views/tab-help.php:22
@@ -109,174 +106,158 @@ msgid "Provider pricing and available models change over time — always confirm
 msgstr ""
 
 #: admin/views/tab-help.php:58
-msgid "Free plan limits"
-msgstr ""
-
-#: admin/views/tab-help.php:60
-msgid "The free plan applies AI to a single Contact Form 7 form and allows up to 20 AI generations per calendar month. If the limit is reached, AI features pause until the next month — Contact Form 7 itself is never affected."
-msgstr ""
-
-#: admin/views/tab-help.php:63
 msgid "Privacy"
 msgstr ""
 
-#: admin/views/tab-help.php:65
-msgid "The text a visitor submits to your chosen form is sent only to the AI provider you configure, solely to generate the summary, suggested reply, and classification shown in the AI Inbox. This plugin does not collect analytics or telemetry, and does not send any data to its author."
+#: admin/views/tab-help.php:60
+msgid "The text a visitor submits to one of your chosen forms is sent only to the AI provider you configure, solely to generate the summary, suggested reply, and classification shown in the AI Inbox. This plugin does not collect analytics or telemetry, and does not send any data to its author."
 msgstr ""
 
-#: admin/views/tab-prompt.php:30
+#: admin/views/tab-prompt.php:32
 msgid "System prompt"
 msgstr ""
 
-#: admin/views/tab-prompt.php:45
+#: admin/views/tab-prompt.php:47
 msgid "This instructs the AI how to behave. It is combined with the visitor's submitted message only — no other data is sent."
 msgstr ""
 
-#: admin/views/tab-prompt.php:49
+#: admin/views/tab-prompt.php:51
 msgid "Reset to Default"
 msgstr ""
 
-#: admin/views/tab-provider.php:30
-#: admin/views/tab-usage.php:38
-#: includes/Admin/DashboardPage.php:206
+#: admin/views/tab-provider.php:31
+#: admin/views/tab-usage.php:36
+#: includes/Admin/DashboardPage.php:168
 msgid "Provider"
 msgstr ""
 
-#: admin/views/tab-provider.php:44
-#: includes/Admin/DashboardPage.php:212
+#: admin/views/tab-provider.php:45
+#: includes/Admin/DashboardPage.php:174
 msgid "API Key"
 msgstr ""
 
-#: admin/views/tab-provider.php:53
+#: admin/views/tab-provider.php:54
 msgid "Leave blank to keep the current key"
 msgstr ""
 
-#: admin/views/tab-provider.php:53
+#: admin/views/tab-provider.php:54
 msgid "Enter your API key"
 msgstr ""
 
 #. translators: %s: masked API key, e.g. ••••••••••••••••••••1234
-#: admin/views/tab-provider.php:60
+#: admin/views/tab-provider.php:61
 #, php-format
 msgid "Currently set: %s"
 msgstr ""
 
-#: admin/views/tab-provider.php:65
+#: admin/views/tab-provider.php:66
 msgid "No API key has been set yet. AI features stay off until one is saved here."
 msgstr ""
 
-#: admin/views/tab-provider.php:72
-#: admin/views/tab-usage.php:42
-#: includes/Admin/DashboardPage.php:209
+#: admin/views/tab-provider.php:73
+#: admin/views/tab-usage.php:40
+#: includes/Admin/DashboardPage.php:171
 msgid "Model"
 msgstr ""
 
-#: admin/views/tab-provider.php:86
+#: admin/views/tab-provider.php:87
 msgid "— Load models to choose one —"
 msgstr ""
 
-#: admin/views/tab-provider.php:95
+#: admin/views/tab-provider.php:96
 #: includes/Admin/Menu.php:142
 msgid "Load Models"
 msgstr ""
 
-#: admin/views/tab-provider.php:109
+#: admin/views/tab-provider.php:110
 msgid "Test Connection"
 msgstr ""
 
-#: admin/views/tab-usage.php:30
-msgid "Monthly limit"
+#: admin/views/tab-usage.php:28
+msgid "These figures are purely informational — there is no cap on AI analysis. It always runs as long as an API key is configured."
 msgstr ""
 
-#: admin/views/tab-usage.php:34
-msgid "Remaining"
+#: admin/views/tab-usage.php:32
+#: includes/Admin/DashboardPage.php:120
+#: includes/Admin/DashboardWidget.php:108
+msgid "AI Analyses This Month"
 msgstr ""
 
-#: admin/views/tab-usage.php:46
-msgid "Resets on"
+#: admin/views/tab-usage.php:44
+msgid "Count Resets On"
 msgstr ""
 
-#: admin/views/tab-usage.php:50
+#: admin/views/tab-usage.php:48
 msgid "Estimated Token Usage"
 msgstr ""
 
-#. translators: 1: generations used this month, 2: monthly limit
-#: admin/views/tab-usage.php:59
-#, php-format
-msgid "%1$d of %2$d AI generations used this month"
-msgstr ""
-
-#: admin/views/tab-usage.php:71
-msgid "You have reached your monthly AI generation limit. AI features are paused until the next reset date above; Contact Form 7 itself continues to work normally."
-msgstr ""
-
 #. translators: %s: required PHP version
-#: cf7-ai-copilot.php:39
+#: cf7-ai-copilot.php:40
 #, php-format
-msgid "AI Copilot for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
+msgid "Shaikat AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
 msgstr ""
 
 #. translators: %s: required WordPress version
-#: cf7-ai-copilot.php:62
+#: cf7-ai-copilot.php:63
 #, php-format
-msgid "AI Copilot for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
+msgid "Shaikat AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
 msgstr ""
 
 #: includes/Admin/AdminPage.php:105
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:163
+#: includes/Admin/AdminPage.php:177
 #: includes/Admin/DashboardWidget.php:75
 #: includes/Admin/Menu.php:87
 #: includes/Admin/Menu.php:88
 msgid "AI Copilot"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:166
+#: includes/Admin/AdminPage.php:180
 msgid "AI Copilot sections"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:173
-#: includes/Admin/AdminPage.php:253
+#: includes/Admin/AdminPage.php:187
+#: includes/Admin/AdminPage.php:267
 msgid "Dashboard"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:182
-#: includes/Admin/AdminPage.php:264
+#: includes/Admin/AdminPage.php:196
+#: includes/Admin/AdminPage.php:278
 msgid "AI Inbox"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:191
+#: includes/Admin/AdminPage.php:205
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:223
-#: includes/Admin/DashboardPage.php:349
+#: includes/Admin/AdminPage.php:237
+#: includes/Admin/DashboardPage.php:311
 msgid "Rate Us"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:232
+#: includes/Admin/AdminPage.php:246
 msgid "Edit Profile"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:233
+#: includes/Admin/AdminPage.php:247
 msgid "Log Out"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:254
+#: includes/Admin/AdminPage.php:268
 msgid "An overview of your AI Copilot activity."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:259
+#: includes/Admin/AdminPage.php:273
 msgid "Submission Review"
 msgstr ""
 
-#: includes/Admin/AdminPage.php:265
+#: includes/Admin/AdminPage.php:279
 msgid "Review AI-drafted summaries and suggested replies before anything is sent."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:309
+#: includes/Admin/AdminPage.php:323
 msgid "Settings saved."
 msgstr ""
 
@@ -337,168 +318,141 @@ msgstr ""
 msgid "Deleted."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:110
-#: includes/Admin/DashboardWidget.php:97
+#: includes/Admin/DashboardPage.php:108
+#: includes/Admin/DashboardWidget.php:96
 msgid "New Today"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:114
-#: includes/Admin/DashboardWidget.php:101
+#: includes/Admin/DashboardPage.php:112
+#: includes/Admin/DashboardWidget.php:100
 msgid "Needs Review"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:118
+#: includes/Admin/DashboardPage.php:116
 msgid "Replied This Month"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:122
-#: includes/Admin/DashboardWidget.php:109
-msgid "Monthly AI Usage"
-msgstr ""
-
-#: includes/Admin/DashboardPage.php:140
+#: includes/Admin/DashboardPage.php:138
 msgid "Usage Overview"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:142
+#: includes/Admin/DashboardPage.php:140
 msgid "Successful AI analyses per day, last 30 days."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:160
-msgid "Monthly Quota"
-msgstr ""
-
-#. translators: 1: generations used this month, 2: monthly limit
 #: includes/Admin/DashboardPage.php:166
-#, php-format
-msgid "%1$d of %2$d used"
-msgstr ""
-
-#. translators: %s: date usage resets
-#: includes/Admin/DashboardPage.php:176
-#, php-format
-msgid "Resets on %s"
-msgstr ""
-
-#: includes/Admin/DashboardPage.php:204
 #: includes/Admin/SettingsPage.php:115
 msgid "AI Provider"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:215
+#: includes/Admin/DashboardPage.php:177
 msgid "Configured"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:217
+#: includes/Admin/DashboardPage.php:179
 msgid "Not Set"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:221
+#: includes/Admin/DashboardPage.php:183
 msgid "Last Test"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:226
+#: includes/Admin/DashboardPage.php:188
 msgid "Connected"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:228
+#: includes/Admin/DashboardPage.php:190
 msgid "Failed"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:244
+#: includes/Admin/DashboardPage.php:206
 msgid "Manage Provider"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:258
+#: includes/Admin/DashboardPage.php:220
 msgid "Recent Submissions"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:260
-#: includes/Admin/DashboardWidget.php:114
+#: includes/Admin/DashboardPage.php:222
+#: includes/Admin/DashboardWidget.php:113
 msgid "No submissions yet."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:265
-#: includes/Admin/DashboardPage.php:284
+#: includes/Admin/DashboardPage.php:227
+#: includes/Admin/DashboardPage.php:246
 #: includes/Admin/InboxView.php:85
 #: includes/Admin/InboxView.php:109
 #: includes/Admin/SubmissionDetailPage.php:109
 msgid "Name"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:266
-#: includes/Admin/DashboardPage.php:287
+#: includes/Admin/DashboardPage.php:228
+#: includes/Admin/DashboardPage.php:249
 msgid "Summary"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:267
-#: includes/Admin/DashboardPage.php:290
+#: includes/Admin/DashboardPage.php:229
+#: includes/Admin/DashboardPage.php:252
 #: includes/Admin/InboxView.php:89
 #: includes/Admin/InboxView.php:119
 #: includes/Admin/SubmissionDetailPage.php:271
 msgid "Priority"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:268
-#: includes/Admin/DashboardPage.php:299
+#: includes/Admin/DashboardPage.php:230
+#: includes/Admin/DashboardPage.php:261
 #: includes/Admin/InboxView.php:88
 #: includes/Admin/InboxView.php:116
 msgid "Date"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:280
-#: includes/Admin/DashboardWidget.php:125
+#: includes/Admin/DashboardPage.php:242
+#: includes/Admin/DashboardWidget.php:124
 msgid "(unknown)"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:307
-#: includes/Admin/DashboardWidget.php:141
+#: includes/Admin/DashboardPage.php:269
+#: includes/Admin/DashboardWidget.php:140
 msgid "Open AI Inbox"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:334
+#: includes/Admin/DashboardPage.php:296
 msgid "Set up your AI Provider"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:335
+#: includes/Admin/DashboardPage.php:297
 msgid "Add your API key and pick a model so new submissions get an AI summary and suggested reply."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:336
+#: includes/Admin/DashboardPage.php:298
 msgid "Go to AI Provider"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:340
+#: includes/Admin/DashboardPage.php:302
 msgid "Customize your prompt"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:341
+#: includes/Admin/DashboardPage.php:303
 msgid "Tune the base system prompt to match your tone, policies, and the kind of replies you want drafted."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:342
+#: includes/Admin/DashboardPage.php:304
 msgid "Edit Prompt"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:346
+#: includes/Admin/DashboardPage.php:308
 msgid "Enjoying AI Copilot?"
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:347
+#: includes/Admin/DashboardPage.php:309
 msgid "A quick review on WordPress.org helps other site owners find this plugin."
 msgstr ""
 
-#: includes/Admin/DashboardPage.php:397
+#: includes/Admin/DashboardPage.php:359
 msgid "Daily AI analyses over the last 30 days"
 msgstr ""
 
-#. translators: %d: percentage of monthly quota used
-#: includes/Admin/DashboardPage.php:429
-#, php-format
-msgid "%d%% of monthly quota used"
-msgstr ""
-
-#: includes/Admin/DashboardWidget.php:105
+#: includes/Admin/DashboardWidget.php:104
 msgid "Replies Sent"
 msgstr ""
 
@@ -625,10 +579,6 @@ msgid "No API Key"
 msgstr ""
 
 #: includes/Admin/InboxView.php:371
-msgid "Quota Reached"
-msgstr ""
-
-#: includes/Admin/InboxView.php:372
 msgid "AI Failed"
 msgstr ""
 
@@ -657,12 +607,12 @@ msgid "Permanently delete this submission? This cannot be undone."
 msgstr ""
 
 #: includes/Admin/Notices.php:107
-msgid "AI Copilot for Contact Form 7:"
+msgid "Shaikat AI Inbox for Contact Form 7:"
 msgstr ""
 
 #: includes/Admin/SettingsController.php:65
-#: includes/Admin/SettingsController.php:87
-#: includes/Admin/SettingsController.php:110
+#: includes/Admin/SettingsController.php:90
+#: includes/Admin/SettingsController.php:113
 msgid "You do not have permission to change these settings."
 msgstr ""
 
@@ -845,11 +795,11 @@ msgstr ""
 msgid "Unknown AI provider: %s"
 msgstr ""
 
-#: includes/Plugin.php:186
+#: includes/Plugin.php:184
 msgid "AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead."
 msgstr ""
 
-#: includes/Plugin.php:215
+#: includes/Plugin.php:200
 msgid "This plugin requires Contact Form 7 to be installed and active."
 msgstr ""
 
@@ -885,8 +835,4 @@ msgstr ""
 
 #: includes/Services/SubmissionService.php:112
 msgid "No API key has been configured."
-msgstr ""
-
-#: includes/Services/SubmissionService.php:126
-msgid "The monthly AI generation quota has been reached."
 msgstr ""

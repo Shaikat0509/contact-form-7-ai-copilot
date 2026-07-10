@@ -97,17 +97,17 @@ final class AjaxController {
 	 */
 	public function handle_test_connection(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$provider = isset( $_POST['provider'] ) ? sanitize_key( wp_unslash( $_POST['provider'] ) ) : '';
 
 		if ( ! array_key_exists( $provider, Repository::PROVIDERS ) ) {
-			wp_send_json_error( array( 'message' => __( 'Please choose a valid provider.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Please choose a valid provider.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 		}
 
 		$model         = isset( $_POST['model'] ) ? sanitize_text_field( wp_unslash( $_POST['model'] ) ) : '';
@@ -140,17 +140,17 @@ final class AjaxController {
 	 */
 	public function handle_list_models(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$provider = isset( $_POST['provider'] ) ? sanitize_key( wp_unslash( $_POST['provider'] ) ) : '';
 
 		if ( ! array_key_exists( $provider, Repository::PROVIDERS ) ) {
-			wp_send_json_error( array( 'message' => __( 'Please choose a valid provider.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Please choose a valid provider.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 		}
 
 		$submitted_key = isset( $_POST['api_key'] ) ? sanitize_text_field( wp_unslash( $_POST['api_key'] ) ) : '';
@@ -165,7 +165,7 @@ final class AjaxController {
 		}
 
 		if ( empty( $models ) ) {
-			wp_send_json_error( array( 'message' => __( 'No models were returned by the provider.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'No models were returned by the provider.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 		}
 
 		wp_send_json_success( array( 'models' => $models ) );
@@ -180,11 +180,11 @@ final class AjaxController {
 	 */
 	public function handle_send_reply(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$id    = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
@@ -193,7 +193,7 @@ final class AjaxController {
 		$entry = $this->submissions->get( $id );
 
 		if ( null === $entry ) {
-			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 			return;
 		}
 
@@ -213,26 +213,26 @@ final class AjaxController {
 	 */
 	public function handle_save_draft(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$id    = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 		$reply = isset( $_POST['reply'] ) ? sanitize_textarea_field( wp_unslash( $_POST['reply'] ) ) : '';
 
 		if ( null === $this->submissions->get( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 			return;
 		}
 
 		if ( $this->submissions->save_draft_reply( $id, $reply ) ) {
-			wp_send_json_success( array( 'message' => __( 'Draft saved.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_success( array( 'message' => __( 'Draft saved.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 		}
 
-		wp_send_json_error( array( 'message' => __( 'Could not save the draft.', 'cf7-ai-copilot' ) ) );
+		wp_send_json_error( array( 'message' => __( 'Could not save the draft.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 	}
 
 	/**
@@ -242,23 +242,23 @@ final class AjaxController {
 	 */
 	public function handle_mark_reviewed(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$id = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 
 		if ( null === $this->submissions->get( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 			return;
 		}
 
 		$this->submissions->mark_reviewed( $id, get_current_user_id() );
 
-		wp_send_json_success( array( 'message' => __( 'Marked as reviewed.', 'cf7-ai-copilot' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Marked as reviewed.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 	}
 
 	/**
@@ -268,23 +268,23 @@ final class AjaxController {
 	 */
 	public function handle_archive(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$id = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 
 		if ( null === $this->submissions->get( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 			return;
 		}
 
 		$this->submissions->archive( $id );
 
-		wp_send_json_success( array( 'message' => __( 'Archived.', 'cf7-ai-copilot' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Archived.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 	}
 
 	/**
@@ -294,23 +294,23 @@ final class AjaxController {
 	 */
 	public function handle_delete_submission(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		if ( ! check_ajax_referer( self::NONCE_ACTION, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'cf7-ai-copilot' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Security check failed. Please reload the page and try again.', 'shaikat-ai-inbox-for-contact-form-7' ) ), 403 );
 		}
 
 		$id = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 
 		if ( null === $this->submissions->get( $id ) ) {
-			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'cf7-ai-copilot' ) ) );
+			wp_send_json_error( array( 'message' => __( 'That submission could not be found.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 			return;
 		}
 
 		$this->submissions->delete( $id );
 
-		wp_send_json_success( array( 'message' => __( 'Deleted.', 'cf7-ai-copilot' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Deleted.', 'shaikat-ai-inbox-for-contact-form-7' ) ) );
 	}
 
 	/**

@@ -181,7 +181,7 @@ final class Plugin {
 		delete_option( 'cf7aic_show_migration_notice' );
 
 		$this->notices->add_success(
-			__( 'AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead.', 'cf7-ai-copilot' )
+			__( 'AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead.', 'shaikat-ai-inbox-for-contact-form-7' )
 		);
 	}
 
@@ -197,7 +197,7 @@ final class Plugin {
 	private function check_dependencies(): void {
 		if ( ! defined( 'WPCF7_VERSION' ) ) {
 			$this->notices->add_error(
-				__( 'This plugin requires Contact Form 7 to be installed and active.', 'cf7-ai-copilot' )
+				__( 'This plugin requires Contact Form 7 to be installed and active.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 
 			return;

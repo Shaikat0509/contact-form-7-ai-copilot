@@ -71,7 +71,7 @@ final class OpenRouterProvider extends AbstractProvider {
 
 		if ( 200 === $result['code'] ) {
 			return $this->success(
-				__( 'API key is valid. Model availability is not verified by this test — double-check the model slug on the Help tab.', 'cf7-ai-copilot' )
+				__( 'API key is valid. Model availability is not verified by this test — double-check the model slug on the Help tab.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 
@@ -122,7 +122,7 @@ final class OpenRouterProvider extends AbstractProvider {
 
 		if ( ! is_string( $content ) || '' === trim( $content ) ) {
 			throw new ProviderException(
-				esc_html__( 'OpenRouter returned an empty response.', 'cf7-ai-copilot' )
+				esc_html__( 'OpenRouter returned an empty response.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 

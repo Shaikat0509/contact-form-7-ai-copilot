@@ -55,7 +55,7 @@ final class AIService {
 
 		if ( '' === $summary && '' === $reply ) {
 			throw new ProviderException(
-				esc_html__( 'The AI response did not contain a usable summary or suggested reply.', 'cf7-ai-copilot' )
+				esc_html__( 'The AI response did not contain a usable summary or suggested reply.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 
@@ -91,7 +91,7 @@ final class AIService {
 
 		if ( ! is_array( $decoded ) ) {
 			throw new ProviderException(
-				esc_html__( 'The AI response was not valid JSON.', 'cf7-ai-copilot' )
+				esc_html__( 'The AI response was not valid JSON.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 

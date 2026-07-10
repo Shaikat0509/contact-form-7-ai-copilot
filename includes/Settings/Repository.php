@@ -82,12 +82,12 @@ final class Repository {
 	 * suggested reply, and classification together, there is no
 	 * independent "reply only" or "summary only" mode to toggle.
 	 *
-	 * @return array{enabled: bool, form_id: int}
+	 * @return array{enabled: bool, form_ids: array<int, int>}
 	 */
 	public function get_general(): array {
 		$defaults = array(
-			'enabled' => false,
-			'form_id' => 0,
+			'enabled'  => false,
+			'form_ids' => array(),
 		);
 
 		$stored = get_option( self::OPTION_GENERAL, array() );
@@ -96,27 +96,36 @@ final class Repository {
 			$stored = array();
 		}
 
-		return array_merge( $defaults, $stored );
+		$settings = array_merge( $defaults, $stored );
+
+		$settings['form_ids'] = array_values( array_unique( array_map( 'absint', (array) $settings['form_ids'] ) ) );
+
+		return $settings;
 	}
 
 	/**
 	 * Validates and saves the general settings.
 	 *
-	 * @param array{enabled: bool, form_id: int} $input Raw input.
+	 * @param array{enabled: bool, form_ids: array<int, int>} $input Raw input.
 	 *
 	 * @return void
 	 */
 	public function save_general( array $input ): void {
-		$form_id = absint( $input['form_id'] ?? 0 );
+		$form_ids = array_map( 'absint', (array) ( $input['form_ids'] ?? array() ) );
 
 		// A form can only be selected if it actually exists as a CF7 form.
-		if ( $form_id > 0 && 'wpcf7_contact_form' !== get_post_type( $form_id ) ) {
-			$form_id = 0;
-		}
+		$form_ids = array_values(
+			array_filter(
+				$form_ids,
+				static function ( int $form_id ): bool {
+					return $form_id > 0 && 'wpcf7_contact_form' === get_post_type( $form_id );
+				}
+			)
+		);
 
 		$settings = array(
-			'enabled' => ! empty( $input['enabled'] ),
-			'form_id' => $form_id,
+			'enabled'  => ! empty( $input['enabled'] ),
+			'form_ids' => $form_ids,
 		);
 
 		update_option( self::OPTION_GENERAL, $settings, true );

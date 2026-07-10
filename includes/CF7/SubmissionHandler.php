@@ -78,7 +78,7 @@ final class SubmissionHandler {
 
 		$general = $this->repository->get_general();
 
-		if ( ! $general['enabled'] || 0 === $general['form_id'] || $general['form_id'] !== $contact_form->id() ) {
+		if ( ! $general['enabled'] || ! in_array( $contact_form->id(), $general['form_ids'], true ) ) {
 			return;
 		}
 

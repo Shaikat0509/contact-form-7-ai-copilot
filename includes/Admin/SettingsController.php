@@ -62,15 +62,18 @@ final class SettingsController {
 	 */
 	public function handle_save_general(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'cf7-ai-copilot' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_general', 'cf7aic_nonce' );
 
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash -- array of integer-like strings; each is passed through absint() below, so wp_unslash() would be a no-op.
+		$raw_form_ids = isset( $_POST['form_ids'] ) && is_array( $_POST['form_ids'] ) ? $_POST['form_ids'] : array();
+
 		$this->repository->save_general(
 			array(
-				'enabled' => isset( $_POST['enabled'] ),
-				'form_id' => isset( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0,
+				'enabled'  => isset( $_POST['enabled'] ),
+				'form_ids' => array_map( 'absint', $raw_form_ids ),
 			)
 		);
 
@@ -84,7 +87,7 @@ final class SettingsController {
 	 */
 	public function handle_save_provider(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'cf7-ai-copilot' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_provider', 'cf7aic_nonce' );
@@ -107,7 +110,7 @@ final class SettingsController {
 	 */
 	public function handle_save_prompt(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'cf7-ai-copilot' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_prompt', 'cf7aic_nonce' );

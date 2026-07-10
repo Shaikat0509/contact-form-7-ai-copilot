@@ -1,15 +1,16 @@
 <?php
 /**
- * Plugin Name:       AI Copilot for Contact Form 7
- * Plugin URI:        https://wordpress.org/plugins/cf7-ai-copilot/
- * Description:       Adds an AI Inbox to a single Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key.
+ * Plugin Name:       Shaikat AI Inbox for Contact Form 7
+ * Plugin URI:        https://wordpress.org/plugins/shaikat-ai-inbox-for-contact-form-7/
+ * Description:       Adds an AI Inbox to your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key.
  * Version:           1.0.0
  * Requires at least: 6.8
  * Requires PHP:      8.1
+ * Requires Plugins:  contact-form-7
  * Author:            Shaikat
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       cf7-ai-copilot
+ * Text Domain:       shaikat-ai-inbox-for-contact-form-7
  * Domain Path:       /languages
  *
  * @package CF7AIC
@@ -36,7 +37,7 @@ if ( version_compare( PHP_VERSION, '8.1', '<' ) ) {
 				esc_html(
 					sprintf(
 						/* translators: %s: required PHP version */
-						__( 'AI Copilot for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP.', 'cf7-ai-copilot' ),
+						__( 'Shaikat AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP.', 'shaikat-ai-inbox-for-contact-form-7' ),
 						'8.1'
 					)
 				)
@@ -59,7 +60,7 @@ if ( version_compare( $GLOBALS['wp_version'], '6.8', '<' ) ) {
 				esc_html(
 					sprintf(
 						/* translators: %s: required WordPress version */
-						__( 'AI Copilot for Contact Form 7 requires WordPress %s or higher. Please update WordPress.', 'cf7-ai-copilot' ),
+						__( 'Shaikat AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress.', 'shaikat-ai-inbox-for-contact-form-7' ),
 						'6.8'
 					)
 				)
@@ -80,7 +81,6 @@ define( 'CF7AIC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CF7AIC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'CF7AIC_INCLUDES_DIR', CF7AIC_PLUGIN_DIR . 'includes/' );
 define( 'CF7AIC_TEMPLATES_DIR', CF7AIC_PLUGIN_DIR . 'templates/' );
-define( 'CF7AIC_MONTHLY_LIMIT', 20 );
 
 /**
  * Autoloader bootstrap.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Tracks and enforces the monthly AI generation quota.
+ * Tracks (informational only) how much AI generation has run this month.
  *
  * @package CF7AIC\Services
  */
@@ -15,11 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class UsageTracker
  *
- * The free plan allows a fixed number of AI generations per calendar
- * month (see `CF7AIC_MONTHLY_LIMIT`). Usage is stored as a single option
- * containing the month it applies to and a running count; the count is
- * reset lazily — the first time this class is used in a new month — so
- * no cron job is required to keep it accurate.
+ * A purely informational counter for the Usage tab/Dashboard — there is
+ * no cap and nothing is ever blocked once a count is reached; AI analysis
+ * always runs as long as an API key is configured. Usage is stored as a
+ * single option containing the month it applies to and a running count;
+ * the count is reset lazily — the first time this class is used in a new
+ * month — so no cron job is required to keep it accurate.
  */
 final class UsageTracker {
 
@@ -42,16 +43,7 @@ final class UsageTracker {
 	private const AVERAGE_TOKENS_PER_GENERATION = 800;
 
 	/**
-	 * Returns the monthly generation limit.
-	 *
-	 * @return int
-	 */
-	public function get_limit(): int {
-		return (int) CF7AIC_MONTHLY_LIMIT;
-	}
-
-	/**
-	 * Returns the number of AI generations used so far this month.
+	 * Returns the number of AI generations run so far this month.
 	 *
 	 * @return int
 	 */
@@ -60,29 +52,7 @@ final class UsageTracker {
 	}
 
 	/**
-	 * Returns the number of AI generations remaining this month.
-	 *
-	 * @return int
-	 */
-	public function get_remaining(): int {
-		return max( 0, $this->get_limit() - $this->get_count() );
-	}
-
-	/**
-	 * Returns whether the monthly quota has been reached.
-	 *
-	 * @return bool
-	 */
-	public function is_limit_reached(): bool {
-		return $this->get_count() >= $this->get_limit();
-	}
-
-	/**
-	 * Records one AI generation against the current month's quota.
-	 *
-	 * Callers are expected to check {@see self::is_limit_reached()} first;
-	 * this method does not itself refuse to increment past the limit, so
-	 * usage figures remain accurate even if called concurrently.
+	 * Records one AI generation against this month's informational count.
 	 *
 	 * @return void
 	 */
@@ -105,8 +75,10 @@ final class UsageTracker {
 	}
 
 	/**
-	 * Returns the date usage will next reset (the first day of next month),
-	 * formatted using the site's configured date format.
+	 * Returns the date the informational monthly count will next restart
+	 * from zero (the first day of next month), formatted using the site's
+	 * configured date format. Purely informational — nothing is disabled
+	 * before or after this date.
 	 *
 	 * @return string
 	 */

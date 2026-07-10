@@ -231,7 +231,6 @@
 	flex: 2 1 380px;
 }
 
-.cf7aic-donut-card,
 .cf7aic-provider-card {
 	flex: 1 1 280px;
 }
@@ -261,38 +260,6 @@
 
 .cf7aic-chart-svg__point {
 	fill: var(--color-accent);
-}
-
-.cf7aic-donut-card {
-	@apply flex flex-col items-center justify-center text-center;
-}
-
-.cf7aic-donut-svg {
-	@apply my-1.5;
-}
-
-.cf7aic-donut-svg__track {
-	stroke: #f0f0f1;
-}
-
-.cf7aic-donut-svg__fill {
-	stroke: var(--color-accent);
-	stroke-linecap: round;
-	transition: stroke-dashoffset 0.3s ease-out;
-}
-
-.cf7aic-donut-svg__text {
-	font-weight: 700;
-	fill: #1d2327;
-	font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
-}
-
-.cf7aic-donut-card__caption {
-	@apply mt-1 font-semibold;
-}
-
-.cf7aic-donut-card__reset {
-	@apply mt-0.5 text-xs text-[#646970];
 }
 
 .cf7aic-provider-card p {
@@ -376,6 +343,12 @@
 	@apply rounded-full transition-[width] duration-300 ease-out;
 }
 
+/* ---------- Form checkbox list (General tab) ---------- */
+
+.cf7aic-form-checkbox {
+	@apply flex items-center gap-2 mb-2;
+}
+
 /* ---------- Model loader row (AI Provider tab) ---------- */
 
 .cf7aic-model-row {
@@ -446,8 +419,7 @@
 	@apply bg-[#fcf0f1] text-[#d63638];
 }
 
-.cf7aic-badge--no_api_key,
-.cf7aic-badge--quota_reached {
+.cf7aic-badge--no_api_key {
 	@apply bg-[#f0f0f1] text-[#646970];
 }
 

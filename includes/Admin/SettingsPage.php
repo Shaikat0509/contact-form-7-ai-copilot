@@ -111,11 +111,11 @@ final class SettingsPage {
 	 */
 	public function get_tab_label( string $slug ): string {
 		$labels = array(
-			'general'  => __( 'General', 'cf7-ai-copilot' ),
-			'provider' => __( 'AI Provider', 'cf7-ai-copilot' ),
-			'prompt'   => __( 'Prompt', 'cf7-ai-copilot' ),
-			'usage'    => __( 'Usage', 'cf7-ai-copilot' ),
-			'help'     => __( 'Help', 'cf7-ai-copilot' ),
+			'general'  => __( 'General', 'shaikat-ai-inbox-for-contact-form-7' ),
+			'provider' => __( 'AI Provider', 'shaikat-ai-inbox-for-contact-form-7' ),
+			'prompt'   => __( 'Prompt', 'shaikat-ai-inbox-for-contact-form-7' ),
+			'usage'    => __( 'Usage', 'shaikat-ai-inbox-for-contact-form-7' ),
+			'help'     => __( 'Help', 'shaikat-ai-inbox-for-contact-form-7' ),
 		);
 
 		return $labels[ $slug ] ?? $slug;

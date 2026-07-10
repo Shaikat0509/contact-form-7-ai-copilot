@@ -90,13 +90,6 @@ final class SubmissionsRepository {
 	public const AI_STATUS_NO_API_KEY = 'no_api_key';
 
 	/**
-	 * The monthly quota was already exhausted, so no generation was attempted.
-	 *
-	 * @var string
-	 */
-	public const AI_STATUS_QUOTA_REACHED = 'quota_reached';
-
-	/**
 	 * Maximum number of rows retained. Older rows are pruned on insert.
 	 *
 	 * @var int

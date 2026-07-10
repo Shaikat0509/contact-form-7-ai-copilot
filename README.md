@@ -1,6 +1,6 @@
-# AI Copilot for Contact Form 7
+# Shaikat AI Inbox for Contact Form 7
 
-An AI Inbox for one Contact Form 7 form: every submission gets an AI-drafted summary, suggested reply, and priority for you to review and send — nothing is ever emailed automatically.
+An AI Inbox for your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, and priority for you to review and send — nothing is ever emailed automatically.
 
 ![License: GPL v2+](https://img.shields.io/badge/license-GPLv2%2B-blue.svg)
 ![Requires PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-777bb4.svg)
@@ -36,18 +36,13 @@ The plugin does not include or resell AI access — you provide your own API key
 
 Once a key is entered, the Model field becomes a dropdown populated live from that provider's API. No request is ever sent to an AI provider until a valid key is configured.
 
-## Free plan limits
-
-- One Contact Form 7 form
-- 20 AI analyses per calendar month, resetting on the 1st
-
 ## Installation
 
 1. Install and activate [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) (required).
-2. Upload and activate AI Copilot for Contact Form 7.
+2. Upload and activate Shaikat AI Inbox for Contact Form 7.
 3. Go to **Contact → AI Copilot → Settings**.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model, and run the connection test.
-5. On the **General** tab, turn on AI Copilot and choose the one form it should apply to.
+5. On the **General** tab, turn on AI Copilot and choose which form(s) it should apply to.
 6. Optionally customize the base system prompt on the **Prompt** tab.
 7. Switch to the **AI Inbox** section any time to review and send replies.
 
@@ -55,7 +50,9 @@ See [`readme.txt`](readme.txt) for the full WordPress.org-format description, FA
 
 ## Privacy
 
-The text a visitor submits is sent only to the AI provider you configure, solely to generate the summary/reply/classification shown in the AI Inbox — never to the plugin author, and no telemetry is collected. The plugin keeps a local log (most recent 200 submissions to your configured form) in your own database only; it's pruned automatically and deleted entirely on uninstall.
+The text a visitor submits is sent only to the AI provider you configure, solely to generate the summary/reply/classification shown in the AI Inbox — never to the plugin author, and no telemetry is collected. The plugin keeps a local log (most recent 200 submissions to your configured forms) in your own database only; it's pruned automatically and deleted entirely on uninstall.
+
+See [`readme.txt`](readme.txt) for the full list of external AI providers this plugin can connect to, and links to each one's Terms of Service and Privacy Policy.
 
 ## Development
 

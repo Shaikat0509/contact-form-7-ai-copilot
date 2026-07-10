@@ -21,11 +21,11 @@ use CF7AIC\Settings\Repository;
 /**
  * Class SubmissionService
  *
- * The only business logic Contact Form 7 integration needs: check quota,
- * run one AI analysis call, store the result. This class never sends
- * mail — a row is always just logged with `status = new`, and only an
- * explicit "Send Reply" action from the AI Inbox (handled by
- * {@see ReplyService}) ever emails the visitor.
+ * The only business logic Contact Form 7 integration needs: run one AI
+ * analysis call and store the result. This class never sends mail — a
+ * row is always just logged with `status = new`, and only an explicit
+ * "Send Reply" action from the AI Inbox (handled by {@see ReplyService})
+ * ever emails the visitor.
  */
 final class SubmissionService {
 
@@ -75,7 +75,7 @@ final class SubmissionService {
 	/**
 	 * Processes one submission end to end and always records exactly one
 	 * row in the Submissions log — whether AI analysis succeeded, failed,
-	 * or was never attempted (missing key, quota reached).
+	 * or was never attempted (missing key).
 	 *
 	 * @param \WPCF7_ContactForm $contact_form The form that was submitted.
 	 * @param \WPCF7_Submission  $submission   The current submission.
@@ -109,21 +109,7 @@ final class SubmissionService {
 					$base,
 					array(
 						'ai_status'     => SubmissionsRepository::AI_STATUS_NO_API_KEY,
-						'error_message' => __( 'No API key has been configured.', 'cf7-ai-copilot' ),
-					)
-				)
-			);
-
-			return;
-		}
-
-		if ( $this->usage_tracker->is_limit_reached() ) {
-			$this->submissions->insert(
-				array_merge(
-					$base,
-					array(
-						'ai_status'     => SubmissionsRepository::AI_STATUS_QUOTA_REACHED,
-						'error_message' => __( 'The monthly AI generation quota has been reached.', 'cf7-ai-copilot' ),
+						'error_message' => __( 'No API key has been configured.', 'shaikat-ai-inbox-for-contact-form-7' ),
 					)
 				)
 			);

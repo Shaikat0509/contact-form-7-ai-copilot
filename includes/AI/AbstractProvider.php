@@ -63,7 +63,7 @@ abstract class AbstractProvider implements AIProviderInterface {
 	protected function require_api_key(): void {
 		if ( '' === $this->api_key ) {
 			throw new ProviderException(
-				esc_html__( 'No API key has been configured for this provider.', 'cf7-ai-copilot' )
+				esc_html__( 'No API key has been configured for this provider.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 	}
@@ -81,7 +81,7 @@ abstract class AbstractProvider implements AIProviderInterface {
 
 		if ( '' === $this->model ) {
 			throw new ProviderException(
-				esc_html__( 'No model has been configured for this provider.', 'cf7-ai-copilot' )
+				esc_html__( 'No model has been configured for this provider.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 	}
@@ -113,7 +113,7 @@ abstract class AbstractProvider implements AIProviderInterface {
 			throw new ProviderException(
 				sprintf(
 					/* translators: %s: underlying transport error message */
-					esc_html__( 'Could not reach the AI provider: %s', 'cf7-ai-copilot' ),
+					esc_html__( 'Could not reach the AI provider: %s', 'shaikat-ai-inbox-for-contact-form-7' ),
 					esc_html( $response->get_error_message() )
 				)
 			);
@@ -148,7 +148,7 @@ abstract class AbstractProvider implements AIProviderInterface {
 
 		return sprintf(
 			/* translators: %d: HTTP status code */
-			esc_html__( 'The provider returned an unexpected response (HTTP %d).', 'cf7-ai-copilot' ),
+			esc_html__( 'The provider returned an unexpected response (HTTP %d).', 'shaikat-ai-inbox-for-contact-form-7' ),
 			$code
 		);
 	}

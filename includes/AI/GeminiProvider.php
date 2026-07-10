@@ -65,7 +65,7 @@ final class GeminiProvider extends AbstractProvider {
 			return $this->success(
 				sprintf(
 					/* translators: %s: model identifier */
-					__( 'Connected successfully. Model "%s" is available.', 'cf7-ai-copilot' ),
+					__( 'Connected successfully. Model "%s" is available.', 'shaikat-ai-inbox-for-contact-form-7' ),
 					$this->model
 				)
 			);
@@ -118,7 +118,7 @@ final class GeminiProvider extends AbstractProvider {
 
 		if ( ! is_string( $content ) || '' === trim( $content ) ) {
 			throw new ProviderException(
-				esc_html__( 'Gemini returned an empty response.', 'cf7-ai-copilot' )
+				esc_html__( 'Gemini returned an empty response.', 'shaikat-ai-inbox-for-contact-form-7' )
 			);
 		}
 

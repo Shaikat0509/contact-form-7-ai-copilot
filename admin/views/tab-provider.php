@@ -28,7 +28,7 @@ $has_api_key = '' !== $masked_key;
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_provider"><?php esc_html_e( 'Provider', 'cf7-ai-copilot' ); ?></label>
+					<label for="cf7aic_provider"><?php esc_html_e( 'Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<select id="cf7aic_provider" name="provider">
@@ -42,7 +42,7 @@ $has_api_key = '' !== $masked_key;
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_api_key"><?php esc_html_e( 'API Key', 'cf7-ai-copilot' ); ?></label>
+					<label for="cf7aic_api_key"><?php esc_html_e( 'API Key', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<input
@@ -51,26 +51,26 @@ $has_api_key = '' !== $masked_key;
 						name="api_key"
 						class="regular-text"
 						autocomplete="off"
-						placeholder="<?php echo esc_attr( $has_api_key ? __( 'Leave blank to keep the current key', 'cf7-ai-copilot' ) : __( 'Enter your API key', 'cf7-ai-copilot' ) ); ?>"
+						placeholder="<?php echo esc_attr( $has_api_key ? __( 'Leave blank to keep the current key', 'shaikat-ai-inbox-for-contact-form-7' ) : __( 'Enter your API key', 'shaikat-ai-inbox-for-contact-form-7' ) ); ?>"
 					/>
 					<p class="description">
 						<?php if ( $has_api_key ) : ?>
 							<?php
 							printf(
 								/* translators: %s: masked API key, e.g. ••••••••••••••••••••1234 */
-								esc_html__( 'Currently set: %s', 'cf7-ai-copilot' ),
+								esc_html__( 'Currently set: %s', 'shaikat-ai-inbox-for-contact-form-7' ),
 								esc_html( $masked_key )
 							);
 							?>
 						<?php else : ?>
-							<?php esc_html_e( 'No API key has been set yet. AI features stay off until one is saved here.', 'cf7-ai-copilot' ); ?>
+							<?php esc_html_e( 'No API key has been set yet. AI features stay off until one is saved here.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 						<?php endif; ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_model"><?php esc_html_e( 'Model', 'cf7-ai-copilot' ); ?></label>
+					<label for="cf7aic_model"><?php esc_html_e( 'Model', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<div class="cf7aic-model-row">
@@ -84,7 +84,7 @@ $has_api_key = '' !== $masked_key;
 									<?php echo esc_html( $provider['model'] ); ?>
 								</option>
 							<?php else : ?>
-								<option value=""><?php esc_html_e( '— Load models to choose one —', 'cf7-ai-copilot' ); ?></option>
+								<option value=""><?php esc_html_e( '— Load models to choose one —', 'shaikat-ai-inbox-for-contact-form-7' ); ?></option>
 							<?php endif; ?>
 						</select>
 						<button
@@ -93,7 +93,7 @@ $has_api_key = '' !== $masked_key;
 							class="button"
 							data-has-api-key="<?php echo esc_attr( $has_api_key ? '1' : '0' ); ?>"
 						>
-							<?php esc_html_e( 'Load Models', 'cf7-ai-copilot' ); ?>
+							<?php esc_html_e( 'Load Models', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 						</button>
 					</div>
 					<p class="description" id="cf7aic-model-status"></p>
@@ -102,12 +102,12 @@ $has_api_key = '' !== $masked_key;
 		</tbody>
 	</table>
 
-	<?php submit_button( __( 'Save Changes', 'cf7-ai-copilot' ) ); ?>
+	<?php submit_button( __( 'Save Changes', 'shaikat-ai-inbox-for-contact-form-7' ) ); ?>
 </form>
 
 <p>
 	<button type="button" id="cf7aic-test-connection" class="button">
-		<?php esc_html_e( 'Test Connection', 'cf7-ai-copilot' ); ?>
+		<?php esc_html_e( 'Test Connection', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 	</button>
 	<span id="cf7aic-test-connection-result" class="cf7aic-test-result" role="status" aria-live="polite"></span>
 </p>

@@ -35,7 +35,7 @@ $forms = get_posts(
 	<?php if ( empty( $forms ) ) : ?>
 		<div class="notice notice-warning inline">
 			<p>
-				<?php esc_html_e( 'No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it.', 'cf7-ai-copilot' ); ?>
+				<?php esc_html_e( 'No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 			</p>
 		</div>
 	<?php endif; ?>
@@ -44,7 +44,7 @@ $forms = get_posts(
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable AI Copilot', 'cf7-ai-copilot' ); ?></label>
+					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<label>
@@ -55,34 +55,42 @@ $forms = get_posts(
 							value="1"
 							<?php checked( $general['enabled'] ); ?>
 						/>
-						<?php esc_html_e( 'Analyze new submissions to the form below and add them to the AI Inbox for your review.', 'cf7-ai-copilot' ); ?>
+						<?php esc_html_e( 'Analyze new submissions to the forms checked below and add them to the AI Inbox for your review.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself.', 'cf7-ai-copilot' ); ?>
+						<?php esc_html_e( 'The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_form_id"><?php esc_html_e( 'Contact Form 7 form', 'cf7-ai-copilot' ); ?></label>
+					<?php esc_html_e( 'Contact Form 7 forms', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 				</th>
 				<td>
-					<select id="cf7aic_form_id" name="form_id" <?php disabled( empty( $forms ) ); ?>>
-						<option value="0"><?php esc_html_e( '— Select a form —', 'cf7-ai-copilot' ); ?></option>
+					<fieldset>
+						<legend class="screen-reader-text">
+							<?php esc_html_e( 'Contact Form 7 forms', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						</legend>
 						<?php foreach ( $forms as $form ) : ?>
-							<option value="<?php echo esc_attr( (string) $form->ID ); ?>" <?php selected( $general['form_id'], $form->ID ); ?>>
+							<label class="cf7aic-form-checkbox">
+								<input
+									type="checkbox"
+									name="form_ids[]"
+									value="<?php echo esc_attr( (string) $form->ID ); ?>"
+									<?php checked( in_array( $form->ID, $general['form_ids'], true ) ); ?>
+								/>
 								<?php echo esc_html( $form->post_title ); ?>
-							</option>
+							</label>
 						<?php endforeach; ?>
-					</select>
+					</fieldset>
 					<p class="description">
-						<?php esc_html_e( 'The free plan applies AI to a single form. Choose the one whose submissions should appear in the AI Inbox.', 'cf7-ai-copilot' ); ?>
+						<?php esc_html_e( 'Choose which forms should get AI analysis — any number of forms, including all of them.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
 					</p>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<?php submit_button( __( 'Save Changes', 'cf7-ai-copilot' ) ); ?>
+	<?php submit_button( __( 'Save Changes', 'shaikat-ai-inbox-for-contact-form-7' ) ); ?>
 </form>
 <?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals ?>
