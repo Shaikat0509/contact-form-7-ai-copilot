@@ -115,7 +115,22 @@ case "$cmd" in
     dc down
     ;;
   reset)
-    dc down -v
+    # `--profile tools` is required, not optional: `down` only touches
+    # services whose profiles are active, so a leftover cli container
+    # (from an interrupted `compose run`) is invisible to a plain
+    # `down -v` — and --remove-orphans does not catch it either, because
+    # it is a defined service rather than an orphan. It goes on holding
+    # the webroot volume, `down -v` reports "Resource is still in use"
+    # and continues, and the next `up` silently reuses the old WordPress
+    # install. That looks like a clean reset but is not one, which is
+    # exactly how a "verified on WP 7.0" run can really be 6.8.
+    dc --profile tools down -v --remove-orphans
+    remaining="$(docker volume ls --filter name=olmbox-ai-inbox -q)"
+    if [ -n "$remaining" ]; then
+      echo "Volumes survived down -v; forcing removal:" >&2
+      echo "$remaining" | sed 's/^/  /' >&2
+      docker volume rm $remaining >/dev/null
+    fi
     echo "Volumes destroyed. Run './docker/wp.sh up' for a clean install."
     ;;
   *)
