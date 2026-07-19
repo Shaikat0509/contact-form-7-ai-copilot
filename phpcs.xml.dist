@@ -6,6 +6,13 @@
 
 	<exclude-pattern>/vendor/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<!--
+		Local Docker verification environment: dev tooling that is never
+		packaged or loaded by WordPress in production. Its scripts run
+		under WP-CLI, where top-level variables are by definition globals,
+		so the plugin's prefixing rules do not usefully apply.
+	-->
+	<exclude-pattern>/docker/*</exclude-pattern>
 	<exclude-pattern>/languages/*</exclude-pattern>
 	<exclude-pattern>/admin/assets/*</exclude-pattern>
 

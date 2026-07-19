@@ -24,11 +24,36 @@ npm run watch:css           # rebuild on change
 php -l <file>               # syntax check a single file
 ```
 
-There is no test suite — no PHPUnit, no Playwright, no CI. Verification today is `phpcs` plus manual exercise against the local WordPress install. Treat "lint passes" as a weak signal, not proof a change works; verify behavior in the running site.
+There is no test suite yet — no PHPUnit, no Playwright, no CI. Verification today is `phpcs` plus exercising the plugin in the Docker environment below. Treat "lint passes" as a weak signal, not proof a change works.
+
+One thing `phpcs` *is* strong evidence for: text-domain consistency. The `WordPress.WP.I18n` sniff whitelists exactly one domain, so any `__()` call using the wrong one fails the run.
+
+### Docker verification environment (preferred)
+
+```bash
+./docker/wp.sh up       # start stack, install WP + CF7, activate plugin (idempotent)
+./docker/wp.sh seed     # populate the Inbox with representative submissions
+./docker/wp.sh wp ...   # any WP-CLI command, e.g. ./docker/wp.sh wp plugin list
+./docker/wp.sh logs     # Apache/PHP output and WP_DEBUG_LOG
+./docker/wp.sh reset    # destroy volumes for a clean install
+```
+
+Admin UI at `http://localhost:8080/wp-admin/admin.php?page=olmbox-ai-inbox-for-contact-form-7`, login `admin` / `admin` (local only, never reachable off localhost).
+
+Two details worth knowing before changing `docker/`:
+
+- The plugin is bind-mounted under its **WordPress.org slug**, not this repo's directory name (`cf7-ai-copilot`). That mirrors the distribution zip's layout, so the environment exercises the shipped structure. Edits are live — no rebuild needed.
+- The `cli` service sits behind a compose profile so `up --wait` never waits on it. It runs to completion and exits, which `--wait` otherwise reports as a failed service.
+
+`docker/seed.php` writes through `SubmissionsRepository` rather than raw SQL, so seeding also exercises the insert path. Its fixtures deliberately cover every `ai_status` plus a sub-60% confidence score — those drive branches in the Inbox and detail views that an empty table cannot show.
+
+`docker/` is excluded from `phpcs` (see `phpcs.xml.dist`): it is dev tooling that never ships, and its WP-CLI scripts have top-level variables that are globals by definition.
+
+### The Local by Flywheel site (legacy)
 
 ### Running against the local WordPress install
 
-The plugin lives inside a Local by Flywheel site (`cf7-ai-copilot.local`). WP-CLI needs Local's MySQL socket passed explicitly, and **the socket path is not stable** — Local mints a new run directory each time, and only sites currently running have one. Never hardcode it; discover it, and try each candidate:
+The repo also sits inside a Local by Flywheel site (`cf7-ai-copilot.local`) — that is why the working directory is `wp-content/plugins/cf7-ai-copilot`. Prefer Docker above; reach for Local only when you specifically need that site's existing data. WP-CLI needs Local's MySQL socket passed explicitly, and **the socket path is not stable** — Local mints a new run directory each time, and only sites currently running have one. Never hardcode it; discover it, and try each candidate:
 
 ```bash
 find "$HOME/Library/Application Support/Local/run" -name mysqld.sock
@@ -112,4 +137,4 @@ The `<hr class="wp-header-end" />` in `AdminPage::render()` is load-bearing — 
 
 Version numbers appear in three places that must stay in sync: the `Version:` header and `CF7AIC_VERSION` constant in `cf7-ai-copilot.php`, and `Stable tag` in `readme.txt`. `readme.txt` is the WordPress.org-format source of truth for the description, FAQ, changelog, and the external-services disclosure; `README.md` is the GitHub-facing summary. A user-visible behavior change needs both updated, plus a changelog entry.
 
-There is no packaging script in the repo — the distribution zip has been built ad hoc. Whatever builds it must exclude dev tooling (`vendor/`, `node_modules/`, `composer.*`, `package*.json`, `phpcs.xml.dist`, `tailwind.src.css`, `CLAUDE.md`) while keeping the compiled `admin/assets/css/admin.css`.
+There is no packaging script in the repo — the distribution zip has been built ad hoc. Whatever builds it must exclude dev tooling (`vendor/`, `node_modules/`, `docker/`, `composer.*`, `package*.json`, `phpcs.xml.dist`, `tailwind.src.css`, `CLAUDE.md`) while keeping the compiled `admin/assets/css/admin.css`. The zip's root directory must be named for the WordPress.org slug, not this repo's directory name.
