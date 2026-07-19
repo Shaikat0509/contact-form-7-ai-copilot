@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev, release]
+  pull_request:
+    branches: [main, dev, release]
+
+# Superseded runs on the same ref are pointless once a newer commit lands.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          # Matches the container the plugin is tested in, and
+          # config.platform.php in composer.json.
+          php-version: '8.2'
+          coverage: none
+          tools: composer
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      - run: composer install --no-interaction --no-progress
+
+      # Also the text-domain check: WordPress.WP.I18n whitelists exactly
+      # one domain, so a stray or stale one fails here.
+      - run: composer run lint
+
+  test:
+    name: PHPUnit (WordPress ${{ matrix.wordpress }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The floor and ceiling declared in readme.txt: "Requires at
+        # least" and "Tested up to". If a claim there changes, change it
+        # here too — otherwise the claim stops being tested.
+        wordpress: ['6.8', '7.0']
+    env:
+      WP_IMAGE_TAG: ${{ matrix.wordpress }}-php8.2-apache
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      # PHPUnit runs inside the WordPress container but resolves from
+      # vendor/, which arrives there via the plugin bind mount.
+      - run: composer install --no-interaction --no-progress
+
+      - name: Cache WordPress test library
+        uses: actions/cache@v4
+        with:
+          path: docker/.wp-tests-lib
+          # Keyed on the minor series; install-wp-tests.sh re-fetches by
+          # itself if the running patch version has moved on.
+          key: wp-tests-${{ matrix.wordpress }}
+
+      - name: Start WordPress environment
+        run: ./docker/wp.sh up
+
+      - name: Confirm the WordPress version under test
+        # A stale volume or a missed image tag would otherwise let this
+        # job quietly test a version it does not claim to.
+        run: |
+          actual="$(./docker/wp.sh wp core version 2>/dev/null | tr -d '\r' | tail -1)"
+          echo "Running WordPress ${actual}"
+          case "$actual" in
+            ${{ matrix.wordpress }}*) ;;
+            *) echo "::error::Expected WordPress ${{ matrix.wordpress }}.x, got ${actual}"; exit 1 ;;
+          esac
+
+      - name: Run test suite
+        run: ./docker/wp.sh test
+
+      - name: Container logs
+        if: failure()
+        run: docker compose -f docker/docker-compose.yml logs --tail=120
+
+  package:
+    name: Build distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Fails the build if the version header, CF7AIC_VERSION, and the
+      # readme's Stable tag disagree, or if dev tooling reaches the zip.
+      - run: ./bin/build-zip.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugin-zip
+          path: dist/*.zip
+          if-no-files-found: error

@@ -1,0 +1,45 @@
+name: Release
+
+# Publishing a GitHub release is the trigger, so cutting a release stays
+# a deliberate human act rather than something a push can cause.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Attach plugin zip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the tag matches the plugin version
+        # A release tagged v1.0.1 containing a zip that reports 1.0.0 is
+        # the kind of mismatch nobody notices until a user reports the
+        # wrong version, so refuse it here.
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          version="$(sed -n 's/^ \* Version: *\(.*\)$/\1/p' \
+            olmbox-ai-inbox-for-contact-form-7.php | tr -d ' \r')"
+          if [ "$tag" != "$version" ]; then
+            echo "::error::Release tag ${GITHUB_REF_NAME} does not match plugin version ${version}"
+            exit 1
+          fi
+          echo "Tag and plugin version agree: ${version}"
+
+      # Re-checks version consistency across all three files and refuses
+      # to package dev tooling.
+      - run: ./bin/build-zip.sh
+
+      - name: Upload zip to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" dist/*.zip --clobber
+
+      - name: Remind about the directory assets
+        run: |
+          echo "::notice::Banner, icon and screenshots in .wordpress-org/ are NOT in this zip." \
+               "They belong in WordPress.org SVN under assets/, uploaded separately."

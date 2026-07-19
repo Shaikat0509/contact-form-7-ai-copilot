@@ -2,6 +2,7 @@
 
 An AI Inbox for your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, and priority for you to review and send — nothing is ever emailed automatically.
 
+[![CI](https://github.com/Shaikat0509/contact-form-7-ai-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/Shaikat0509/contact-form-7-ai-copilot/actions/workflows/ci.yml)
 ![License: GPL v2+](https://img.shields.io/badge/license-GPLv2%2B-blue.svg)
 ![Requires PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-777bb4.svg)
 ![Requires WordPress 6.8+](https://img.shields.io/badge/WordPress-6.8%2B-21759b.svg)
