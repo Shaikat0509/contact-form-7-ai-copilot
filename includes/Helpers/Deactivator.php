@@ -28,7 +28,7 @@ final class Deactivator {
 	 */
 	public static function deactivate(): void {
 		/**
-		 * Fires after CF7 AI Copilot has been deactivated.
+		 * Fires after Olmbox has been deactivated.
 		 *
 		 * Reserved for future phases that may need to clear scheduled
 		 * events or transient state on deactivation.

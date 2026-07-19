@@ -64,9 +64,9 @@ What is sent: the submitted form field values (e.g. name, email, message) and, o
 
 1. Install and activate Contact Form 7 (required).
 2. Upload and activate Olmbox AI Inbox for Contact Form 7.
-3. Go to **Contact → AI Copilot**, then switch to the **Settings** section.
+3. Go to **Contact → Olmbox**, then switch to the **Settings** section.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model from the dropdown, and run the connection test.
-5. On the **General** tab, turn on AI Copilot and choose which form(s) it should apply to.
+5. On the **General** tab, turn on Olmbox and choose which form(s) it should apply to.
 6. Optionally customize the base system prompt on the **Prompt** tab.
 7. Switch to the **AI Inbox** section any time to review and send replies.
 
@@ -92,7 +92,7 @@ In the WordPress options table, encrypted at rest. It is never exposed in any fr
 
 1. AI Inbox — every submission with its status, priority, category, and confidence, plus filters.
 2. Submission review screen — original message, AI summary, editable suggested reply, and full analysis.
-3. General tab — enable AI Copilot and choose which forms it applies to.
+3. General tab — enable Olmbox and choose which forms it applies to.
 4. AI Provider tab — choose a provider, pick a model from the live dropdown, and test the connection.
 5. Usage tab — model and estimated token usage.
 

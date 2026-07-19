@@ -1,7 +1,7 @@
 <?php
 /**
  * Renders the plugin's own Dashboard section: an at-a-glance overview of
- * AI Copilot activity, distinct from the native WordPress Dashboard widget.
+ * Olmbox activity, distinct from the native WordPress Dashboard widget.
  *
  * @package CF7AIC\Admin
  */
@@ -305,7 +305,7 @@ final class DashboardPage {
 			</div>
 			<div class="cf7aic-card cf7aic-tip-card">
 				<span class="dashicons dashicons-star-filled" aria-hidden="true"></span>
-				<h3><?php esc_html_e( 'Enjoying AI Copilot?', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
+				<h3><?php esc_html_e( 'Enjoying Olmbox?', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
 				<p><?php esc_html_e( 'A quick review on WordPress.org helps other site owners find this plugin.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 				<a href="https://wordpress.org/support/plugin/olmbox-ai-inbox-for-contact-form-7/reviews/#new-post" target="_blank" rel="noopener noreferrer">
 					<?php esc_html_e( 'Rate Us', 'olmbox-ai-inbox-for-contact-form-7' ); ?> &rarr;

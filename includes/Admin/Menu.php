@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Menu
  *
- * Adds the "AI Copilot" submenu under Contact Form 7, and makes sure the
+ * Adds the "Olmbox" submenu under Contact Form 7, and makes sure the
  * plugin's CSS/JS are only ever loaded on that one admin page.
  */
 final class Menu {
@@ -84,8 +84,8 @@ final class Menu {
 	public function register_menu(): void {
 		$this->page_hook = add_submenu_page(
 			self::PARENT_SLUG,
-			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
-			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
+			__( 'Olmbox', 'olmbox-ai-inbox-for-contact-form-7' ),
+			__( 'Olmbox', 'olmbox-ai-inbox-for-contact-form-7' ),
 			self::CAPABILITY,
 			self::PAGE_SLUG,
 			array( $this->admin_page, 'render' )
@@ -150,7 +150,7 @@ final class Menu {
 
 	/**
 	 * Enqueues just the plugin's CSS (badges, widget layout) on the main
-	 * WordPress Dashboard — needed for the AI Copilot dashboard widget.
+	 * WordPress Dashboard — needed for the Olmbox dashboard widget.
 	 * No JS/localized data here; the widget has no interactive behavior.
 	 *
 	 * @param string $hook The current admin page's hook suffix.

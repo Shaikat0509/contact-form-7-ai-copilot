@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the AI Copilot admin page's outer shell: sidebar, topbar, and
+ * Renders the Olmbox admin page's outer shell: sidebar, topbar, and
  * routing to whichever section is active.
  *
  * @package CF7AIC\Admin
@@ -174,10 +174,10 @@ final class AdminPage {
 		<aside class="cf7aic-sidebar">
 			<div class="cf7aic-sidebar__brand">
 				<span class="cf7aic-sidebar__logo dashicons dashicons-email-alt2" aria-hidden="true"></span>
-				<span class="cf7aic-sidebar__brand-text"><?php esc_html_e( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-sidebar__brand-text"><?php esc_html_e( 'Olmbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 
-			<nav class="cf7aic-sidebar__nav" aria-label="<?php esc_attr_e( 'AI Copilot sections', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
+			<nav class="cf7aic-sidebar__nav" aria-label="<?php esc_attr_e( 'Olmbox sections', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 				<a
 					href="<?php echo esc_url( Menu::url( array( 'section' => 'dashboard' ) ) ); ?>"
 					class="cf7aic-sidebar__item <?php echo 'dashboard' === $section ? 'cf7aic-sidebar__item--active' : ''; ?>"
@@ -265,7 +265,7 @@ final class AdminPage {
 		if ( 'dashboard' === $section ) {
 			return array(
 				__( 'Dashboard', 'olmbox-ai-inbox-for-contact-form-7' ),
-				__( 'An overview of your AI Copilot activity.', 'olmbox-ai-inbox-for-contact-form-7' ),
+				__( 'An overview of your Olmbox activity.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 

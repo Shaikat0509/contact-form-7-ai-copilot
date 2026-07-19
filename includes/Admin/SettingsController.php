@@ -1,6 +1,6 @@
 <?php
 /**
- * Handles saving the AI Copilot settings form submissions.
+ * Handles saving the Olmbox settings form submissions.
  *
  * @package CF7AIC\Admin
  */

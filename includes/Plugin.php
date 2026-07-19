@@ -127,7 +127,7 @@ final class Plugin {
 		}
 
 		/**
-		 * Fires once CF7 AI Copilot has confirmed Contact Form 7 is present
+		 * Fires once Olmbox has confirmed Contact Form 7 is present
 		 * and finished its own bootstrap.
 		 *
 		 * @since 1.0.0
@@ -181,7 +181,7 @@ final class Plugin {
 		delete_option( 'cf7aic_show_migration_notice' );
 
 		$this->notices->add_success(
-			__( 'AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead.', 'olmbox-ai-inbox-for-contact-form-7' )
+			__( 'Olmbox has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead.', 'olmbox-ai-inbox-for-contact-form-7' )
 		);
 	}
 

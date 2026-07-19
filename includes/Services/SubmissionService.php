@@ -178,7 +178,7 @@ final class SubmissionService {
 	private function log_error( \Throwable $e, string $context ): void {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- intentionally gated behind WP_DEBUG_LOG; the free plan has no custom logging UI.
-			error_log( sprintf( '[CF7 AI Copilot] %s: %s', $context, $e->getMessage() ) );
+			error_log( sprintf( '[Olmbox] %s: %s', $context, $e->getMessage() ) );
 		}
 
 		/**

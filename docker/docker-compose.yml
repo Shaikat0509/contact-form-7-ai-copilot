@@ -43,7 +43,10 @@ services:
       - "8025:8025"
 
   wordpress:
-    image: wordpress:6.8-php8.2-apache
+    # Override to test the version floor and ceiling declared in
+    # readme.txt, e.g. WP_IMAGE_TAG=6.8-php8.2-apache ./docker/wp.sh up
+    # for "Requires at least". Default tracks "Tested up to".
+    image: wordpress:${WP_IMAGE_TAG:-6.8-php8.2-apache}
     depends_on:
       db:
         condition: service_healthy

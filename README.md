@@ -40,9 +40,9 @@ Once a key is entered, the Model field becomes a dropdown populated live from th
 
 1. Install and activate [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) (required).
 2. Upload and activate Olmbox AI Inbox for Contact Form 7.
-3. Go to **Contact → AI Copilot → Settings**.
+3. Go to **Contact → Olmbox → Settings**.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model, and run the connection test.
-5. On the **General** tab, turn on AI Copilot and choose which form(s) it should apply to.
+5. On the **General** tab, turn on Olmbox and choose which form(s) it should apply to.
 6. Optionally customize the base system prompt on the **Prompt** tab.
 7. Switch to the **AI Inbox** section any time to review and send replies.
 

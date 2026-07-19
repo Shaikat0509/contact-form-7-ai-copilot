@@ -90,7 +90,7 @@ final class Installer {
 
 			// A flash-style flag: shown once on the next admin page load
 			// (see Plugin::maybe_show_migration_notice()), then cleared.
-			// Existing installs need to know AI Copilot no longer sends
+			// Existing installs need to know Olmbox no longer sends
 			// anything automatically — that's a behavior change, not just
 			// a schema detail.
 			update_option( 'cf7aic_show_migration_notice', '1', false );

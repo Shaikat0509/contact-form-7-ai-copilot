@@ -44,7 +44,7 @@ $forms = get_posts(
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ); ?></label>
+					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable Olmbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<label>

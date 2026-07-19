@@ -1,6 +1,6 @@
 <?php
 /**
- * Registers the "AI Copilot" WordPress dashboard widget.
+ * Registers the "Olmbox" WordPress dashboard widget.
  *
  * @package CF7AIC\Admin
  */
@@ -72,7 +72,7 @@ final class DashboardWidget {
 
 		wp_add_dashboard_widget(
 			'cf7aic_dashboard_widget',
-			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
+			__( 'Olmbox', 'olmbox-ai-inbox-for-contact-form-7' ),
 			array( $this, 'render' )
 		);
 	}

@@ -1,0 +1,30 @@
+# Files excluded from the distribution zip.
+#
+# The zip is built with `git archive` (see bin/build-zip.sh), so it can
+# only ever contain committed files — an uncommitted experiment cannot
+# accidentally ship. Everything listed here is dev tooling that the
+# running plugin never loads.
+
+/docker/            export-ignore
+/tests/             export-ignore
+/bin/               export-ignore
+/.wordpress-org/    export-ignore
+
+/composer.json      export-ignore
+/composer.lock      export-ignore
+/package.json       export-ignore
+/package-lock.json  export-ignore
+/phpcs.xml.dist     export-ignore
+/phpunit.xml.dist   export-ignore
+
+/.gitignore         export-ignore
+/.gitattributes     export-ignore
+/CLAUDE.md          export-ignore
+
+# GitHub-facing summary; readme.txt is the WordPress.org source of truth
+# and shipping both invites them to drift apart.
+/README.md          export-ignore
+
+# Tailwind source. Only the compiled admin.css is enqueued, and it is
+# committed — the shipped plugin has no build step.
+/admin/assets/css/tailwind.src.css export-ignore

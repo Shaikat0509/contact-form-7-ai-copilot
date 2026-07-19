@@ -32,7 +32,7 @@ final class UsageTracker {
 	private const OPTION_USAGE = 'cf7aic_usage';
 
 	/**
-	 * Rough average tokens (prompt + completion) per AI Copilot analysis
+	 * Rough average tokens (prompt + completion) per Olmbox analysis
 	 * call, used only to show a ballpark "Estimated token usage" figure
 	 * on the Usage tab. The plugin does not meter real per-call token
 	 * counts from provider responses, so this is deliberately labeled as

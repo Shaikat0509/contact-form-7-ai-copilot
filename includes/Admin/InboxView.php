@@ -73,7 +73,7 @@ final class InboxView {
 						<?php if ( $this->has_active_filters( $filters ) ) : ?>
 							<?php esc_html_e( 'No submissions match these filters.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						<?php else : ?>
-							<?php esc_html_e( 'No submissions yet. Once AI Copilot is enabled for your chosen form, they will appear here for review.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
+							<?php esc_html_e( 'No submissions yet. Once Olmbox is enabled for your chosen form, they will appear here for review.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						<?php endif; ?>
 					</p>
 				</div>

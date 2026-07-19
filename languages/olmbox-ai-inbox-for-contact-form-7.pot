@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-10T17:03:36+00:00\n"
+"POT-Creation-Date: 2026-07-19T20:13:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: olmbox-ai-inbox-for-contact-form-7\n"
@@ -31,6 +31,10 @@ msgstr ""
 
 #. Author of the plugin
 #: olmbox-ai-inbox-for-contact-form-7.php
+#: includes/Admin/AdminPage.php:177
+#: includes/Admin/DashboardWidget.php:75
+#: includes/Admin/Menu.php:87
+#: includes/Admin/Menu.php:88
 msgid "Olmbox"
 msgstr ""
 
@@ -39,7 +43,7 @@ msgid "No Contact Form 7 forms were found. Create a form first, then come back h
 msgstr ""
 
 #: admin/views/tab-general.php:47
-msgid "Enable AI Copilot"
+msgid "Enable Olmbox"
 msgstr ""
 
 #: admin/views/tab-general.php:58
@@ -191,31 +195,12 @@ msgstr ""
 msgid "Estimated Token Usage"
 msgstr ""
 
-#. translators: %s: required PHP version
-#: olmbox-ai-inbox-for-contact-form-7.php:40
-#, php-format
-msgid "Olmbox AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
-msgstr ""
-
-#. translators: %s: required WordPress version
-#: olmbox-ai-inbox-for-contact-form-7.php:63
-#, php-format
-msgid "Olmbox AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
-msgstr ""
-
 #: includes/Admin/AdminPage.php:105
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: includes/Admin/AdminPage.php:177
-#: includes/Admin/DashboardWidget.php:75
-#: includes/Admin/Menu.php:87
-#: includes/Admin/Menu.php:88
-msgid "AI Copilot"
-msgstr ""
-
 #: includes/Admin/AdminPage.php:180
-msgid "AI Copilot sections"
+msgid "Olmbox sections"
 msgstr ""
 
 #: includes/Admin/AdminPage.php:187
@@ -246,7 +231,7 @@ msgid "Log Out"
 msgstr ""
 
 #: includes/Admin/AdminPage.php:268
-msgid "An overview of your AI Copilot activity."
+msgid "An overview of your Olmbox activity."
 msgstr ""
 
 #: includes/Admin/AdminPage.php:273
@@ -441,7 +426,7 @@ msgid "Edit Prompt"
 msgstr ""
 
 #: includes/Admin/DashboardPage.php:308
-msgid "Enjoying AI Copilot?"
+msgid "Enjoying Olmbox?"
 msgstr ""
 
 #: includes/Admin/DashboardPage.php:309
@@ -461,7 +446,7 @@ msgid "No submissions match these filters."
 msgstr ""
 
 #: includes/Admin/InboxView.php:76
-msgid "No submissions yet. Once AI Copilot is enabled for your chosen form, they will appear here for review."
+msgid "No submissions yet. Once Olmbox is enabled for your chosen form, they will appear here for review."
 msgstr ""
 
 #: includes/Admin/InboxView.php:84
@@ -796,7 +781,7 @@ msgid "Unknown AI provider: %s"
 msgstr ""
 
 #: includes/Plugin.php:184
-msgid "AI Copilot has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead."
+msgid "Olmbox has been updated: it no longer sends AI replies automatically. Review and send suggested replies from the new AI Inbox instead."
 msgstr ""
 
 #: includes/Plugin.php:200
@@ -835,4 +820,16 @@ msgstr ""
 
 #: includes/Services/SubmissionService.php:112
 msgid "No API key has been configured."
+msgstr ""
+
+#. translators: %s: required PHP version
+#: olmbox-ai-inbox-for-contact-form-7.php:40
+#, php-format
+msgid "Olmbox AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
+msgstr ""
+
+#. translators: %s: required WordPress version
+#: olmbox-ai-inbox-for-contact-form-7.php:63
+#, php-format
+msgid "Olmbox AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
 msgstr ""

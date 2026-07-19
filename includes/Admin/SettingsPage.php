@@ -1,6 +1,6 @@
 <?php
 /**
- * Renders the tabbed Settings section of the AI Copilot admin page.
+ * Renders the tabbed Settings section of the Olmbox admin page.
  *
  * @package CF7AIC\Admin
  */
