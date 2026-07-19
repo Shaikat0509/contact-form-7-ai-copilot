@@ -24,7 +24,7 @@ npm run watch:css           # rebuild on change
 php -l <file>               # syntax check a single file
 ```
 
-There is no test suite yet — no PHPUnit, no Playwright, no CI. Verification today is `phpcs` plus exercising the plugin in the Docker environment below. Treat "lint passes" as a weak signal, not proof a change works.
+There is a PHPUnit integration suite (`./docker/wp.sh test`) but no browser/e2e tests and no CI — nothing runs these automatically, so run them yourself before claiming a change works. The suite covers the schema migration, the review workflow, the retention cap, encryption, and the AI response normalizers; it does not cover the admin UI or the CF7 submission hook end to end.
 
 One thing `phpcs` *is* strong evidence for: text-domain consistency. The `WordPress.WP.I18n` sniff whitelists exactly one domain, so any `__()` call using the wrong one fails the run.
 
@@ -35,10 +35,28 @@ One thing `phpcs` *is* strong evidence for: text-domain consistency. The `WordPr
 ./docker/wp.sh seed     # populate the Inbox with representative submissions
 ./docker/wp.sh wp ...   # any WP-CLI command, e.g. ./docker/wp.sh wp plugin list
 ./docker/wp.sh logs     # Apache/PHP output and WP_DEBUG_LOG
+./docker/wp.sh test     # PHPUnit integration suite (args pass through)
 ./docker/wp.sh reset    # destroy volumes for a clean install
 ```
 
-Admin UI at `http://localhost:8080/wp-admin/admin.php?page=olmbox-ai-inbox-for-contact-form-7`, login `admin` / `admin` (local only, never reachable off localhost).
+Tests run inside the WordPress container against a throwaway `wordpress_test` database, so they never touch seeded dev data. `docker/install-wp-tests.sh` fetches WordPress core's PHPUnit harness on first use — a large download, cached in the gitignored `docker/.wp-tests-lib/`. Run a single file with `./docker/wp.sh test --filter InstallerMigrationTest`.
+
+Tests that perform DDL (the migration suite) escape `WP_UnitTestCase`'s per-test transaction, because DDL implicitly commits — those rebuild the table in `tear_down` rather than relying on rollback.
+
+Admin UI at `http://localhost:8080/wp-admin/admin.php?page=olmbox-ai-inbox-for-contact-form-7`, login `admin` / `admin` (local only, never reachable off localhost). Captured mail at `http://localhost:8025`.
+
+**Mail is load-bearing in this environment, not a convenience.** CF7 fires `wpcf7_mail_sent` only after its own send succeeds, so with no mail transport CF7 returns `mail_failed`, the hook never fires, and no submission is ever logged — the plugin looks broken while behaving exactly as designed. A Mailpit service plus `docker/mu-plugins/olmbox-dev-mail.php` routes mail over SMTP so the path is exercisable.
+
+To drive a real submission end to end (pretty permalinks are off, hence `rest_route`):
+
+```bash
+curl -s -X POST "http://localhost:8080/?rest_route=/contact-form-7/v1/contact-forms/<FORM_ID>/feedback" \
+  -F "_wpcf7=<FORM_ID>" -F "_wpcf7_unit_tag=wpcf7-f<FORM_ID>-o1" \
+  -F "your-name=Test" -F "your-email=visitor@example.test" \
+  -F "your-subject=Subject" -F "your-message=Body"
+```
+
+Expect `"status":"mail_sent"` and one new row. Mailpit is also how to check the central invariant empirically: after a submission, `http://localhost:8025/api/v1/messages` should contain CF7's admin notification and **nothing addressed to the visitor**.
 
 Two details worth knowing before changing `docker/`:
 
@@ -50,8 +68,6 @@ Two details worth knowing before changing `docker/`:
 `docker/` is excluded from `phpcs` (see `phpcs.xml.dist`): it is dev tooling that never ships, and its WP-CLI scripts have top-level variables that are globals by definition.
 
 ### The Local by Flywheel site (legacy)
-
-### Running against the local WordPress install
 
 The repo also sits inside a Local by Flywheel site (`cf7-ai-copilot.local`) — that is why the working directory is `wp-content/plugins/cf7-ai-copilot`. Prefer Docker above; reach for Local only when you specifically need that site's existing data. WP-CLI needs Local's MySQL socket passed explicitly, and **the socket path is not stable** — Local mints a new run directory each time, and only sites currently running have one. Never hardcode it; discover it, and try each candidate:
 
@@ -73,7 +89,7 @@ If every candidate returns "Error establishing a database connection", the site 
 
 ## Architecture
 
-Bootstrap: `cf7-ai-copilot.php` guards PHP/WP versions using only PHP 7.0-compatible syntax (so an old-PHP host gets a notice, never a parse error), defines `CF7AIC_*` constants, registers the autoloader, and boots `Plugin::get_instance()->init()` on `plugins_loaded`.
+Bootstrap: `olmbox-ai-inbox-for-contact-form-7.php` guards PHP/WP versions using only PHP 7.0-compatible syntax (so an old-PHP host gets a notice, never a parse error), defines `CF7AIC_*` constants, registers the autoloader, and boots `Plugin::get_instance()->init()` on `plugins_loaded`.
 
 `includes/Plugin.php` is the composition root — the only place objects are wired together. There is no DI container; dependencies are constructed there and passed down constructors. If a class needs a new collaborator, add it to that constructor call.
 
@@ -135,6 +151,6 @@ The `<hr class="wp-header-end" />` in `AdminPage::render()` is load-bearing — 
 
 ## Release surface
 
-Version numbers appear in three places that must stay in sync: the `Version:` header and `CF7AIC_VERSION` constant in `cf7-ai-copilot.php`, and `Stable tag` in `readme.txt`. `readme.txt` is the WordPress.org-format source of truth for the description, FAQ, changelog, and the external-services disclosure; `README.md` is the GitHub-facing summary. A user-visible behavior change needs both updated, plus a changelog entry.
+Version numbers appear in three places that must stay in sync: the `Version:` header and `CF7AIC_VERSION` constant in `olmbox-ai-inbox-for-contact-form-7.php`, and `Stable tag` in `readme.txt`. `readme.txt` is the WordPress.org-format source of truth for the description, FAQ, changelog, and the external-services disclosure; `README.md` is the GitHub-facing summary. A user-visible behavior change needs both updated, plus a changelog entry.
 
 There is no packaging script in the repo — the distribution zip has been built ad hoc. Whatever builds it must exclude dev tooling (`vendor/`, `node_modules/`, `docker/`, `composer.*`, `package*.json`, `phpcs.xml.dist`, `tailwind.src.css`, `CLAUDE.md`) while keeping the compiled `admin/assets/css/admin.css`. The zip's root directory must be named for the WordPress.org slug, not this repo's directory name.

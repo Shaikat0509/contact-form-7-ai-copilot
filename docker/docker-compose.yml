@@ -29,11 +29,26 @@ services:
       timeout: 5s
       retries: 20
 
+  # Catches all outbound mail instead of delivering it.
+  #
+  # Without an MTA, wp_mail() fails, so Contact Form 7 reports mail_failed
+  # and never fires wpcf7_mail_sent — the hook this plugin depends on.
+  # The submission path is therefore untestable without something here.
+  # It also makes "Send Reply" inspectable: the one place the plugin
+  # emails a visitor, viewable at http://localhost:8025 instead of being
+  # delivered to a real person.
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+
   wordpress:
     image: wordpress:6.8-php8.2-apache
     depends_on:
       db:
         condition: service_healthy
+      mailpit:
+        condition: service_started
     ports:
       - "8080:80"
     environment:
@@ -54,6 +69,7 @@ services:
       # Mounted outside the plugin tree so it can never be mistaken for
       # plugin source or swept into a distribution zip.
       - ./.wp-tests-lib:/var/www/html/wp-tests-lib
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
 
   # One-shot container: `docker compose run --rm cli <wp args>`.
   # Shares the webroot volume and network so it sees the same install.

@@ -15,22 +15,22 @@ msgstr ""
 "X-Domain: olmbox-ai-inbox-for-contact-form-7\n"
 
 #. Plugin Name of the plugin
-#: cf7-ai-copilot.php
+#: olmbox-ai-inbox-for-contact-form-7.php
 msgid "Olmbox AI Inbox for Contact Form 7"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: cf7-ai-copilot.php
+#: olmbox-ai-inbox-for-contact-form-7.php
 msgid "https://wordpress.org/plugins/olmbox-ai-inbox-for-contact-form-7/"
 msgstr ""
 
 #. Description of the plugin
-#: cf7-ai-copilot.php
+#: olmbox-ai-inbox-for-contact-form-7.php
 msgid "Adds an AI Inbox to your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key."
 msgstr ""
 
 #. Author of the plugin
-#: cf7-ai-copilot.php
+#: olmbox-ai-inbox-for-contact-form-7.php
 msgid "Olmbox"
 msgstr ""
 
@@ -192,13 +192,13 @@ msgid "Estimated Token Usage"
 msgstr ""
 
 #. translators: %s: required PHP version
-#: cf7-ai-copilot.php:40
+#: olmbox-ai-inbox-for-contact-form-7.php:40
 #, php-format
 msgid "Olmbox AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
 msgstr ""
 
 #. translators: %s: required WordPress version
-#: cf7-ai-copilot.php:63
+#: olmbox-ai-inbox-for-contact-form-7.php:63
 #, php-format
 msgid "Olmbox AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
 msgstr ""

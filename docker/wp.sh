@@ -93,6 +93,12 @@ case "$cmd" in
       echo "WordPress test library missing — running installer first."
       ./install-wp-tests.sh
     fi
+    # The library lives on the host and survives `reset`, but the test
+    # database does not — it is in a volume. Recreate it unconditionally
+    # so a reset does not leave `test` failing in the harness's own
+    # bootstrap, where the cause is not obvious.
+    dc exec -T db mariadb -uroot -pwordpress \
+      -e "CREATE DATABASE IF NOT EXISTS wordpress_test;" >/dev/null
     # Runs in the WordPress container: it already has PHP 8.2, mysqli and
     # a route to the db service. vendor/ arrives via the plugin bind mount.
     dc exec -T \

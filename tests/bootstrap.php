@@ -39,7 +39,7 @@ tests_add_filter(
 			require_once $cf7;
 		}
 
-		require_once dirname( __DIR__ ) . '/cf7-ai-copilot.php';
+		require_once dirname( __DIR__ ) . '/olmbox-ai-inbox-for-contact-form-7.php';
 	}
 );
 
