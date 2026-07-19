@@ -73,7 +73,7 @@ final class ClassificationService {
 	 * @return string One of the keys of {@see self::CATEGORIES}.
 	 */
 	public static function normalize_category( string $category ): string {
-		$key = sanitize_key( $category );
+		$key = self::to_slug( $category );
 
 		return array_key_exists( $key, self::CATEGORIES ) ? $key : self::DEFAULT_CATEGORY;
 	}
@@ -86,9 +86,30 @@ final class ClassificationService {
 	 * @return string One of the keys of {@see self::PRIORITIES}.
 	 */
 	public static function normalize_priority( string $priority ): string {
-		$key = sanitize_key( $priority );
+		$key = self::to_slug( $priority );
 
 		return array_key_exists( $key, self::PRIORITIES ) ? $key : self::DEFAULT_PRIORITY;
+	}
+
+	/**
+	 * Reduces a free-form value from the AI to a candidate vocabulary slug.
+	 *
+	 * Separators are folded to underscores *before* `sanitize_key()` runs,
+	 * because that function strips characters it does not allow rather
+	 * than translating them: on its own it would turn "Job Application"
+	 * into "jobapplication", which matches no slug and would silently
+	 * classify the submission as "other". The model is asked for slugs but
+	 * routinely echoes back the human-readable label instead, so the label
+	 * form has to resolve too.
+	 *
+	 * @param string $value Raw value from the AI response.
+	 *
+	 * @return string A sanitized slug candidate, not guaranteed to be valid.
+	 */
+	private static function to_slug( string $value ): string {
+		$separated = preg_replace( '/[\s\-]+/', '_', trim( $value ) );
+
+		return sanitize_key( (string) $separated );
 	}
 
 	/**

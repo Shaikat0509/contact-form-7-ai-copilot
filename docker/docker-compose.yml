@@ -50,6 +50,10 @@ services:
     volumes:
       - wp_data:/var/www/html
       - ../:/var/www/html/wp-content/plugins/olmbox-ai-inbox-for-contact-form-7
+      # WordPress core's PHPUnit harness, fetched by install-wp-tests.sh.
+      # Mounted outside the plugin tree so it can never be mistaken for
+      # plugin source or swept into a distribution zip.
+      - ./.wp-tests-lib:/var/www/html/wp-tests-lib
 
   # One-shot container: `docker compose run --rm cli <wp args>`.
   # Shares the webroot volume and network so it sees the same install.

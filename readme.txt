@@ -55,7 +55,7 @@ This plugin connects to the AI provider you choose and configure with your own A
 
 What is sent: the submitted form field values (e.g. name, email, message) and, on the AI Provider tab, your API key (to authenticate) when you click "Test Connection" or "Load Models". No other site or visitor data is sent.
 
-* **OpenAI** — used when you select OpenAI as your provider. [Terms of Use](https://openai.com/policies/row-terms-of-use/), [Privacy Policy](https://openai.com/policies/row-privacy-policy/).
+* **OpenAI** — used when you select OpenAI as your provider. [Terms of Use](https://openai.com/policies/terms-of-use/), [Privacy Policy](https://openai.com/policies/privacy-policy/).
 * **Anthropic** — used when you select Anthropic as your provider. [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), [Privacy Policy](https://www.anthropic.com/legal/privacy).
 * **Google Gemini** — used when you select Google Gemini as your provider. [Gemini API Additional Terms of Service](https://ai.google.dev/gemini-api/terms), [Google Privacy Policy](https://policies.google.com/privacy).
 * **OpenRouter** — used when you select OpenRouter as your provider (OpenRouter itself routes the request to whichever underlying model you pick). [Terms of Service](https://openrouter.ai/terms), [Privacy Policy](https://openrouter.ai/privacy).

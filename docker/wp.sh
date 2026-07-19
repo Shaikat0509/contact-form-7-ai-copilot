@@ -6,6 +6,7 @@
 #   ./docker/wp.sh setup    (re-)run the install + seed steps only
 #   ./docker/wp.sh wp ...   run a WP-CLI command, e.g. ./docker/wp.sh wp plugin list
 #   ./docker/wp.sh seed     populate the AI Inbox with representative submissions
+#   ./docker/wp.sh test     run the PHPUnit integration suite (args pass through)
 #   ./docker/wp.sh logs     tail the PHP/Apache log and WP_DEBUG_LOG
 #   ./docker/wp.sh down     stop the stack, keep the database
 #   ./docker/wp.sh reset    destroy everything including volumes
@@ -86,6 +87,19 @@ case "$cmd" in
     ;;
   seed)
     wp eval-file "wp-content/plugins/$SLUG/docker/seed.php"
+    ;;
+  test)
+    if [ ! -f ".wp-tests-lib/includes/functions.php" ]; then
+      echo "WordPress test library missing — running installer first."
+      ./install-wp-tests.sh
+    fi
+    # Runs in the WordPress container: it already has PHP 8.2, mysqli and
+    # a route to the db service. vendor/ arrives via the plugin bind mount.
+    dc exec -T \
+      -e WP_TESTS_DIR=/var/www/html/wp-tests-lib \
+      -w "/var/www/html/wp-content/plugins/$SLUG" \
+      wordpress \
+      php vendor/bin/phpunit "$@"
     ;;
   logs)
     dc logs -f wordpress &

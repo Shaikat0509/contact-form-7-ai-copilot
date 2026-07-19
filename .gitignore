@@ -15,3 +15,7 @@
 # Build/test artifacts
 *.zip
 *.log
+
+# WordPress core PHPUnit harness, fetched on demand by
+# docker/install-wp-tests.sh. Large, version-pinned, and reproducible.
+/docker/.wp-tests-lib/

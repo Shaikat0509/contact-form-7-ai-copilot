@@ -13,6 +13,13 @@
 		so the plugin's prefixing rules do not usefully apply.
 	-->
 	<exclude-pattern>/docker/*</exclude-pattern>
+	<!--
+		Integration tests: also dev-only, and they run under WordPress's
+		own PHPUnit harness, whose conventions (unprefixed test classes,
+		snake_case set_up/tear_down overrides) conflict with the prefixing
+		and naming rules that apply to shipped plugin code.
+	-->
+	<exclude-pattern>/tests/*</exclude-pattern>
 	<exclude-pattern>/languages/*</exclude-pattern>
 	<exclude-pattern>/admin/assets/*</exclude-pattern>
 
