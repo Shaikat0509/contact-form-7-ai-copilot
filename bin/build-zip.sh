@@ -53,7 +53,14 @@ unzip -Z1 "$zip_path" | awk -F/ '{print $2}' | grep -v '^$' | sort -u | sed 's/^
 # Anything here would be a packaging bug: dev tooling or secrets shipped
 # to every user of the plugin.
 echo
-leaked="$(unzip -Z1 "$zip_path" | grep -Ei '(^|/)(docker|tests|bin|node_modules|vendor|\.git|\.wordpress-org)/|\.(lock|dist)$|composer\.json|package\.json|CLAUDE\.md|tailwind\.src\.css' || true)"
+leaked="$(unzip -Z1 "$zip_path" \
+  | grep -Ei '(^|/)(docker|tests|bin|node_modules|vendor|\.git|\.wordpress-org)/|\.(lock|dist)$|composer\.json|package\.json|CLAUDE\.md|tailwind\.src\.css' || true)"
+
+# Anything dotted at the archive root is dev residue by default —
+# .phpunit.result.cache reached a built zip precisely because the
+# pattern list above enumerated known offenders instead of rejecting
+# the whole class of them.
+leaked="${leaked}$(unzip -Z1 "$zip_path" | awk -F/ 'NF>1 && $2 ~ /^\./ {print}' || true)"
 if [ -n "$leaked" ]; then
   echo "FAIL: dev files present in the zip:" >&2
   echo "$leaked" | sed 's/^/  /' >&2

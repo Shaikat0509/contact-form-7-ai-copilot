@@ -28,3 +28,5 @@
 # Tailwind source. Only the compiled admin.css is enqueued, and it is
 # committed — the shipped plugin has no build step.
 /admin/assets/css/tailwind.src.css export-ignore
+
+/.phpunit.result.cache export-ignore

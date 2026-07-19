@@ -22,3 +22,6 @@
 
 # Built distribution zips.
 /dist/
+
+# PHPUnit run cache.
+.phpunit.result.cache
