@@ -29,7 +29,7 @@ $default    = \CF7AIC\Settings\Repository::DEFAULT_SYSTEM_PROMPT;
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_system_prompt"><?php esc_html_e( 'System prompt', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
+					<label for="cf7aic_system_prompt"><?php esc_html_e( 'System prompt', 'olmbox-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<textarea
@@ -44,11 +44,11 @@ $default    = \CF7AIC\Settings\Repository::DEFAULT_SYSTEM_PROMPT;
 					<p class="description">
 						<span id="cf7aic-prompt-counter" class="cf7aic-char-counter"></span>
 						&mdash;
-						<?php esc_html_e( 'This instructs the AI how to behave. It is combined with the visitor\'s submitted message only — no other data is sent.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'This instructs the AI how to behave. It is combined with the visitor\'s submitted message only — no other data is sent.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</p>
 					<p>
 						<button type="button" id="cf7aic-reset-prompt" class="button">
-							<?php esc_html_e( 'Reset to Default', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+							<?php esc_html_e( 'Reset to Default', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						</button>
 					</p>
 				</td>
@@ -56,5 +56,5 @@ $default    = \CF7AIC\Settings\Repository::DEFAULT_SYSTEM_PROMPT;
 		</tbody>
 	</table>
 
-	<?php submit_button( __( 'Save Changes', 'shaikat-ai-inbox-for-contact-form-7' ) ); ?>
+	<?php submit_button( __( 'Save Changes', 'olmbox-ai-inbox-for-contact-form-7' ) ); ?>
 </form>

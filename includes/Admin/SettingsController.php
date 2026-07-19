@@ -62,7 +62,7 @@ final class SettingsController {
 	 */
 	public function handle_save_general(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'olmbox-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_general', 'cf7aic_nonce' );
@@ -87,7 +87,7 @@ final class SettingsController {
 	 */
 	public function handle_save_provider(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'olmbox-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_provider', 'cf7aic_nonce' );
@@ -110,7 +110,7 @@ final class SettingsController {
 	 */
 	public function handle_save_prompt(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'shaikat-ai-inbox-for-contact-form-7' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'olmbox-ai-inbox-for-contact-form-7' ) );
 		}
 
 		check_admin_referer( 'cf7aic_save_prompt', 'cf7aic_nonce' );

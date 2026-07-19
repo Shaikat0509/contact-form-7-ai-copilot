@@ -60,8 +60,8 @@ final class SubmissionDetailPage {
 		if ( null === $entry ) {
 			?>
 			<div class="cf7aic-card">
-				<p><?php esc_html_e( 'This submission could not be found. It may have been deleted.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
-				<p><a href="<?php echo esc_url( $back_url ); ?>" class="button">&larr; <?php esc_html_e( 'Back to AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a></p>
+				<p><?php esc_html_e( 'This submission could not be found. It may have been deleted.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
+				<p><a href="<?php echo esc_url( $back_url ); ?>" class="button">&larr; <?php esc_html_e( 'Back to AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a></p>
 			</div>
 			<?php
 
@@ -70,7 +70,7 @@ final class SubmissionDetailPage {
 
 		?>
 		<p class="cf7aic-back-link">
-			<a href="<?php echo esc_url( $back_url ); ?>">&larr; <?php esc_html_e( 'Back to AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a>
+			<a href="<?php echo esc_url( $back_url ); ?>">&larr; <?php esc_html_e( 'Back to AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a>
 		</p>
 
 		<div class="cf7aic-detail-grid" data-submission-id="<?php echo esc_attr( (string) $entry['id'] ); ?>">
@@ -104,23 +104,23 @@ final class SubmissionDetailPage {
 	private function render_customer_info( array $entry ): void {
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'Customer Information', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'Customer Information', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<dl class="cf7aic-detail-list">
-				<dt><?php esc_html_e( 'Name', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Name', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd><?php echo esc_html( '' !== $entry['visitor_name'] ? $entry['visitor_name'] : '—' ); ?></dd>
 
-				<dt><?php esc_html_e( 'Email', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Email', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd><?php echo esc_html( '' !== $entry['visitor_email'] ? $entry['visitor_email'] : '—' ); ?></dd>
 
 				<?php if ( ! empty( $entry['visitor_phone'] ) ) : ?>
-					<dt><?php esc_html_e( 'Phone', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+					<dt><?php esc_html_e( 'Phone', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 					<dd><?php echo esc_html( $entry['visitor_phone'] ); ?></dd>
 				<?php endif; ?>
 
-				<dt><?php esc_html_e( 'Form', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Form', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd><?php echo esc_html( $entry['form_title'] ); ?></dd>
 
-				<dt><?php esc_html_e( 'Submitted', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Submitted', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd>
 					<?php
 					echo esc_html(
@@ -146,7 +146,7 @@ final class SubmissionDetailPage {
 	private function render_original_message( array $entry ): void {
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'Original Message', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'Original Message', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<dl class="cf7aic-detail-list">
 				<?php foreach ( $entry['submitted_data'] as $key => $value ) : ?>
 					<?php
@@ -181,7 +181,7 @@ final class SubmissionDetailPage {
 		}
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'AI Summary', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'AI Summary', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<p class="cf7aic-detail-text"><?php echo esc_html( $entry['ai_summary'] ); ?></p>
 		</div>
 		<?php
@@ -199,11 +199,11 @@ final class SubmissionDetailPage {
 		$has_email = ! empty( $entry['visitor_email'] );
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'AI Suggested Reply', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'AI Suggested Reply', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 
 			<?php if ( ! $has_email ) : ?>
 				<div class="notice notice-warning inline">
-					<p><?php esc_html_e( 'No visitor email address was found on this submission, so a reply cannot be sent from here.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
+					<p><?php esc_html_e( 'No visitor email address was found on this submission, so a reply cannot be sent from here.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -214,14 +214,14 @@ final class SubmissionDetailPage {
 			><?php echo esc_textarea( (string) ( $entry['ai_reply'] ?? '' ) ); ?></textarea>
 
 			<p class="cf7aic-actions-row">
-				<button type="button" id="cf7aic-save-draft" class="button"><?php esc_html_e( 'Save Draft', 'shaikat-ai-inbox-for-contact-form-7' ); ?></button>
+				<button type="button" id="cf7aic-save-draft" class="button"><?php esc_html_e( 'Save Draft', 'olmbox-ai-inbox-for-contact-form-7' ); ?></button>
 				<button
 					type="button"
 					id="cf7aic-send-reply"
 					class="button button-primary"
 					<?php disabled( ! $has_email ); ?>
 				>
-					<?php esc_html_e( 'Send Reply', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Send Reply', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</button>
 				<span id="cf7aic-reply-status" class="cf7aic-test-result" role="status" aria-live="polite"></span>
 			</p>
@@ -231,7 +231,7 @@ final class SubmissionDetailPage {
 					<?php
 					printf(
 						/* translators: %s: date/time the reply was sent */
-						esc_html__( 'Sent on %s', 'shaikat-ai-inbox-for-contact-form-7' ),
+						esc_html__( 'Sent on %s', 'olmbox-ai-inbox-for-contact-form-7' ),
 						esc_html(
 							wp_date(
 								get_option( 'date_format' ) . ' ' . get_option( 'time_format' ),
@@ -256,38 +256,38 @@ final class SubmissionDetailPage {
 	private function render_ai_analysis( array $entry ): void {
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'AI Analysis', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'AI Analysis', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 
 			<?php if ( '' === $entry['category'] && '' === $entry['priority'] && null === $entry['confidence'] ) : ?>
-				<p class="description"><?php esc_html_e( 'No AI analysis is available for this submission.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
+				<p class="description"><?php esc_html_e( 'No AI analysis is available for this submission.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 				<?php if ( ! empty( $entry['error_message'] ) ) : ?>
 					<p class="cf7aic-detail-text cf7aic-detail-text--error"><?php echo esc_html( $entry['error_message'] ); ?></p>
 				<?php endif; ?>
 			<?php else : ?>
 				<dl class="cf7aic-detail-list">
-					<dt><?php esc_html_e( 'Category', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+					<dt><?php esc_html_e( 'Category', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 					<dd><?php echo esc_html( ClassificationService::category_label( $entry['category'] ) ); ?></dd>
 
-					<dt><?php esc_html_e( 'Priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+					<dt><?php esc_html_e( 'Priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 					<dd>
 						<span class="cf7aic-badge cf7aic-badge--priority-<?php echo esc_attr( $entry['priority'] ); ?>">
 							<?php echo esc_html( ClassificationService::priority_label( $entry['priority'] ) ); ?>
 						</span>
 					</dd>
 
-					<dt><?php esc_html_e( 'Confidence', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+					<dt><?php esc_html_e( 'Confidence', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 					<dd>
 						<?php echo esc_html( (string) $entry['confidence'] ); ?>%
 						<?php if ( ConfidenceService::is_low( (int) $entry['confidence'] ) ) : ?>
 							<span class="cf7aic-badge cf7aic-badge--low-confidence">
-								<?php esc_html_e( 'Low Confidence — human review suggested', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+								<?php esc_html_e( 'Low Confidence — human review suggested', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 							</span>
 						<?php endif; ?>
 					</dd>
 				</dl>
 
 				<?php if ( ! empty( $entry['confidence_reason'] ) ) : ?>
-					<h3><?php esc_html_e( 'Reasoning', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h3>
+					<h3><?php esc_html_e( 'Reasoning', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
 					<p class="cf7aic-detail-text"><?php echo esc_html( $entry['confidence_reason'] ); ?></p>
 				<?php endif; ?>
 			<?php endif; ?>
@@ -306,7 +306,7 @@ final class SubmissionDetailPage {
 	private function render_actions( array $entry ): void {
 		?>
 		<div class="cf7aic-card">
-			<h2><?php esc_html_e( 'Actions', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'Actions', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<p class="cf7aic-actions-column">
 				<button
 					type="button"
@@ -314,7 +314,7 @@ final class SubmissionDetailPage {
 					class="button"
 					<?php disabled( SubmissionsRepository::STATUS_NEW !== $entry['status'] ); ?>
 				>
-					<?php esc_html_e( 'Mark Reviewed', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Mark Reviewed', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</button>
 				<button
 					type="button"
@@ -322,10 +322,10 @@ final class SubmissionDetailPage {
 					class="button"
 					<?php disabled( SubmissionsRepository::STATUS_ARCHIVED === $entry['status'] ); ?>
 				>
-					<?php esc_html_e( 'Archive', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Archive', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</button>
 				<button type="button" id="cf7aic-delete" class="button button-link-delete">
-					<?php esc_html_e( 'Delete', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Delete', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</button>
 			</p>
 
@@ -335,8 +335,8 @@ final class SubmissionDetailPage {
 					$user = get_userdata( (int) $entry['reviewed_by'] );
 					printf(
 						/* translators: 1: user display name, 2: date reviewed */
-						esc_html__( 'Reviewed by %1$s on %2$s', 'shaikat-ai-inbox-for-contact-form-7' ),
-						esc_html( $user ? $user->display_name : __( 'Unknown user', 'shaikat-ai-inbox-for-contact-form-7' ) ),
+						esc_html__( 'Reviewed by %1$s on %2$s', 'olmbox-ai-inbox-for-contact-form-7' ),
+						esc_html( $user ? $user->display_name : __( 'Unknown user', 'olmbox-ai-inbox-for-contact-form-7' ) ),
 						esc_html( wp_date( get_option( 'date_format' ), strtotime( (string) $entry['reviewed_at'] ) ) )
 					);
 					?>
@@ -357,16 +357,16 @@ final class SubmissionDetailPage {
 		<dialog id="cf7aic-send-confirm-dialog" class="cf7aic-dialog cf7aic-dialog--small">
 			<form method="dialog" class="cf7aic-dialog__form">
 				<div class="cf7aic-dialog__header">
-					<h2><?php esc_html_e( 'Send Reply?', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
-					<button type="submit" class="cf7aic-dialog__close" aria-label="<?php esc_attr_e( 'Close', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">&times;</button>
+					<h2><?php esc_html_e( 'Send Reply?', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
+					<button type="submit" class="cf7aic-dialog__close" aria-label="<?php esc_attr_e( 'Close', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">&times;</button>
 				</div>
 				<div class="cf7aic-dialog__body">
-					<p><?php esc_html_e( 'You are about to send this AI-assisted reply. You may edit it before sending.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
+					<p><?php esc_html_e( 'You are about to send this AI-assisted reply. You may edit it before sending.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 				</div>
 				<div class="cf7aic-dialog__footer">
-					<button type="submit" class="button"><?php esc_html_e( 'Cancel', 'shaikat-ai-inbox-for-contact-form-7' ); ?></button>
+					<button type="submit" class="button"><?php esc_html_e( 'Cancel', 'olmbox-ai-inbox-for-contact-form-7' ); ?></button>
 					<button type="button" id="cf7aic-confirm-send" class="button button-primary">
-						<?php esc_html_e( 'Send', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'Send', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</button>
 				</div>
 			</form>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall routine for Shaikat AI Inbox for Contact Form 7.
+ * Uninstall routine for Olmbox AI Inbox for Contact Form 7.
  *
  * Executed by WordPress when the plugin is deleted from the Plugins screen
  * (never on simple deactivation). WordPress guarantees `WP_UNINSTALL_PLUGIN`

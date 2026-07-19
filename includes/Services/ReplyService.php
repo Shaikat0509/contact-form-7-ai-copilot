@@ -56,20 +56,20 @@ final class ReplyService {
 		if ( '' === $to || ! is_email( $to ) ) {
 			return array(
 				'success' => false,
-				'message' => __( 'This submission has no valid visitor email address to reply to.', 'shaikat-ai-inbox-for-contact-form-7' ),
+				'message' => __( 'This submission has no valid visitor email address to reply to.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 
 		if ( '' === trim( $reply_text ) ) {
 			return array(
 				'success' => false,
-				'message' => __( 'The reply cannot be empty.', 'shaikat-ai-inbox-for-contact-form-7' ),
+				'message' => __( 'The reply cannot be empty.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 
 		$subject = sprintf(
 			/* translators: %s: site name */
-			__( 'Re: Your message to %s', 'shaikat-ai-inbox-for-contact-form-7' ),
+			__( 'Re: Your message to %s', 'olmbox-ai-inbox-for-contact-form-7' ),
 			wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES )
 		);
 
@@ -85,7 +85,7 @@ final class ReplyService {
 		if ( ! $sent ) {
 			return array(
 				'success' => false,
-				'message' => $mail_error ?? __( 'wp_mail() reported failure. Check your site\'s outgoing mail / SMTP configuration.', 'shaikat-ai-inbox-for-contact-form-7' ),
+				'message' => $mail_error ?? __( 'wp_mail() reported failure. Check your site\'s outgoing mail / SMTP configuration.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 
@@ -93,7 +93,7 @@ final class ReplyService {
 
 		return array(
 			'success' => true,
-			'message' => __( 'Reply sent.', 'shaikat-ai-inbox-for-contact-form-7' ),
+			'message' => __( 'Reply sent.', 'olmbox-ai-inbox-for-contact-form-7' ),
 		);
 	}
 }

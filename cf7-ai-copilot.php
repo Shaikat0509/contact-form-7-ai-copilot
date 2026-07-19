@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       Shaikat AI Inbox for Contact Form 7
- * Plugin URI:        https://wordpress.org/plugins/shaikat-ai-inbox-for-contact-form-7/
+ * Plugin Name:       Olmbox AI Inbox for Contact Form 7
+ * Plugin URI:        https://wordpress.org/plugins/olmbox-ai-inbox-for-contact-form-7/
  * Description:       Adds an AI Inbox to your Contact Form 7 forms: every submission gets an AI-drafted summary, suggested reply, category, priority, and confidence score for you to review and send — nothing is ever emailed automatically. Uses your own OpenAI, Anthropic, Gemini, or OpenRouter API key.
  * Version:           1.0.0
  * Requires at least: 6.8
  * Requires PHP:      8.1
  * Requires Plugins:  contact-form-7
- * Author:            Shaikat
+ * Author:            Olmbox
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       shaikat-ai-inbox-for-contact-form-7
+ * Text Domain:       olmbox-ai-inbox-for-contact-form-7
  * Domain Path:       /languages
  *
  * @package CF7AIC
@@ -37,7 +37,7 @@ if ( version_compare( PHP_VERSION, '8.1', '<' ) ) {
 				esc_html(
 					sprintf(
 						/* translators: %s: required PHP version */
-						__( 'Shaikat AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP.', 'shaikat-ai-inbox-for-contact-form-7' ),
+						__( 'Olmbox AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP.', 'olmbox-ai-inbox-for-contact-form-7' ),
 						'8.1'
 					)
 				)
@@ -60,7 +60,7 @@ if ( version_compare( $GLOBALS['wp_version'], '6.8', '<' ) ) {
 				esc_html(
 					sprintf(
 						/* translators: %s: required WordPress version */
-						__( 'Shaikat AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress.', 'shaikat-ai-inbox-for-contact-form-7' ),
+						__( 'Olmbox AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress.', 'olmbox-ai-inbox-for-contact-form-7' ),
 						'6.8'
 					)
 				)

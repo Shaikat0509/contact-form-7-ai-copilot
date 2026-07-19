@@ -35,7 +35,7 @@ $forms = get_posts(
 	<?php if ( empty( $forms ) ) : ?>
 		<div class="notice notice-warning inline">
 			<p>
-				<?php esc_html_e( 'No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+				<?php esc_html_e( 'No Contact Form 7 forms were found. Create a form first, then come back here to enable AI for it.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 			</p>
 		</div>
 	<?php endif; ?>
@@ -44,7 +44,7 @@ $forms = get_posts(
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ); ?></label>
+					<label for="cf7aic_enabled"><?php esc_html_e( 'Enable AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ); ?></label>
 				</th>
 				<td>
 					<label>
@@ -55,21 +55,21 @@ $forms = get_posts(
 							value="1"
 							<?php checked( $general['enabled'] ); ?>
 						/>
-						<?php esc_html_e( 'Analyze new submissions to the forms checked below and add them to the AI Inbox for your review.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'Analyze new submissions to the forms checked below and add them to the AI Inbox for your review.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'The AI never sends anything automatically — every suggested reply waits in the AI Inbox until you review and send it yourself.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php esc_html_e( 'Contact Form 7 forms', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Contact Form 7 forms', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</th>
 				<td>
 					<fieldset>
 						<legend class="screen-reader-text">
-							<?php esc_html_e( 'Contact Form 7 forms', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+							<?php esc_html_e( 'Contact Form 7 forms', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						</legend>
 						<?php foreach ( $forms as $form ) : ?>
 							<label class="cf7aic-form-checkbox">
@@ -84,13 +84,13 @@ $forms = get_posts(
 						<?php endforeach; ?>
 					</fieldset>
 					<p class="description">
-						<?php esc_html_e( 'Choose which forms should get AI analysis — any number of forms, including all of them.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'Choose which forms should get AI analysis — any number of forms, including all of them.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</p>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<?php submit_button( __( 'Save Changes', 'shaikat-ai-inbox-for-contact-form-7' ) ); ?>
+	<?php submit_button( __( 'Save Changes', 'olmbox-ai-inbox-for-contact-form-7' ) ); ?>
 </form>
 <?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals ?>

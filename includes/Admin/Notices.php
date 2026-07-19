@@ -104,7 +104,7 @@ final class Notices {
 			printf(
 				'<div class="notice notice-%1$s"><p><strong>%2$s</strong> %3$s</p></div>',
 				esc_attr( $notice['type'] ),
-				esc_html__( 'Shaikat AI Inbox for Contact Form 7:', 'shaikat-ai-inbox-for-contact-form-7' ),
+				esc_html__( 'Olmbox AI Inbox for Contact Form 7:', 'olmbox-ai-inbox-for-contact-form-7' ),
 				esc_html( $notice['message'] )
 			);
 		}

@@ -72,7 +72,7 @@ final class DashboardWidget {
 
 		wp_add_dashboard_widget(
 			'cf7aic_dashboard_widget',
-			__( 'AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ),
+			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
 			array( $this, 'render' )
 		);
 	}
@@ -93,24 +93,24 @@ final class DashboardWidget {
 		<div class="cf7aic-widget-stats">
 			<div class="cf7aic-widget-stat">
 				<span class="cf7aic-widget-stat__value"><?php echo esc_html( (string) $new_today ); ?></span>
-				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'New Today', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'New Today', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 			<div class="cf7aic-widget-stat">
 				<span class="cf7aic-widget-stat__value"><?php echo esc_html( (string) $needs_review ); ?></span>
-				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'Needs Review', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'Needs Review', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 			<div class="cf7aic-widget-stat">
 				<span class="cf7aic-widget-stat__value"><?php echo esc_html( (string) $replied ); ?></span>
-				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'Replies Sent', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'Replies Sent', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 			<div class="cf7aic-widget-stat">
 				<span class="cf7aic-widget-stat__value"><?php echo esc_html( (string) $usage_count ); ?></span>
-				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'AI Analyses This Month', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-widget-stat__label"><?php esc_html_e( 'AI Analyses This Month', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 		</div>
 
 		<?php if ( empty( $recent ) ) : ?>
-			<p><?php esc_html_e( 'No submissions yet.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
+			<p><?php esc_html_e( 'No submissions yet.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 		<?php else : ?>
 			<ul class="cf7aic-widget-list">
 				<?php
@@ -121,7 +121,7 @@ final class DashboardWidget {
 							'id'      => $item['id'],
 						)
 					);
-					$label    = '' !== $item['visitor_name'] ? $item['visitor_name'] : ( '' !== $item['visitor_email'] ? $item['visitor_email'] : __( '(unknown)', 'shaikat-ai-inbox-for-contact-form-7' ) );
+					$label    = '' !== $item['visitor_name'] ? $item['visitor_name'] : ( '' !== $item['visitor_email'] ? $item['visitor_email'] : __( '(unknown)', 'olmbox-ai-inbox-for-contact-form-7' ) );
 					?>
 					<li>
 						<a href="<?php echo esc_url( $item_url ); ?>"><?php echo esc_html( $label ); ?></a>
@@ -137,7 +137,7 @@ final class DashboardWidget {
 
 		<p class="cf7aic-widget-footer">
 			<a href="<?php echo esc_url( Menu::url( array( 'section' => 'submissions' ) ) ); ?>" class="button">
-				<?php esc_html_e( 'Open AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+				<?php esc_html_e( 'Open AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 			</a>
 		</p>
 		<?php

@@ -71,9 +71,9 @@ final class InboxView {
 					<span class="dashicons dashicons-email-alt" aria-hidden="true"></span>
 					<p>
 						<?php if ( $this->has_active_filters( $filters ) ) : ?>
-							<?php esc_html_e( 'No submissions match these filters.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+							<?php esc_html_e( 'No submissions match these filters.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						<?php else : ?>
-							<?php esc_html_e( 'No submissions yet. Once AI Copilot is enabled for your chosen form, they will appear here for review.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+							<?php esc_html_e( 'No submissions yet. Once AI Copilot is enabled for your chosen form, they will appear here for review.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 						<?php endif; ?>
 					</p>
 				</div>
@@ -81,15 +81,15 @@ final class InboxView {
 				<table class="cf7aic-table widefat">
 					<thead>
 						<tr>
-							<th scope="col"><?php esc_html_e( 'Status', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Name', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Email', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Form', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Date', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Category', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Confidence', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><span class="screen-reader-text"><?php esc_html_e( 'Actions', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span></th>
+							<th scope="col"><?php esc_html_e( 'Status', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Name', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Email', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Form', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Date', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Category', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Confidence', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><span class="screen-reader-text"><?php esc_html_e( 'Actions', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -103,20 +103,20 @@ final class InboxView {
 							);
 							?>
 							<tr>
-								<td data-label="<?php esc_attr_e( 'Status', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Status', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php $this->render_status_badge( $item['status'], $item['ai_status'] ); ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Name', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Name', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<a href="<?php echo esc_url( $detail_url ); ?>">
 										<?php echo esc_html( '' !== $item['visitor_name'] ? $item['visitor_name'] : '—' ); ?>
 									</a>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Email', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"><?php echo esc_html( '' !== $item['visitor_email'] ? $item['visitor_email'] : '—' ); ?></td>
-								<td data-label="<?php esc_attr_e( 'Form', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"><?php echo esc_html( $item['form_title'] ); ?></td>
-								<td data-label="<?php esc_attr_e( 'Date', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Email', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"><?php echo esc_html( '' !== $item['visitor_email'] ? $item['visitor_email'] : '—' ); ?></td>
+								<td data-label="<?php esc_attr_e( 'Form', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"><?php echo esc_html( $item['form_title'] ); ?></td>
+								<td data-label="<?php esc_attr_e( 'Date', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php echo esc_html( wp_date( get_option( 'date_format' ), strtotime( (string) $item['created_at'] ) ) ); ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php if ( '' !== $item['priority'] ) : ?>
 										<span class="cf7aic-badge cf7aic-badge--priority-<?php echo esc_attr( $item['priority'] ); ?>">
 											<?php echo esc_html( ClassificationService::priority_label( $item['priority'] ) ); ?>
@@ -125,15 +125,15 @@ final class InboxView {
 										&mdash;
 									<?php endif; ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Category', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Category', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php echo '' !== $item['category'] ? esc_html( ClassificationService::category_label( $item['category'] ) ) : '&mdash;'; ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Confidence', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Confidence', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php $this->render_confidence( $item['confidence'] ); ?>
 								</td>
 								<td data-label="">
 									<a href="<?php echo esc_url( $detail_url ); ?>" class="button">
-										<?php esc_html_e( 'Review', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+										<?php esc_html_e( 'Review', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 									</a>
 								</td>
 							</tr>
@@ -161,22 +161,22 @@ final class InboxView {
 			<input type="hidden" name="page" value="<?php echo esc_attr( Menu::PAGE_SLUG ); ?>" />
 			<input type="hidden" name="section" value="submissions" />
 
-			<select name="status" aria-label="<?php esc_attr_e( 'Filter by status', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
-				<option value=""><?php esc_html_e( 'All statuses', 'shaikat-ai-inbox-for-contact-form-7' ); ?></option>
+			<select name="status" aria-label="<?php esc_attr_e( 'Filter by status', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
+				<option value=""><?php esc_html_e( 'All statuses', 'olmbox-ai-inbox-for-contact-form-7' ); ?></option>
 				<?php foreach ( $this->status_labels() as $slug => $label ) : ?>
 					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $filters['status'], $slug ); ?>><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
 
-			<select name="priority" aria-label="<?php esc_attr_e( 'Filter by priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
-				<option value=""><?php esc_html_e( 'All priorities', 'shaikat-ai-inbox-for-contact-form-7' ); ?></option>
+			<select name="priority" aria-label="<?php esc_attr_e( 'Filter by priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
+				<option value=""><?php esc_html_e( 'All priorities', 'olmbox-ai-inbox-for-contact-form-7' ); ?></option>
 				<?php foreach ( ClassificationService::PRIORITIES as $slug => $label ) : ?>
 					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $filters['priority'], $slug ); ?>><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
 
-			<select name="category" aria-label="<?php esc_attr_e( 'Filter by category', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
-				<option value=""><?php esc_html_e( 'All categories', 'shaikat-ai-inbox-for-contact-form-7' ); ?></option>
+			<select name="category" aria-label="<?php esc_attr_e( 'Filter by category', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
+				<option value=""><?php esc_html_e( 'All categories', 'olmbox-ai-inbox-for-contact-form-7' ); ?></option>
 				<?php foreach ( ClassificationService::CATEGORIES as $slug => $label ) : ?>
 					<option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $filters['category'], $slug ); ?>><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
@@ -186,27 +186,27 @@ final class InboxView {
 				type="date"
 				name="date_from"
 				value="<?php echo esc_attr( $filters['date_from'] ); ?>"
-				aria-label="<?php esc_attr_e( 'From date', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"
+				aria-label="<?php esc_attr_e( 'From date', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"
 			/>
 			<input
 				type="date"
 				name="date_to"
 				value="<?php echo esc_attr( $filters['date_to'] ); ?>"
-				aria-label="<?php esc_attr_e( 'To date', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"
+				aria-label="<?php esc_attr_e( 'To date', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"
 			/>
 
 			<input
 				type="search"
 				name="search"
 				value="<?php echo esc_attr( $filters['search'] ); ?>"
-				placeholder="<?php esc_attr_e( 'Search name, email, message…', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"
-				aria-label="<?php esc_attr_e( 'Search submissions', 'shaikat-ai-inbox-for-contact-form-7' ); ?>"
+				placeholder="<?php esc_attr_e( 'Search name, email, message…', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"
+				aria-label="<?php esc_attr_e( 'Search submissions', 'olmbox-ai-inbox-for-contact-form-7' ); ?>"
 			/>
 
-			<button type="submit" class="button"><?php esc_html_e( 'Filter', 'shaikat-ai-inbox-for-contact-form-7' ); ?></button>
+			<button type="submit" class="button"><?php esc_html_e( 'Filter', 'olmbox-ai-inbox-for-contact-form-7' ); ?></button>
 			<?php if ( $this->has_active_filters( $filters ) ) : ?>
 				<a href="<?php echo esc_url( Menu::url( array( 'section' => 'submissions' ) ) ); ?>" class="button-link">
-					<?php esc_html_e( 'Clear filters', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Clear filters', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</a>
 			<?php endif; ?>
 		</form>
@@ -227,7 +227,7 @@ final class InboxView {
 			return;
 		}
 		?>
-		<nav class="cf7aic-pagination" aria-label="<?php esc_attr_e( 'Inbox pagination', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+		<nav class="cf7aic-pagination" aria-label="<?php esc_attr_e( 'Inbox pagination', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 			<?php
 			for ( $i = 1; $i <= $total_pages; $i++ ) :
 				$page_url = Menu::url(
@@ -301,7 +301,7 @@ final class InboxView {
 		if ( ConfidenceService::is_low( $confidence ) ) {
 			printf(
 				' <span class="cf7aic-badge cf7aic-badge--low-confidence">%s</span>',
-				esc_html__( 'Low Confidence', 'shaikat-ai-inbox-for-contact-form-7' )
+				esc_html__( 'Low Confidence', 'olmbox-ai-inbox-for-contact-form-7' )
 			);
 		}
 	}
@@ -352,10 +352,10 @@ final class InboxView {
 	 */
 	private function status_labels(): array {
 		return array(
-			SubmissionsRepository::STATUS_NEW      => __( 'New', 'shaikat-ai-inbox-for-contact-form-7' ),
-			SubmissionsRepository::STATUS_REVIEWED => __( 'Reviewed', 'shaikat-ai-inbox-for-contact-form-7' ),
-			SubmissionsRepository::STATUS_REPLIED  => __( 'Replied', 'shaikat-ai-inbox-for-contact-form-7' ),
-			SubmissionsRepository::STATUS_ARCHIVED => __( 'Archived', 'shaikat-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::STATUS_NEW      => __( 'New', 'olmbox-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::STATUS_REVIEWED => __( 'Reviewed', 'olmbox-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::STATUS_REPLIED  => __( 'Replied', 'olmbox-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::STATUS_ARCHIVED => __( 'Archived', 'olmbox-ai-inbox-for-contact-form-7' ),
 		);
 	}
 
@@ -367,8 +367,8 @@ final class InboxView {
 	 */
 	private function ai_status_labels(): array {
 		return array(
-			SubmissionsRepository::AI_STATUS_NO_API_KEY => __( 'No API Key', 'shaikat-ai-inbox-for-contact-form-7' ),
-			SubmissionsRepository::AI_STATUS_FAILED     => __( 'AI Failed', 'shaikat-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::AI_STATUS_NO_API_KEY => __( 'No API Key', 'olmbox-ai-inbox-for-contact-form-7' ),
+			SubmissionsRepository::AI_STATUS_FAILED     => __( 'AI Failed', 'olmbox-ai-inbox-for-contact-form-7' ),
 		);
 	}
 }

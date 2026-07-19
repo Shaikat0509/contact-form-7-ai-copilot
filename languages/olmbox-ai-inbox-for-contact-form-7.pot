@@ -1,9 +1,9 @@
-# Copyright (C) 2026 Shaikat
+# Copyright (C) 2026 Olmbox
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Shaikat AI Inbox for Contact Form 7 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/shaikat-ai-inbox-for-contact-form-7\n"
+"Project-Id-Version: Olmbox AI Inbox for Contact Form 7 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/olmbox-ai-inbox-for-contact-form-7\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,16 +12,16 @@ msgstr ""
 "POT-Creation-Date: 2026-07-10T17:03:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: shaikat-ai-inbox-for-contact-form-7\n"
+"X-Domain: olmbox-ai-inbox-for-contact-form-7\n"
 
 #. Plugin Name of the plugin
 #: cf7-ai-copilot.php
-msgid "Shaikat AI Inbox for Contact Form 7"
+msgid "Olmbox AI Inbox for Contact Form 7"
 msgstr ""
 
 #. Plugin URI of the plugin
 #: cf7-ai-copilot.php
-msgid "https://wordpress.org/plugins/shaikat-ai-inbox-for-contact-form-7/"
+msgid "https://wordpress.org/plugins/olmbox-ai-inbox-for-contact-form-7/"
 msgstr ""
 
 #. Description of the plugin
@@ -31,7 +31,7 @@ msgstr ""
 
 #. Author of the plugin
 #: cf7-ai-copilot.php
-msgid "Shaikat"
+msgid "Olmbox"
 msgstr ""
 
 #: admin/views/tab-general.php:38
@@ -194,13 +194,13 @@ msgstr ""
 #. translators: %s: required PHP version
 #: cf7-ai-copilot.php:40
 #, php-format
-msgid "Shaikat AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
+msgid "Olmbox AI Inbox for Contact Form 7 requires PHP %s or higher. Please contact your host to upgrade PHP."
 msgstr ""
 
 #. translators: %s: required WordPress version
 #: cf7-ai-copilot.php:63
 #, php-format
-msgid "Shaikat AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
+msgid "Olmbox AI Inbox for Contact Form 7 requires WordPress %s or higher. Please update WordPress."
 msgstr ""
 
 #: includes/Admin/AdminPage.php:105
@@ -607,7 +607,7 @@ msgid "Permanently delete this submission? This cannot be undone."
 msgstr ""
 
 #: includes/Admin/Notices.php:107
-msgid "Shaikat AI Inbox for Contact Form 7:"
+msgid "Olmbox AI Inbox for Contact Form 7:"
 msgstr ""
 
 #: includes/Admin/SettingsController.php:65

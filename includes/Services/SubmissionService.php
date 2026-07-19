@@ -109,7 +109,7 @@ final class SubmissionService {
 					$base,
 					array(
 						'ai_status'     => SubmissionsRepository::AI_STATUS_NO_API_KEY,
-						'error_message' => __( 'No API key has been configured.', 'shaikat-ai-inbox-for-contact-form-7' ),
+						'error_message' => __( 'No API key has been configured.', 'olmbox-ai-inbox-for-contact-form-7' ),
 					)
 				)
 			);

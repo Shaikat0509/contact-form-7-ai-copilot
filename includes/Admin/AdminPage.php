@@ -102,7 +102,7 @@ final class AdminPage {
 	 */
 	public function render(): void {
 		if ( ! current_user_can( Menu::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'shaikat-ai-inbox-for-contact-form-7' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'olmbox-ai-inbox-for-contact-form-7' ) );
 		}
 
 		$section              = $this->get_current_section();
@@ -174,17 +174,17 @@ final class AdminPage {
 		<aside class="cf7aic-sidebar">
 			<div class="cf7aic-sidebar__brand">
 				<span class="cf7aic-sidebar__logo dashicons dashicons-email-alt2" aria-hidden="true"></span>
-				<span class="cf7aic-sidebar__brand-text"><?php esc_html_e( 'AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-sidebar__brand-text"><?php esc_html_e( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 			</div>
 
-			<nav class="cf7aic-sidebar__nav" aria-label="<?php esc_attr_e( 'AI Copilot sections', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+			<nav class="cf7aic-sidebar__nav" aria-label="<?php esc_attr_e( 'AI Copilot sections', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 				<a
 					href="<?php echo esc_url( Menu::url( array( 'section' => 'dashboard' ) ) ); ?>"
 					class="cf7aic-sidebar__item <?php echo 'dashboard' === $section ? 'cf7aic-sidebar__item--active' : ''; ?>"
 					<?php echo 'dashboard' === $section ? 'aria-current="page"' : ''; ?>
 				>
 					<span class="dashicons dashicons-dashboard" aria-hidden="true"></span>
-					<?php esc_html_e( 'Dashboard', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Dashboard', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</a>
 
 				<a
@@ -193,7 +193,7 @@ final class AdminPage {
 					<?php echo 'submissions' === $section ? 'aria-current="page"' : ''; ?>
 				>
 					<span class="dashicons dashicons-email-alt" aria-hidden="true"></span>
-					<?php esc_html_e( 'AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					<?php if ( $needs_review > 0 ) : ?>
 						<span class="cf7aic-sidebar__badge"><?php echo esc_html( (string) $needs_review ); ?></span>
 					<?php endif; ?>
@@ -202,7 +202,7 @@ final class AdminPage {
 				<details class="cf7aic-sidebar__group" <?php echo 'settings' === $section ? 'open' : ''; ?>>
 					<summary class="cf7aic-sidebar__item cf7aic-sidebar__item--group <?php echo 'settings' === $section ? 'cf7aic-sidebar__item--active' : ''; ?>">
 						<span class="dashicons dashicons-admin-generic" aria-hidden="true"></span>
-						<?php esc_html_e( 'Settings', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+						<?php esc_html_e( 'Settings', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 					</summary>
 					<div class="cf7aic-sidebar__subitems">
 						<?php
@@ -229,12 +229,12 @@ final class AdminPage {
 			<div class="cf7aic-sidebar__footer">
 				<a
 					class="cf7aic-sidebar__rate-link"
-					href="https://wordpress.org/support/plugin/shaikat-ai-inbox-for-contact-form-7/reviews/#new-post"
+					href="https://wordpress.org/support/plugin/olmbox-ai-inbox-for-contact-form-7/reviews/#new-post"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<span class="dashicons dashicons-star-filled" aria-hidden="true"></span>
-					<?php esc_html_e( 'Rate Us', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+					<?php esc_html_e( 'Rate Us', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 				</a>
 
 				<details class="cf7aic-sidebar__user">
@@ -243,8 +243,8 @@ final class AdminPage {
 						<span class="cf7aic-sidebar__user-name"><?php echo esc_html( $user->display_name ); ?></span>
 					</summary>
 					<div class="cf7aic-sidebar__user-menu">
-						<a href="<?php echo esc_url( get_edit_profile_url( $user->ID ) ); ?>"><?php esc_html_e( 'Edit Profile', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a>
-						<a href="<?php echo esc_url( wp_logout_url( Menu::url() ) ); ?>"><?php esc_html_e( 'Log Out', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a>
+						<a href="<?php echo esc_url( get_edit_profile_url( $user->ID ) ); ?>"><?php esc_html_e( 'Edit Profile', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a>
+						<a href="<?php echo esc_url( wp_logout_url( Menu::url() ) ); ?>"><?php esc_html_e( 'Log Out', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a>
 					</div>
 				</details>
 			</div>
@@ -264,19 +264,19 @@ final class AdminPage {
 	private function get_title_and_subtitle( string $section, int $submission_id, string $settings_tab ): array {
 		if ( 'dashboard' === $section ) {
 			return array(
-				__( 'Dashboard', 'shaikat-ai-inbox-for-contact-form-7' ),
-				__( 'An overview of your AI Copilot activity.', 'shaikat-ai-inbox-for-contact-form-7' ),
+				__( 'Dashboard', 'olmbox-ai-inbox-for-contact-form-7' ),
+				__( 'An overview of your AI Copilot activity.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 
 		if ( 'submissions' === $section && $submission_id > 0 ) {
-			return array( __( 'Submission Review', 'shaikat-ai-inbox-for-contact-form-7' ), '' );
+			return array( __( 'Submission Review', 'olmbox-ai-inbox-for-contact-form-7' ), '' );
 		}
 
 		if ( 'submissions' === $section ) {
 			return array(
-				__( 'AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ),
-				__( 'Review AI-drafted summaries and suggested replies before anything is sent.', 'shaikat-ai-inbox-for-contact-form-7' ),
+				__( 'AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ),
+				__( 'Review AI-drafted summaries and suggested replies before anything is sent.', 'olmbox-ai-inbox-for-contact-form-7' ),
 			);
 		}
 
@@ -320,7 +320,7 @@ final class AdminPage {
 
 		printf(
 			'<div class="notice notice-success is-dismissible"><p>%s</p></div>',
-			esc_html__( 'Settings saved.', 'shaikat-ai-inbox-for-contact-form-7' )
+			esc_html__( 'Settings saved.', 'olmbox-ai-inbox-for-contact-form-7' )
 		);
 	}
 }

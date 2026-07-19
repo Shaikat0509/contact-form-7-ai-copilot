@@ -25,7 +25,7 @@ final class Menu {
 	 *
 	 * @var string
 	 */
-	public const PAGE_SLUG = 'shaikat-ai-inbox-for-contact-form-7';
+	public const PAGE_SLUG = 'olmbox-ai-inbox-for-contact-form-7';
 
 	/**
 	 * The parent menu slug (Contact Form 7's own top-level menu).
@@ -84,8 +84,8 @@ final class Menu {
 	public function register_menu(): void {
 		$this->page_hook = add_submenu_page(
 			self::PARENT_SLUG,
-			__( 'AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ),
-			__( 'AI Copilot', 'shaikat-ai-inbox-for-contact-form-7' ),
+			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
+			__( 'AI Copilot', 'olmbox-ai-inbox-for-contact-form-7' ),
 			self::CAPABILITY,
 			self::PAGE_SLUG,
 			array( $this->admin_page, 'render' )
@@ -136,13 +136,13 @@ final class Menu {
 					'delete'         => 'cf7aic_delete_submission',
 				),
 				'strings'  => array(
-					'testing'       => __( 'Testing connection…', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'genericError'  => __( 'Something went wrong. Please try again.', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'loadingModels' => __( 'Loading models…', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'loadModels'    => __( 'Load Models', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'saving'        => __( 'Saving…', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'sending'       => __( 'Sending…', 'shaikat-ai-inbox-for-contact-form-7' ),
-					'confirmDelete' => __( 'Permanently delete this submission? This cannot be undone.', 'shaikat-ai-inbox-for-contact-form-7' ),
+					'testing'       => __( 'Testing connection…', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'genericError'  => __( 'Something went wrong. Please try again.', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'loadingModels' => __( 'Loading models…', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'loadModels'    => __( 'Load Models', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'saving'        => __( 'Saving…', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'sending'       => __( 'Sending…', 'olmbox-ai-inbox-for-contact-form-7' ),
+					'confirmDelete' => __( 'Permanently delete this submission? This cannot be undone.', 'olmbox-ai-inbox-for-contact-form-7' ),
 				),
 			)
 		);

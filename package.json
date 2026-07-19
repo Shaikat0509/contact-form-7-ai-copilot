@@ -1,7 +1,7 @@
 {
-  "name": "shaikat-ai-inbox-for-contact-form-7",
+  "name": "olmbox-ai-inbox-for-contact-form-7",
   "private": true,
-  "description": "Shaikat AI Inbox for Contact Form 7 - dev tooling only. The plugin itself has no runtime dependencies; Tailwind only runs at build time to produce a static, pre-compiled admin.css.",
+  "description": "Olmbox AI Inbox for Contact Form 7 - dev tooling only. The plugin itself has no runtime dependencies; Tailwind only runs at build time to produce a static, pre-compiled admin.css.",
   "scripts": {
     "build:css": "tailwindcss -i ./admin/assets/css/tailwind.src.css -o ./admin/assets/css/admin.css --minify",
     "watch:css": "tailwindcss -i ./admin/assets/css/tailwind.src.css -o ./admin/assets/css/admin.css --watch"

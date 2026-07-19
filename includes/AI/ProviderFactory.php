@@ -54,7 +54,7 @@ final class ProviderFactory {
 				throw new ProviderException(
 					sprintf(
 						/* translators: %s: unrecognized provider slug */
-						esc_html__( 'Unknown AI provider: %s', 'shaikat-ai-inbox-for-contact-form-7' ),
+						esc_html__( 'Unknown AI provider: %s', 'olmbox-ai-inbox-for-contact-form-7' ),
 						esc_html( $provider )
 					)
 				);

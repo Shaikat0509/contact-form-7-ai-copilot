@@ -105,19 +105,19 @@ final class DashboardPage {
 		?>
 		<div class="cf7aic-stats-grid">
 			<div class="cf7aic-stat-card">
-				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'New Today', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'New Today', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 				<span class="cf7aic-stat-card__value"><?php echo esc_html( (string) $new_today ); ?></span>
 			</div>
 			<div class="cf7aic-stat-card">
-				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'Needs Review', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'Needs Review', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 				<span class="cf7aic-stat-card__value"><?php echo esc_html( (string) $needs_review ); ?></span>
 			</div>
 			<div class="cf7aic-stat-card">
-				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'Replied This Month', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'Replied This Month', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 				<span class="cf7aic-stat-card__value"><?php echo esc_html( (string) $replied ); ?></span>
 			</div>
 			<div class="cf7aic-stat-card">
-				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'AI Analyses This Month', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+				<span class="cf7aic-stat-card__label"><?php esc_html_e( 'AI Analyses This Month', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 				<span class="cf7aic-stat-card__value"><?php echo esc_html( (string) $usage_count ); ?></span>
 			</div>
 		</div>
@@ -135,9 +135,9 @@ final class DashboardPage {
 		$counts = $this->submissions->get_daily_ai_counts( $since );
 		?>
 		<div class="cf7aic-card cf7aic-chart-card">
-			<h2><?php esc_html_e( 'Usage Overview', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'Usage Overview', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<p class="cf7aic-chart-card__subtitle">
-				<?php esc_html_e( 'Successful AI analyses per day, last 30 days.', 'shaikat-ai-inbox-for-contact-form-7' ); ?>
+				<?php esc_html_e( 'Successful AI analyses per day, last 30 days.', 'olmbox-ai-inbox-for-contact-form-7' ); ?>
 			</p>
 			<?php echo $this->build_line_chart_svg( $counts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built entirely from hardcoded SVG markup and numeric coordinates computed in this class; no user input reaches this string. ?>
 		</div>
@@ -163,31 +163,31 @@ final class DashboardPage {
 		);
 		?>
 		<div class="cf7aic-card cf7aic-provider-card">
-			<h2><?php esc_html_e( 'AI Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'AI Provider', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<dl class="cf7aic-detail-list">
-				<dt><?php esc_html_e( 'Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Provider', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd><?php echo esc_html( $label ); ?></dd>
 
-				<dt><?php esc_html_e( 'Model', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Model', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd><?php echo esc_html( '' !== $provider['model'] ? $provider['model'] : '—' ); ?></dd>
 
-				<dt><?php esc_html_e( 'API Key', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'API Key', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd>
 					<?php if ( $has_api_key ) : ?>
-						<span class="cf7aic-badge cf7aic-badge--success"><?php esc_html_e( 'Configured', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+						<span class="cf7aic-badge cf7aic-badge--success"><?php esc_html_e( 'Configured', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 					<?php else : ?>
-						<span class="cf7aic-badge cf7aic-badge--failed"><?php esc_html_e( 'Not Set', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+						<span class="cf7aic-badge cf7aic-badge--failed"><?php esc_html_e( 'Not Set', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 					<?php endif; ?>
 				</dd>
 
-				<dt><?php esc_html_e( 'Last Test', 'shaikat-ai-inbox-for-contact-form-7' ); ?></dt>
+				<dt><?php esc_html_e( 'Last Test', 'olmbox-ai-inbox-for-contact-form-7' ); ?></dt>
 				<dd>
 					<?php if ( '' === $provider['last_tested_at'] ) : ?>
 						&mdash;
 					<?php elseif ( true === $provider['last_test_success'] ) : ?>
-						<span class="cf7aic-badge cf7aic-badge--success"><?php esc_html_e( 'Connected', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+						<span class="cf7aic-badge cf7aic-badge--success"><?php esc_html_e( 'Connected', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 					<?php else : ?>
-						<span class="cf7aic-badge cf7aic-badge--failed"><?php esc_html_e( 'Failed', 'shaikat-ai-inbox-for-contact-form-7' ); ?></span>
+						<span class="cf7aic-badge cf7aic-badge--failed"><?php esc_html_e( 'Failed', 'olmbox-ai-inbox-for-contact-form-7' ); ?></span>
 					<?php endif; ?>
 					<?php if ( '' !== $provider['last_tested_at'] ) : ?>
 						<span class="description">
@@ -203,7 +203,7 @@ final class DashboardPage {
 					<?php endif; ?>
 				</dd>
 			</dl>
-			<p><a href="<?php echo esc_url( $provider_url ); ?>" class="button"><?php esc_html_e( 'Manage Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a></p>
+			<p><a href="<?php echo esc_url( $provider_url ); ?>" class="button"><?php esc_html_e( 'Manage Provider', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a></p>
 		</div>
 		<?php
 	}
@@ -217,17 +217,17 @@ final class DashboardPage {
 		$recent = $this->submissions->get_recent( 5 );
 		?>
 		<div class="cf7aic-card cf7aic-recent-card">
-			<h2><?php esc_html_e( 'Recent Submissions', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h2>
+			<h2><?php esc_html_e( 'Recent Submissions', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h2>
 			<?php if ( empty( $recent ) ) : ?>
-				<p><?php esc_html_e( 'No submissions yet.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
+				<p><?php esc_html_e( 'No submissions yet.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
 			<?php else : ?>
 				<table class="cf7aic-table cf7aic-table--compact widefat">
 					<thead>
 						<tr>
-							<th scope="col"><?php esc_html_e( 'Name', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Summary', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
-							<th scope="col"><?php esc_html_e( 'Date', 'shaikat-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Name', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Summary', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Date', 'olmbox-ai-inbox-for-contact-form-7' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -239,17 +239,17 @@ final class DashboardPage {
 									'id'      => $item['id'],
 								)
 							);
-							$name       = '' !== $item['visitor_name'] ? $item['visitor_name'] : ( '' !== $item['visitor_email'] ? $item['visitor_email'] : __( '(unknown)', 'shaikat-ai-inbox-for-contact-form-7' ) );
+							$name       = '' !== $item['visitor_name'] ? $item['visitor_name'] : ( '' !== $item['visitor_email'] ? $item['visitor_email'] : __( '(unknown)', 'olmbox-ai-inbox-for-contact-form-7' ) );
 							$summary    = '' !== (string) $item['ai_summary'] ? $item['ai_summary'] : '—';
 							?>
 							<tr>
-								<td data-label="<?php esc_attr_e( 'Name', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Name', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<a href="<?php echo esc_url( $detail_url ); ?>"><?php echo esc_html( $name ); ?></a>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Summary', 'shaikat-ai-inbox-for-contact-form-7' ); ?>" class="cf7aic-table__truncate">
+								<td data-label="<?php esc_attr_e( 'Summary', 'olmbox-ai-inbox-for-contact-form-7' ); ?>" class="cf7aic-table__truncate">
 									<?php echo esc_html( $summary ); ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Priority', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Priority', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php if ( '' !== $item['priority'] ) : ?>
 										<span class="cf7aic-badge cf7aic-badge--priority-<?php echo esc_attr( $item['priority'] ); ?>">
 											<?php echo esc_html( ClassificationService::priority_label( $item['priority'] ) ); ?>
@@ -258,7 +258,7 @@ final class DashboardPage {
 										&mdash;
 									<?php endif; ?>
 								</td>
-								<td data-label="<?php esc_attr_e( 'Date', 'shaikat-ai-inbox-for-contact-form-7' ); ?>">
+								<td data-label="<?php esc_attr_e( 'Date', 'olmbox-ai-inbox-for-contact-form-7' ); ?>">
 									<?php echo esc_html( wp_date( get_option( 'date_format' ), strtotime( (string) $item['created_at'] ) ) ); ?>
 								</td>
 							</tr>
@@ -266,7 +266,7 @@ final class DashboardPage {
 					</tbody>
 				</table>
 			<?php endif; ?>
-			<p><a href="<?php echo esc_url( Menu::url( array( 'section' => 'submissions' ) ) ); ?>" class="button"><?php esc_html_e( 'Open AI Inbox', 'shaikat-ai-inbox-for-contact-form-7' ); ?></a></p>
+			<p><a href="<?php echo esc_url( Menu::url( array( 'section' => 'submissions' ) ) ); ?>" class="button"><?php esc_html_e( 'Open AI Inbox', 'olmbox-ai-inbox-for-contact-form-7' ); ?></a></p>
 		</div>
 		<?php
 	}
@@ -293,22 +293,22 @@ final class DashboardPage {
 		<div class="cf7aic-dash-row cf7aic-dash-row--tips">
 			<div class="cf7aic-card cf7aic-tip-card">
 				<span class="dashicons dashicons-admin-network" aria-hidden="true"></span>
-				<h3><?php esc_html_e( 'Set up your AI Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h3>
-				<p><?php esc_html_e( 'Add your API key and pick a model so new submissions get an AI summary and suggested reply.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
-				<a href="<?php echo esc_url( $provider_url ); ?>"><?php esc_html_e( 'Go to AI Provider', 'shaikat-ai-inbox-for-contact-form-7' ); ?> &rarr;</a>
+				<h3><?php esc_html_e( 'Set up your AI Provider', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
+				<p><?php esc_html_e( 'Add your API key and pick a model so new submissions get an AI summary and suggested reply.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
+				<a href="<?php echo esc_url( $provider_url ); ?>"><?php esc_html_e( 'Go to AI Provider', 'olmbox-ai-inbox-for-contact-form-7' ); ?> &rarr;</a>
 			</div>
 			<div class="cf7aic-card cf7aic-tip-card">
 				<span class="dashicons dashicons-edit" aria-hidden="true"></span>
-				<h3><?php esc_html_e( 'Customize your prompt', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h3>
-				<p><?php esc_html_e( 'Tune the base system prompt to match your tone, policies, and the kind of replies you want drafted.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
-				<a href="<?php echo esc_url( $prompt_url ); ?>"><?php esc_html_e( 'Edit Prompt', 'shaikat-ai-inbox-for-contact-form-7' ); ?> &rarr;</a>
+				<h3><?php esc_html_e( 'Customize your prompt', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
+				<p><?php esc_html_e( 'Tune the base system prompt to match your tone, policies, and the kind of replies you want drafted.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
+				<a href="<?php echo esc_url( $prompt_url ); ?>"><?php esc_html_e( 'Edit Prompt', 'olmbox-ai-inbox-for-contact-form-7' ); ?> &rarr;</a>
 			</div>
 			<div class="cf7aic-card cf7aic-tip-card">
 				<span class="dashicons dashicons-star-filled" aria-hidden="true"></span>
-				<h3><?php esc_html_e( 'Enjoying AI Copilot?', 'shaikat-ai-inbox-for-contact-form-7' ); ?></h3>
-				<p><?php esc_html_e( 'A quick review on WordPress.org helps other site owners find this plugin.', 'shaikat-ai-inbox-for-contact-form-7' ); ?></p>
-				<a href="https://wordpress.org/support/plugin/shaikat-ai-inbox-for-contact-form-7/reviews/#new-post" target="_blank" rel="noopener noreferrer">
-					<?php esc_html_e( 'Rate Us', 'shaikat-ai-inbox-for-contact-form-7' ); ?> &rarr;
+				<h3><?php esc_html_e( 'Enjoying AI Copilot?', 'olmbox-ai-inbox-for-contact-form-7' ); ?></h3>
+				<p><?php esc_html_e( 'A quick review on WordPress.org helps other site owners find this plugin.', 'olmbox-ai-inbox-for-contact-form-7' ); ?></p>
+				<a href="https://wordpress.org/support/plugin/olmbox-ai-inbox-for-contact-form-7/reviews/#new-post" target="_blank" rel="noopener noreferrer">
+					<?php esc_html_e( 'Rate Us', 'olmbox-ai-inbox-for-contact-form-7' ); ?> &rarr;
 				</a>
 			</div>
 		</div>
@@ -356,7 +356,7 @@ final class DashboardPage {
 				. '</svg>',
 			$width,
 			$height,
-			esc_attr__( 'Daily AI analyses over the last 30 days', 'shaikat-ai-inbox-for-contact-form-7' ),
+			esc_attr__( 'Daily AI analyses over the last 30 days', 'olmbox-ai-inbox-for-contact-form-7' ),
 			esc_attr( $area_points ),
 			esc_attr( $line_points ),
 			$circles

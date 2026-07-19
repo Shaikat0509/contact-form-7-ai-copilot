@@ -71,7 +71,7 @@ final class OpenRouterProvider extends AbstractProvider {
 
 		if ( 200 === $result['code'] ) {
 			return $this->success(
-				__( 'API key is valid. Model availability is not verified by this test — double-check the model slug on the Help tab.', 'shaikat-ai-inbox-for-contact-form-7' )
+				__( 'API key is valid. Model availability is not verified by this test — double-check the model slug on the Help tab.', 'olmbox-ai-inbox-for-contact-form-7' )
 			);
 		}
 
@@ -122,7 +122,7 @@ final class OpenRouterProvider extends AbstractProvider {
 
 		if ( ! is_string( $content ) || '' === trim( $content ) ) {
 			throw new ProviderException(
-				esc_html__( 'OpenRouter returned an empty response.', 'shaikat-ai-inbox-for-contact-form-7' )
+				esc_html__( 'OpenRouter returned an empty response.', 'olmbox-ai-inbox-for-contact-form-7' )
 			);
 		}
 

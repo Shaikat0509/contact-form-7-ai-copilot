@@ -1,4 +1,4 @@
-=== Shaikat AI Inbox for Contact Form 7 ===
+=== Olmbox AI Inbox for Contact Form 7 ===
 Contributors: shaikat2142
 Tags: contact form 7, ai, openai, anthropic, gemini
 Requires at least: 6.8
@@ -12,7 +12,7 @@ An AI Inbox for your Contact Form 7 forms: AI-drafted summaries and replies for 
 
 == Description ==
 
-Shaikat AI Inbox for Contact Form 7 adds an AI-powered review inbox to your Contact Form 7 forms, without modifying Contact Form 7 itself.
+Olmbox AI Inbox for Contact Form 7 adds an AI-powered review inbox to your Contact Form 7 forms, without modifying Contact Form 7 itself.
 
 **This plugin never sends AI-generated content automatically.** When a visitor submits one of your chosen forms, the plugin:
 
@@ -63,7 +63,7 @@ What is sent: the submitted form field values (e.g. name, email, message) and, o
 == Installation ==
 
 1. Install and activate Contact Form 7 (required).
-2. Upload and activate Shaikat AI Inbox for Contact Form 7.
+2. Upload and activate Olmbox AI Inbox for Contact Form 7.
 3. Go to **Contact → AI Copilot**, then switch to the **Settings** section.
 4. On the **AI Provider** tab, choose a provider, enter your API key, pick a model from the dropdown, and run the connection test.
 5. On the **General** tab, turn on AI Copilot and choose which form(s) it should apply to.
