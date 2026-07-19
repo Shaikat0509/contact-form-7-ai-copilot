@@ -26,8 +26,13 @@ if [ -f "$LIB_DIR/.version" ] && [ "$(cat "$LIB_DIR/.version")" = "$wp_version" 
   echo "==> Test library already at $wp_version"
 else
   echo "==> Fetching WordPress $wp_version test library"
-  rm -rf "$LIB_DIR"
+  # Clear the contents, never the directory itself. It is bind-mounted
+  # into a running container, and replacing it would allocate a new inode
+  # that the existing mount does not point at — the container would go on
+  # seeing the old, now-unlinked directory as empty, and the suite would
+  # fail claiming the library is missing even though the host has it.
   mkdir -p "$LIB_DIR"
+  find "$LIB_DIR" -mindepth 1 -delete
 
   tmp="$(mktemp -d)"
   trap 'rm -rf "$tmp"' EXIT

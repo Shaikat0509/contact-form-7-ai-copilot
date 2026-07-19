@@ -76,6 +76,10 @@ shift || true
 
 case "$cmd" in
   up)
+    # Create the bind-mount source before compose does. Left to Docker,
+    # it is created root-owned, and on CI the unprivileged runner user
+    # then cannot write the test library into it.
+    mkdir -p .wp-tests-lib
     dc up -d --wait db wordpress
     setup
     ;;

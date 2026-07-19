@@ -9,6 +9,7 @@
 /tests/             export-ignore
 /bin/               export-ignore
 /.wordpress-org/    export-ignore
+/.github/           export-ignore
 
 /composer.json      export-ignore
 /composer.lock      export-ignore
