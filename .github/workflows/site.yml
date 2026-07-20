@@ -7,6 +7,10 @@ on:
     branches: [website]
   pull_request:
     branches: [website]
+  # Lets the site be rebuilt and redeployed without a code change — after
+  # rotating the Cloudflare token, for instance, or to reissue a
+  # deployment that failed for reasons outside the repository.
+  workflow_dispatch:
 
 concurrency:
   group: site-${{ github.ref }}
