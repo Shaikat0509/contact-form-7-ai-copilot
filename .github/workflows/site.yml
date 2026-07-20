@@ -84,13 +84,42 @@ jobs:
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Read as variables purely to diagnose the commonest mistake:
+          # the Actions settings page has Secrets and Variables tabs side
+          # by side, and a value added to the wrong one reads as absent
+          # here with no other clue as to why.
+          TOKEN_AS_VAR: ${{ vars.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT_AS_VAR: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then
+          # Report presence only. Values are never printed, and GitHub
+          # masks secrets in logs regardless.
+          missing=0
+          for name in CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID; do
+            case "$name" in
+              CLOUDFLARE_API_TOKEN)  value="$TOKEN";   as_var="$TOKEN_AS_VAR" ;;
+              CLOUDFLARE_ACCOUNT_ID) value="$ACCOUNT"; as_var="$ACCOUNT_AS_VAR" ;;
+            esac
+
+            if [ -n "$value" ]; then
+              echo "  ${name}: present (${#value} chars)"
+            else
+              missing=1
+              if [ -n "$as_var" ]; then
+                echo "::error::${name} is set as a repository *variable*, not a secret." \
+                     "Variables are not masked in logs — delete it from the Variables tab" \
+                     "and re-add it under Secrets."
+              else
+                echo "::warning::${name} is not set for this repository."
+              fi
+            fi
+          done
+
+          if [ "$missing" = "0" ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::notice::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set — skipping deploy." \
-                 "Add them in Settings → Secrets and variables → Actions to enable it."
+            echo "::notice::Skipping deploy — see the warnings above." \
+                 "Secrets go in Settings → Secrets and variables → Actions → Secrets tab."
           fi
 
       - uses: actions/download-artifact@v4
