@@ -7,9 +7,12 @@ on:
     branches: [website]
   pull_request:
     branches: [website]
-  # Lets the site be rebuilt and redeployed without a code change — after
-  # rotating the Cloudflare token, for instance, or to reissue a
-  # deployment that failed for reasons outside the repository.
+  # Note: GitHub only shows the "Run workflow" button for a dispatchable
+  # workflow whose file exists on the repository's DEFAULT branch. This
+  # file lives only on `website` while the default is `main`, so the
+  # button does not appear and a push is the way to trigger a deploy.
+  # Kept because it costs nothing and starts working the moment this
+  # workflow is ever present on the default branch.
   workflow_dispatch:
 
 concurrency:
