@@ -20,6 +20,11 @@ Once a key is saved, the **Model** field becomes a dropdown populated live from 
 provider's API, so you can pick a model by name rather than typing an identifier from
 memory.
 
+<figure>
+  <img src="/screenshots/settings-provider.png" alt="The AI Provider tab with OpenAI selected, a masked API key, gpt-4o-mini chosen as the model, and Save Changes and Test Connection buttons" width="1200" height="561" loading="lazy" decoding="async" />
+  <figcaption>Changing provider clears the model list — each provider exposes its own set, so a model name from one is meaningless to another.</figcaption>
+</figure>
+
 ## How your key is stored
 
 The key is encrypted before it is written to the WordPress options table, using a key
@@ -58,6 +63,11 @@ The **Usage** tab shows how many analyses have run this month and a rough token
 estimate. These figures are informational — Olmbox does not cap or throttle analysis,
 and it does not have access to your provider billing. Treat the provider's own
 dashboard as the source of truth.
+
+<figure>
+  <img src="/screenshots/usage.png" alt="The Usage tab showing analyses this month, the active provider and model, the count reset date, and an estimated token usage figure" width="1200" height="488" loading="lazy" decoding="async" />
+  <figcaption>The token figure is an estimate derived from a fixed average per analysis, not a reading from your provider.</figcaption>
+</figure>
 
 ## Which forms are analysed
 

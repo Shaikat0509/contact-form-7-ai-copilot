@@ -17,7 +17,11 @@ const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+>
   <div class="container-page py-14">
     <article class="mx-auto max-w-2xl">
       <a href="/blog" class="text-sm no-underline hover:underline" style="color: var(--color-accent);">
@@ -41,6 +45,17 @@ const fmt = (d: Date) =>
           </span>
         )}
       </div>
+
+      <img
+        src={post.data.image}
+        alt={post.data.imageAlt}
+        width="1200"
+        height="630"
+        class="mt-8 block w-full rounded-2xl"
+        style="border: 1px solid var(--border);"
+        loading="eager"
+        decoding="async"
+      />
 
       <div class="prose-doc mt-10">
         <Content />

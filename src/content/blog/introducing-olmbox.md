@@ -3,6 +3,8 @@ title: 'Introducing Olmbox: an AI inbox that never sends for you'
 description: Why the plugin drafts replies instead of sending them, and what that constraint bought us.
 date: 2026-07-20
 author: Olmbox
+image: /blog/introducing-olmbox.png
+imageAlt: 'Olmbox feature image: Introducing Olmbox, an AI inbox that never sends for you'
 draft: false
 ---
 

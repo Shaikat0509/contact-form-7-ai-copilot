@@ -151,6 +151,22 @@
     @apply border-0 bg-transparent p-0 text-inherit;
   }
 
+  /* Screenshots in documentation. Bordered rather than bare so a
+     light-UI screenshot does not bleed into a light page background. */
+  .prose-doc figure {
+    @apply my-8;
+  }
+
+  .prose-doc figure img {
+    border: 1px solid var(--border);
+    @apply block w-full rounded-xl;
+  }
+
+  .prose-doc figcaption {
+    @apply mt-3 text-sm;
+    color: var(--text-muted);
+  }
+
   .prose-doc blockquote {
     border-left: 3px solid var(--color-accent);
     @apply my-6 pl-4 italic;

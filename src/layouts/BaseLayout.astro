@@ -7,6 +7,8 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  /** Social card image path. Defaults to the site-wide banner. */
+  image?: string;
   /** Omits the sticky header/footer chrome (used by 404). */
   bare?: boolean;
 }
@@ -14,6 +16,7 @@ interface Props {
 const {
   title,
   description = SITE_DESCRIPTION,
+  image = '/og.png',
   bare = false,
 } = Astro.props;
 
@@ -36,7 +39,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.png', Astro.site ?? Astro.url.origin)} />
+    <meta property="og:image" content={new URL(image, Astro.site ?? Astro.url.origin)} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Both schemes are supported via prefers-color-scheme in global.css;

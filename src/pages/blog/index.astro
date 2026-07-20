@@ -29,22 +29,36 @@ const fmt = (d: Date) =>
     <div class="mt-10 space-y-5">
       {
         posts.map((post) => (
-          <a href={`/blog/${post.id}`} class="card block p-6 no-underline transition-colors hover:border-[var(--color-accent)]">
-            <div class="flex flex-wrap items-center gap-3 text-xs" style="color: var(--text-muted);">
-              <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
-              {post.data.draft && (
-                <span
-                  class="rounded-full px-2 py-0.5 font-semibold"
-                  style="background: rgba(245,197,24,0.18); color: #9a7b00;"
-                >
-                  Draft
-                </span>
-              )}
+          <a
+            href={`/blog/${post.id}`}
+            class="card block overflow-hidden no-underline transition-colors hover:border-[var(--color-accent)] sm:flex"
+          >
+            <img
+              src={post.data.image}
+              alt={post.data.imageAlt}
+              width="1200"
+              height="630"
+              class="block w-full object-cover sm:w-64 sm:shrink-0"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-6">
+              <div class="flex flex-wrap items-center gap-3 text-xs" style="color: var(--text-muted);">
+                <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+                {post.data.draft && (
+                  <span
+                    class="rounded-full px-2 py-0.5 font-semibold"
+                    style="background: rgba(245,197,24,0.18); color: #9a7b00;"
+                  >
+                    Draft
+                  </span>
+                )}
+              </div>
+              <h2 class="mt-2 text-xl font-semibold">{post.data.title}</h2>
+              <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-muted);">
+                {post.data.description}
+              </p>
             </div>
-            <h2 class="mt-2 text-xl font-semibold">{post.data.title}</h2>
-            <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-muted);">
-              {post.data.description}
-            </p>
           </a>
         ))
       }

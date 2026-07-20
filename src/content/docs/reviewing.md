@@ -13,6 +13,11 @@ text.
 
 The count beside **AI Inbox** in the sidebar is the number still awaiting review.
 
+<figure>
+  <img src="/screenshots/inbox.png" alt="The AI Inbox list with filter controls for status, priority, category and date range, a search box, and rows showing coloured status and priority badges" width="1200" height="750" loading="lazy" decoding="async" />
+  <figcaption>Rows that failed analysis still appear, with their AI status rather than a category and confidence — the submission is never lost because the provider was.</figcaption>
+</figure>
+
 ## Two different statuses
 
 This trips people up, so it is worth stating plainly. Each row carries two separate
@@ -30,6 +35,11 @@ unreachable, and it is waiting for you to reply by hand.
 Clicking **Review** opens a page showing the customer's details, the original message
 exactly as submitted, the AI summary, an editable draft reply, and the reasoning
 behind the classification.
+
+<figure>
+  <img src="/screenshots/review.png" alt="The submission review screen: customer information, the original message, an AI summary, an editable suggested reply with Save Draft and Send Reply buttons, and an AI analysis panel showing category, priority, confidence and reasoning" width="1200" height="1067" loading="lazy" decoding="async" />
+  <figcaption>The original message sits above the draft deliberately: the point is to judge the suggestion against what was actually asked.</figcaption>
+</figure>
 
 The available actions are:
 
