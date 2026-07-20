@@ -1,0 +1,51 @@
+---
+/**
+ * The Olmbox mark: an open envelope with an AI sparkle.
+ *
+ * Inline SVG rather than an <img> so it inherits currentColor and stays
+ * crisp at any size. Geometry matches .wordpress-org/make-assets.py on
+ * `main`, which generates the WordPress.org icon and banner — the two
+ * appear side by side in search results, so they must not drift.
+ */
+interface Props {
+  class?: string;
+  withTile?: boolean;
+}
+
+const { class: className = '', withTile = true } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 64 64"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Olmbox"
+>
+  {
+    withTile && (
+      <rect width="64" height="64" rx="14" fill="#14162a" />
+    )
+  }
+  <rect
+    x="16.5"
+    y="25"
+    width="31"
+    height="22.5"
+    rx="3.6"
+    stroke="#ffffff"
+    stroke-width="2.4"
+  />
+  <path
+    d="M19.6 30 L32 38.5 L44.4 30"
+    stroke="#7aa2f7"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M49.6 8.6 L51.6 13.4 L56.4 15.4 L51.6 17.4 L49.6 22.2 L47.6 17.4 L42.8 15.4 L47.6 13.4 Z"
+    fill="#f5c518"
+  />
+</svg>

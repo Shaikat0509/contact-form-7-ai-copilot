@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+import { PROVIDERS, REQUIREMENTS, GITHUB_URL, SITE_DESCRIPTION } from '../consts';
+
+const features = [
+  {
+    title: 'Nothing sends itself',
+    body: 'At submission time the plugin only ever logs a row. The one code path that emails a visitor runs on an explicit, confirmed click in the inbox — never on a schedule, never in the background.',
+  },
+  {
+    title: 'One request, five outputs',
+    body: 'Summary, suggested reply, category, priority and a confidence score come back from a single API call per submission, so richer triage does not mean a bigger bill.',
+  },
+  {
+    title: 'Your key, your provider',
+    body: 'Bring an OpenAI, Anthropic, Gemini or OpenRouter key. Nothing is resold, no request is made before a key is configured, and no telemetry is collected.',
+  },
+  {
+    title: 'Low confidence is flagged',
+    body: 'When the model is unsure, the row is marked so you look closer before replying — rather than a confident-sounding draft slipping through unread.',
+  },
+  {
+    title: 'Contact Form 7 stays untouched',
+    body: 'It hooks CF7 public actions only. Your existing notification emails, validation and spam filtering keep working exactly as before.',
+  },
+  {
+    title: 'Failures degrade quietly',
+    body: 'If the provider is down, the submission is still captured and still appears in the inbox — just without the AI analysis, and it tells you why.',
+  },
+];
+
+const steps = [
+  {
+    n: '01',
+    title: 'A visitor submits your form',
+    body: 'Contact Form 7 sends its own notification exactly as it always has. Nothing about your existing setup changes.',
+  },
+  {
+    n: '02',
+    title: 'The submission is analysed',
+    body: 'It goes to the provider you configured and comes back as a summary, a drafted reply, a category, a priority and a confidence score.',
+  },
+  {
+    n: '03',
+    title: 'You review and decide',
+    body: 'Read the original alongside the draft, edit anything, then send when you are ready. A confirmation step stands between you and every send.',
+  },
+];
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section
+    class="relative overflow-hidden"
+    style="background: linear-gradient(135deg, #14162a 0%, #262a4e 100%);"
+  >
+    <div
+      class="pointer-events-none absolute -right-32 -top-40 h-[38rem] w-[38rem] rounded-full opacity-40"
+      style="background: radial-gradient(circle, #3a3f78 0%, transparent 65%);"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-page relative py-20 sm:py-28">
+      <div class="max-w-3xl">
+        <span
+          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+          style="background: rgba(109,94,252,0.16); color: #b9b0ff;"
+        >
+          <Logo class="h-4 w-4" withTile={false} />
+          For Contact Form 7
+        </span>
+
+        <h1
+          class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl"
+        >
+          The AI drafts.{' '}
+          <span style="color: #a99bff;">You decide.</span>
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed" style="color: #b8bbd4;">
+          {SITE_DESCRIPTION}
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="/docs/installation" class="btn btn-primary">Get started</a>
+          <a
+            href={GITHUB_URL}
+            class="btn"
+            style="border: 1px solid rgba(255,255,255,0.22); color: #fff;"
+            rel="noopener"
+          >
+            View on GitHub
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm" style="color: #8f93b5;">
+          Requires WordPress {REQUIREMENTS.wordpress}+, PHP {REQUIREMENTS.php}+ and{' '}
+          {REQUIREMENTS.dependency}. Free and GPL-licensed.
+        </p>
+      </div>
+
+      <div class="mt-14 overflow-hidden rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.12);">
+        <img
+          src="/screenshots/inbox.png"
+          alt="The Olmbox AI Inbox listing submissions with status, priority, category and confidence columns"
+          width="1200"
+          height="750"
+          class="block w-full"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- The invariant, stated plainly -->
+  <section class="py-16 sm:py-20" style="background: var(--page-alt);">
+    <div class="container-page">
+      <div class="card mx-auto max-w-3xl p-8 text-center sm:p-10">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+          No visitor is ever emailed automatically
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl" style="color: var(--text-muted);">
+          This is the plugin's central guarantee, not a setting you have to find and
+          switch off. AI-generated text reaches a person only after you have read it
+          and clicked send. Everything else is a draft sitting in your inbox.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20">
+    <div class="container-page">
+      <h2 class="text-3xl font-bold tracking-tight">How it works</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          steps.map((s) => (
+            <div class="card p-6">
+              <span class="text-sm font-bold" style="color: var(--color-accent);">
+                {s.n}
+              </span>
+              <h3 class="mt-3 text-lg font-semibold">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-muted);">
+                {s.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Review screen -->
+  <section class="py-8 sm:py-12">
+    <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight">A review screen, not an outbox</h2>
+        <p class="mt-4" style="color: var(--text-muted);">
+          Every submission gets its own page: the message exactly as it was sent, the
+          AI's summary, an editable draft reply, and the reasoning behind the
+          classification — so you can judge the suggestion instead of trusting it.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm" style="color: var(--text-muted);">
+          {
+            [
+              'Save a draft and come back to it later.',
+              'Mark reviewed, archive, or delete outright.',
+              'Filter and search by status, priority, category or date.',
+              'Only the most recent 200 submissions are kept, pruned automatically.',
+            ].map((item) => (
+              <li class="flex gap-3">
+                <span
+                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                  style="background: var(--color-accent);"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="overflow-hidden rounded-2xl" style="border: 1px solid var(--border);">
+        <img
+          src="/screenshots/review.png"
+          alt="The submission review screen showing customer information, the original message, an AI summary and an editable suggested reply"
+          width="1200"
+          height="1067"
+          class="block w-full"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="scroll-mt-20 py-20">
+    <div class="container-page">
+      <h2 class="text-3xl font-bold tracking-tight">What you get</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((f) => (
+            <div class="card p-6">
+              <h3 class="text-base font-semibold">{f.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-muted);">
+                {f.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Providers -->
+  <section class="py-16" style="background: var(--page-alt);">
+    <div class="container-page">
+      <h2 class="text-3xl font-bold tracking-tight">Bring your own key</h2>
+      <p class="mt-3 max-w-2xl" style="color: var(--text-muted);">
+        Olmbox does not include or resell AI access. Choose a provider, paste your own
+        key, and pick a model from a list loaded live from that provider.
+      </p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          PROVIDERS.map((p) => (
+            <div class="card p-5">
+              <h3 class="font-semibold">{p.name}</h3>
+              <p class="mt-1 text-sm" style="color: var(--text-muted);">
+                {p.note}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-6 text-sm" style="color: var(--text-muted);">
+        Keys are encrypted at rest in your own database and never exposed to the
+        frontend. <a href="/docs/privacy" style="color: var(--color-accent);">Read the privacy details</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="container-page">
+      <div
+        class="rounded-3xl px-8 py-14 text-center"
+        style="background: linear-gradient(135deg, #14162a 0%, #2b2f57 100%);"
+      >
+        <h2 class="text-3xl font-bold tracking-tight text-white">
+          Put your form submissions in order
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl" style="color: #b8bbd4;">
+          Install it alongside Contact Form 7, add your API key, and start reviewing
+          drafted replies instead of writing every one from scratch.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="/docs/installation" class="btn btn-primary">Read the docs</a>
+          <a
+            href={GITHUB_URL}
+            class="btn"
+            style="border: 1px solid rgba(255,255,255,0.22); color: #fff;"
+            rel="noopener"
+          >
+            Source on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

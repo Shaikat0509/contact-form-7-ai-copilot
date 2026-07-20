@@ -1,0 +1,51 @@
+---
+import Logo from './Logo.astro';
+import { SITE_TITLE, GITHUB_URL, WP_ORG_URL } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t py-12" style="border-color: var(--border);">
+  <div class="container-page flex flex-col gap-8 sm:flex-row sm:justify-between">
+    <div class="max-w-sm">
+      <div class="flex items-center gap-2.5">
+        <Logo class="h-7 w-7" />
+        <span class="font-bold tracking-tight">{SITE_TITLE}</span>
+      </div>
+      <p class="mt-3 text-sm" style="color: var(--text-muted);">
+        An AI inbox for Contact Form 7. The AI drafts; you decide what gets sent.
+      </p>
+    </div>
+
+    <div class="flex gap-12 text-sm">
+      <div>
+        <h2 class="mb-3 font-semibold">Product</h2>
+        <ul class="space-y-2" style="color: var(--text-muted);">
+          <li><a href="/docs" class="no-underline hover:underline">Documentation</a></li>
+          <li><a href="/blog" class="no-underline hover:underline">Blog</a></li>
+          <li>
+            <a href={WP_ORG_URL} class="no-underline hover:underline" rel="noopener">
+              WordPress.org
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-3 font-semibold">Project</h2>
+        <ul class="space-y-2" style="color: var(--text-muted);">
+          <li><a href={GITHUB_URL} class="no-underline hover:underline" rel="noopener">GitHub</a></li>
+          <li>
+            <a href="/docs/privacy" class="no-underline hover:underline">Privacy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-page mt-10 text-xs" style="color: var(--text-muted);">
+    <p>&copy; {year} {SITE_TITLE}. Released under the GPL v2 or later.</p>
+    <p class="mt-1">
+      Not affiliated with Contact Form 7, WordPress.org, or any AI provider.
+    </p>
+  </div>
+</footer>

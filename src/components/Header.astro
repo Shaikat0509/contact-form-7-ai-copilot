@@ -1,0 +1,52 @@
+---
+import Logo from './Logo.astro';
+import { SITE_TITLE, SITE_TAGLINE, NAV, GITHUB_URL } from '../consts';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href !== '/#features' && (path === href || path.startsWith(href + '/'));
+---
+
+<header
+  class="sticky top-0 z-40 border-b backdrop-blur"
+  style="border-color: var(--border); background: color-mix(in srgb, var(--page) 88%, transparent);"
+>
+  <div class="container-page flex h-16 items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2.5 no-underline">
+      <Logo class="h-8 w-8 shrink-0" />
+      <span class="flex flex-col leading-none">
+        <span class="text-[15px] font-bold tracking-tight">{SITE_TITLE}</span>
+        <span class="mt-0.5 hidden text-[11px] sm:block" style="color: var(--text-muted);">
+          {SITE_TAGLINE}
+        </span>
+      </span>
+    </a>
+
+    <nav class="flex items-center gap-1 sm:gap-2" aria-label="Main">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-lg px-2.5 py-2 text-sm font-medium no-underline transition-colors sm:px-3"
+            style={
+              isActive(item.href)
+                ? 'color: var(--color-accent);'
+                : 'color: var(--text-muted);'
+            }
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={GITHUB_URL}
+        class="ml-1 hidden rounded-lg px-3 py-2 text-sm font-medium no-underline sm:inline-block"
+        style="color: var(--text-muted);"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>

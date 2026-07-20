@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const pages = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+const current = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container-page py-12">
+    <div class="grid gap-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
+      <!-- On narrow screens this becomes a plain list above the content
+           rather than a drawer: fewer moving parts, nothing to trap focus. -->
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <h2
+          class="mb-3 text-xs font-semibold uppercase tracking-wider"
+          style="color: var(--text-muted);"
+        >
+          Documentation
+        </h2>
+        <nav aria-label="Documentation">
+          <ul class="space-y-1">
+            {
+              pages.map((page) => {
+                const href = `/docs/${page.id}`;
+                const active = current === href;
+                return (
+                  <li>
+                    <a
+                      href={href}
+                      class="block rounded-lg px-3 py-2 text-sm no-underline transition-colors"
+                      style={
+                        active
+                          ? 'background: var(--page-alt); color: var(--color-accent); font-weight: 600;'
+                          : 'color: var(--text-muted);'
+                      }
+                      aria-current={active ? 'page' : undefined}
+                    >
+                      {page.data.title}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </aside>
+
+      <article class="min-w-0">
+        <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h1>
+        <p class="mt-3 text-lg" style="color: var(--text-muted);">{description}</p>
+        <div class="prose-doc mt-8">
+          <slot />
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

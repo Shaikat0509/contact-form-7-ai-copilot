@@ -1,0 +1,105 @@
+name: Site
+
+# Scoped to the website branch. The plugin branches carry their own CI and
+# share no history with this one, so the two never run against each other.
+on:
+  push:
+    branches: [website]
+  pull_request:
+    branches: [website]
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Read from .nvmrc so CI and local development cannot disagree
+          # about the Node version. Astro 7 requires >= 22.12.
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # astro check type-checks templates and validates every content
+      # collection entry against its schema, so a post missing a date or a
+      # doc missing its `order` fails here rather than rendering wrong.
+      - name: Type and content check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://olmbox.pages.dev' }}
+
+      - name: Check the build actually produced pages
+        # A misconfigured content collection can yield a technically
+        # successful build with almost nothing in it.
+        run: |
+          count=$(find dist -name '*.html' | wc -l | tr -d ' ')
+          echo "Built ${count} HTML pages"
+          if [ "$count" -lt 8 ]; then
+            echo "::error::Only ${count} pages built; expected at least 8"
+            exit 1
+          fi
+          test -f dist/sitemap-index.xml || { echo "::error::sitemap missing"; exit 1; }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: build
+    # Only deploy real pushes to the website branch, never pull requests
+    # from forks, and only when the credentials actually exist — otherwise
+    # the job is skipped rather than failing red on every run.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/website'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.deployment-url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for Cloudflare credentials
+        id: creds
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set — skipping deploy." \
+                 "Add them in Settings → Secrets and variables → Actions to enable it."
+          fi
+
+      - uses: actions/download-artifact@v4
+        if: steps.creds.outputs.ready == 'true'
+        with:
+          name: site-dist
+          path: dist
+
+      - name: Publish
+        id: deploy
+        if: steps.creds.outputs.ready == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=olmbox

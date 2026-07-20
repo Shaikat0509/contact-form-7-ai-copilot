@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const pages = (await getCollection('docs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Documentation"
+  description="Install, configure and use Olmbox AI Inbox for Contact Form 7."
+>
+  <div class="container-page py-14">
+    <h1 class="text-4xl font-extrabold tracking-tight">Documentation</h1>
+    <p class="mt-3 max-w-2xl text-lg" style="color: var(--text-muted);">
+      Everything needed to install the plugin, connect a provider, and work through
+      the review inbox.
+    </p>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2">
+      {
+        pages.map((page) => (
+          <a href={`/docs/${page.id}`} class="card block p-6 no-underline transition-colors hover:border-[var(--color-accent)]">
+            <h2 class="text-lg font-semibold">{page.data.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed" style="color: var(--text-muted);">
+              {page.data.description}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
