@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Logo from '../components/Logo.astro';
-import { PROVIDERS, REQUIREMENTS, GITHUB_URL, SITE_DESCRIPTION } from '../consts';
+import { PROVIDERS, REQUIREMENTS, GITHUB_URL, WP_ORG_URL, SITE_DESCRIPTION } from '../consts';
 
 const features = [
   {
@@ -64,13 +64,16 @@ const steps = [
 
     <div class="container-page relative py-20 sm:py-28">
       <div class="max-w-3xl">
-        <span
-          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+        <a
+          href={WP_ORG_URL}
+          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium no-underline transition-colors"
           style="background: rgba(109,94,252,0.16); color: #b9b0ff;"
+          rel="noopener"
         >
           <Logo class="h-4 w-4" withTile={false} />
-          For Contact Form 7
-        </span>
+          Now on the WordPress.org plugin directory
+          <span aria-hidden="true">&rarr;</span>
+        </a>
 
         <h1
           class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl"
@@ -84,14 +87,24 @@ const steps = [
         </p>
 
         <div class="mt-9 flex flex-wrap items-center gap-3">
-          <a href="/docs/installation" class="btn btn-primary">Get started</a>
+          <!-- The directory is the real install route now, so it leads. -->
+          <a href={WP_ORG_URL} class="btn btn-primary" rel="noopener">
+            Install from WordPress.org
+          </a>
+          <a
+            href="/docs/installation"
+            class="btn"
+            style="border: 1px solid rgba(255,255,255,0.22); color: #fff;"
+          >
+            Read the docs
+          </a>
           <a
             href={GITHUB_URL}
             class="btn"
-            style="border: 1px solid rgba(255,255,255,0.22); color: #fff;"
+            style="color: #b8bbd4;"
             rel="noopener"
           >
-            View on GitHub
+            GitHub
           </a>
         </div>
 
@@ -258,14 +271,15 @@ const steps = [
           drafted replies instead of writing every one from scratch.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href="/docs/installation" class="btn btn-primary">Read the docs</a>
+          <a href={WP_ORG_URL} class="btn btn-primary" rel="noopener">
+            Install from WordPress.org
+          </a>
           <a
-            href={GITHUB_URL}
+            href="/docs/installation"
             class="btn"
             style="border: 1px solid rgba(255,255,255,0.22); color: #fff;"
-            rel="noopener"
           >
-            Source on GitHub
+            Read the docs
           </a>
         </div>
       </div>

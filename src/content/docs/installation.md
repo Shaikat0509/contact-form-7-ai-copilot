@@ -21,9 +21,17 @@ include or resell AI access — see [Configuration](/docs/configuration).
 
 ## Install the plugin
 
+Olmbox is on the [WordPress.org plugin directory](https://wordpress.org/plugins/olmbox-ai-inbox-for-contact-form-7/),
+so the simplest route is straight from your admin.
+
 1. Install and activate **Contact Form 7** if it is not already active.
-2. Upload and activate **Olmbox AI Inbox for Contact Form 7**.
+2. Go to **Plugins → Add New**, search for **Olmbox**, then install and activate it.
 3. Go to **Contact → Olmbox** in the WordPress admin.
+
+You can also download the zip from the directory and upload it via
+**Plugins → Add New → Upload Plugin**, or install from
+[GitHub](https://github.com/Shaikat0509/contact-form-7-ai-copilot) if you would
+rather track the source.
 
 On activation the plugin creates one database table for the submission log. Nothing
 else on your site is modified.
